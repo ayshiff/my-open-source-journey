@@ -5,11 +5,25 @@
  * and scoped locally.
  */
 
-.heroBanner {
+.header {
   padding: 4rem 0;
+  height: calc(100vh - var(--ifm-navbar-height));
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  font-size: 1.3rem;
+  margin-top: 30px;
+}
+
+.description span {
+  font-weight: 600;
 }
 
 @media screen and (max-width: 966px) {
@@ -34,4 +48,10 @@
 .featureImage {
   height: 200px;
   width: 200px;
+}
+
+.arrow_down {
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
 }

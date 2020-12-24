@@ -59,23 +59,25 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+      title="The Open Source with Remi"
+      description="The Open Source with Remi">
+      <header className={clsx('hero', styles.header)}>
+          {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
+          <img src="img/logo.svg" alt={siteConfig.title} />
+          <div>
+          <p className={clsx(styles.description)}>Discover the benefits of Open Source through concrete <span>examples</span>. <br/> A publication <span>every week</span>.</p>
           <div className={styles.buttons}>
             <Link
               className={clsx(
                 'button button--outline button--secondary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/')}>
+              to={useBaseUrl('docs/contribute')}>
               Get Started
             </Link>
-          </div>
+            </div>
         </div>
+        <img className={clsx(styles.arrow_down)} width="20px" src="img/arrow_down.svg" alt="arrow_down" />
       </header>
       <main>
         {features && features.length > 0 && (

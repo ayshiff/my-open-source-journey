@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
+  title: 'The Open Source with Remi',
+  tagline: 'Discover the open source through concrete examples. A publication every week.',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -10,21 +10,25 @@ module.exports = {
   projectName: 'docusaurus', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'Home',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'The Open Source with Remi',
         src: 'img/logo.svg',
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
+          to: 'docs/contribute',
+          activeBasePath: 'docs/contribute',
+          label: 'Articles',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          to: 'about',
+          label: 'About Me',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/ayshiff',
           label: 'GitHub',
           position: 'right',
         },
@@ -34,15 +38,11 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Articles',
           items: [
             {
-              label: 'Style Guide',
+              label: 'Why contribute to Open Source ?',
               to: 'docs/',
-            },
-            {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
             },
           ],
         },
@@ -67,17 +67,17 @@ module.exports = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: 'blog',
+              label: 'GitHub',
+              href: 'https://github.com/ayshiff',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'Blog',
+              href: 'https://remidoreau.com/',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} The Open Source with Remi, Inc. Built with Docusaurus.`,
     },
   },
   presets: [
@@ -89,12 +89,6 @@ module.exports = {
           // Please change this to your repo.
           editUrl:
             'https://github.com/facebook/docusaurus/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
