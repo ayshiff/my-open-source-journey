@@ -1,6 +1,14 @@
 module.exports = {
-  someSidebar: {
-    Introduction: ['contribute'],
-    Articles: ['backstage3794'],
-  },
+  docs: [
+    {
+      type: "category",
+      label: "Introduction",
+      items: ["presentation", "contribute"],
+    },
+    {
+      type: "category",
+      label: "Articles",
+      items: ["backstage3794"],
+    },
+  ],
 };

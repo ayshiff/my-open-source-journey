@@ -17,8 +17,14 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/contribute',
-          activeBasePath: 'docs/contribute',
+          to: 'docs/presentation',
+          activeBasePath: 'docs/presentation',
+          label: 'Presentation',
+          position: 'left',
+        },
+        {
+          to: 'docs/backstage3794',
+          activeBasePath: 'docs/backstage3794',
           label: 'Articles',
           position: 'left',
         },
@@ -42,7 +48,11 @@ module.exports = {
           items: [
             {
               label: 'Why contribute to Open Source ?',
-              to: 'docs/',
+              to: 'docs/contribute',
+            },
+            {
+              label: 'Concept presentation',
+              to: 'docs/presentation',
             },
           ],
         },
