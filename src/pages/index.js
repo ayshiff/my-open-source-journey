@@ -8,32 +8,34 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Easy to Use',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    title: 'Learn more',
+    imageUrl: 'img/learn_more.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Open Source is a great way to <b>learn from others</b>.
+        All code is available, so everybody can review your work and
+        you can watch how others do it.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    title: 'Build your portfolio',
+    imageUrl: 'img/portfolio.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        On top of <b>paying back to the community</b> you also show to the world your interests,
+        skills and motivation.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    title: 'Gain "team" experience and build a professional network',
+    imageUrl: 'img/team_work.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Getting involved in the Open Source community means that you will <b>meet great people</b>,
+        exchange <b>ideas</b>, spark plenty of <b>quality discussions</b> and even get a new job.
+
       </>
     ),
   },
