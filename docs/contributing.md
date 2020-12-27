@@ -1,6 +1,6 @@
 ---
 id: contribute
-title: Why contribute to Open Source ?
+title: Why you should contribute to Open Source ?
 ---
 
 You can write JSX and use React components within your Markdown thanks to [MDX](https://mdxjs.com/).

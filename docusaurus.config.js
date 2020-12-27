@@ -44,7 +44,7 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Articles',
+          title: 'Presentation',
           items: [
             {
               label: 'Why contribute to Open Source ?',

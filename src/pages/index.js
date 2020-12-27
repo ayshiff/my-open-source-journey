@@ -13,8 +13,8 @@ const features = [
     description: (
       <>
         Open Source is a great way to <b>learn from others</b>.
-        All code is available, so everybody can review your work and
-        you can watch how others do it.
+        All code is available, so everybody can <b>review your work</b> and
+        you can <b>read</b> code written by many different developers.
       </>
     ),
   },
@@ -24,18 +24,16 @@ const features = [
     description: (
       <>
         On top of <b>paying back to the community</b> you also show to the world your interests,
-        skills and motivation.
+        skills and motivation. It is also a good way to learn some good <b>software engineering practice</b>.
       </>
     ),
   },
   {
-    title: 'Gain "team" experience and build a professional network',
+    title: 'Gain team experience',
     imageUrl: 'img/team_work.svg',
     description: (
       <>
-        Getting involved in the Open Source community means that you will <b>meet great people</b>,
-        exchange <b>ideas</b>, spark plenty of <b>quality discussions</b> and even get a new job.
-
+        Getting involved in the Open Source community means that you will build a <b>professional network</b>, <b>meet great people</b>, exchange <b>ideas</b>, spark plenty of <b>quality discussions</b> and even get a new job.
       </>
     ),
   },
