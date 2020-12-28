@@ -17,6 +17,11 @@
   --ifm-code-font-size: 95%;
 }
 
+html[data-theme='light'] {
+  --ifm-footer-link-hover-color: #a281eb;
+  --ifm-hero-text-color: black;
+}
+
 html[data-theme='dark'] {
   --ifm-color-primary: #a281eb;
 }
@@ -26,4 +31,8 @@ html[data-theme='dark'] {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+}
+
+.hero {
+  padding: 0 1.5rem !important;
 }

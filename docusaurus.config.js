@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'The Open Source with Remi',
-  tagline: 'Discover the open source through concrete examples. A publication every week.',
+  title: 'My Open Source journey',
+  tagline: 'Discover Open Source Software through concrete examples. A publication every week.',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -12,8 +12,8 @@ module.exports = {
     navbar: {
       title: 'Home',
       logo: {
-        alt: 'The Open Source with Remi',
-        src: 'img/logo.svg',
+        alt: 'My Open Source journey',
+        src: 'img/new_logo.svg',
       },
       items: [
         {
@@ -81,13 +81,17 @@ module.exports = {
               href: 'https://github.com/ayshiff',
             },
             {
+              label: 'About me',
+              to: 'about',
+            },
+            {
               label: 'Blog',
               href: 'https://remidoreau.com/',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} The Open Source with Remi, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} My Open Source journey. Built with Docusaurus.`,
     },
   },
   presets: [

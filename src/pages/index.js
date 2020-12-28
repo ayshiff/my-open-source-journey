@@ -23,8 +23,8 @@ const features = [
     imageUrl: 'img/portfolio.svg',
     description: (
       <>
-        On top of <b>paying back to the community</b> you also show to the world your interests,
-        skills and motivation. It is also a good way to learn some good <b>software engineering practice</b>.
+        On top of <b>paying back to the community</b> you also show to the world your <b>interests</b>,
+        <b>skills</b> and <b>motivation</b>. It is also a good way to learn some good <b>software engineering practice</b>.
       </>
     ),
   },
@@ -59,11 +59,11 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title="The Open Source with Remi"
-      description="The Open Source with Remi">
+      title="My Open Source journey"
+      description="My Open Source journey">
       <header className={clsx('hero', styles.header)}>
           {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
-          <img src="img/logo.svg" alt={siteConfig.title} />
+          <img src="img/new_logo.svg" alt={siteConfig.title} />
           <div>
           <p className={clsx(styles.description)}>Discover the benefits of Open Source through concrete <span>examples</span>. <br/> A publication <span>every week</span>.</p>
           <div className={styles.buttons}>

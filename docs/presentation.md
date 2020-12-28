@@ -53,7 +53,8 @@ This is an example of an issue link badge.
 ## The solution - *expected state*
 
 This step will surely be the most important.   
-I will explain my reasoning to you, I will show you certain pieces of code. I will try to be as clear as possible so that you can broadly understand the work I have done.
+I will explain my reasoning to you, I will show you certain pieces of code.   
+I will try to be as clear as possible so that you can broadly understand the work I have done.
 
 ## Takeaway
 ### Problem encountered
@@ -62,5 +63,6 @@ Here I will show you some issues (if there were any) that I may have encountered
 
 ### What did I learn ?
 
-For me this step is one of the most important.
-One of the main motivation that drives me to contribute to Open Source is to learn new things. I will therefore share here the things that I was able to learn by making this contribution.
+For me this step is one of the most important.   
+One of the main motivation that drives me to contribute to Open Source is to **learn new things**.   
+I will therefore share here the things that I was able to learn by making this contribution.
