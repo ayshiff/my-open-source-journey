@@ -7,11 +7,12 @@ export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
       color: '#fff',
+      fontWeight: 600,
       padding: '0.2rem',
     }}>{children}</span> );
 
 The concept is simple, each week (surely be Wednesdays) I choose a **contribution** to Open Source that I made during the week that I find quite complete and particularly interesting to present to you.   
-This contribution will be in the form of a <Highlight color="#25c2a0">Pull Request</Highlight>.
+This contribution will be in the form of a <Highlight color="#362066">Pull Request</Highlight>.
 
 I will share with you an article which will be in the form below.
 

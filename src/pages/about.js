@@ -4,6 +4,20 @@ import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./styles.module.css";
 
+export const Highlight = ({ children, color }) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: "2px",
+      color: "#fff",
+      padding: "0.2rem",
+      textDecoration: "none"
+    }}
+  >
+    {children}
+  </span>
+);
+
 function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
@@ -20,44 +34,26 @@ function Home() {
         />
         <main className={clsx(styles.about_description)}>
           <p>
-            Hi 👋 <br />I am <span>Rémi Doreau</span>, a french FullStack
-            Developer passionated about the Software Engineering word. <br />
-            I also have a blog where you can find various articles about
-            programming and other IT stuff in french and english. <br />
-            Things I am passionated about: <br />
-            <ul>
-              <li>
-                <span>Web Development</span> - Frontend (React - RxJS) - Backend
-                (Go, JS…){" "}
-              </li>
-              <li>
-                <span>Mobile Develoment</span> (Swift - React Native){" "}
-              </li>
-              <li>
-                <span>Cloud</span> (GCP, Azure, AWS){" "}
-              </li>
-              <li>
-                <span>Algorithmic - Competitive programming</span> (Google Code
-                Jam, Facebook Hacker Cup, Meilleur Dev de France…){" "}
-              </li>
-              <li>
-                <span>DevOps</span> (CI / CD - Docker - Kubernetes - Ansible -
-                Terraform){" "}
-              </li>
-              <li>
-                <span>MeetUps</span> - Conferences - Speaker (Paris Open Source
-                Summit…){" "}
-              </li>
-              <li>
-                <span>Hackathons</span> - React-Europe Hackathon - Cooperathon{" "}
-              </li>
-              <li>
-                <span>Computer Science</span> (Automation - ML - Big Data…){" "}
-              </li>
-            </ul>
-            You can find most of my work on GitHub and GitLab. I generally post
-            news on Linkedin and Twitter. I also try to help others on
-            StackOverflow.
+            Hi 👋 <br />I am{" "}
+            <Highlight color="#362066">
+              <b>Rémi Doreau</b>
+            </Highlight>
+            , a french FullStack Developer passionated about the <span>Software
+            Engineering word</span>. <br />I also have a{" "}
+            <a href="https://remidoreau.com/">
+              <Highlight color="#362066">blog</Highlight>
+            </a>{" "}
+            where you can find various articles about programming, soft skills... in french and english. <br />
+            You can find most of my work on{" "}
+            <a href="https://github.com/ayshiff/">
+              <Highlight color="#362066">GitHub</Highlight>
+            </a>{" "}
+            and{" "}
+            <a href="https://gitlab.com/ayshiff">
+              <Highlight color="#362066">GitLab</Highlight>
+            </a>.
+            <br />
+            In my free time I love doing <span>algorithms</span> and <span>competitive programming</span>.
           </p>
         </main>
       </div>

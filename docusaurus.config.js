@@ -61,15 +61,15 @@ module.exports = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://stackoverflow.com/users/8914348/r%c3%a9mi-doreau?tab=profile',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Linkedin',
+              href: 'https://www.linkedin.com/in/r%C3%A9mi-doreau-b53902153/',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/remi_doreau',
             },
           ],
         },
@@ -77,12 +77,12 @@ module.exports = {
           title: 'More',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/ayshiff',
-            },
-            {
               label: 'About me',
               to: 'about',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/ayshiff',
             },
             {
               label: 'Blog',

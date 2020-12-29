@@ -30,8 +30,14 @@
 } 
 
 .about_description {
-  width: 80%;
+  width: 400px;
+  max-width: 85%;
 } 
+
+.about_description span {
+  color: #362066;
+  font-weight: 800;
+}
 
 .about_profile_img {
   margin-bottom: 20px;

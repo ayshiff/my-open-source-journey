@@ -6,6 +6,21 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
+export const Highlight = ({ children, color }) => (
+  <span
+    style={{
+      color: color,
+      padding: "0.1rem 0.2rem",
+      fontWeight: 700,
+      underline: true,
+      textDecoration: "underline"
+    }}
+  >
+    {children}
+  </span>
+);
+
+
 const features = [
   {
     title: 'Learn more',
@@ -65,7 +80,7 @@ function Home() {
           {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
           <img src="img/new_logo.svg" alt={siteConfig.title} />
           <div>
-          <p className={clsx(styles.description)}>Discover the benefits of Open Source through concrete <span>examples</span>. <br/> A publication <span>every week</span>.</p>
+          <p className={clsx(styles.description)}>Discover the benefits of Open Source through <Highlight color="#362066">concrete examples</Highlight>. <br/> A publication <Highlight color="#362066">every week</Highlight>.</p>
           <div className={styles.buttons}>
             <Link
               className={clsx(

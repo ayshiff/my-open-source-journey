@@ -8,6 +8,7 @@ export const Highlight = ({children, color}) => ( <span style={{
       borderRadius: '2px',
       color: '#fff',
       padding: '0.2rem',
+      fontWeight: 600,
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
