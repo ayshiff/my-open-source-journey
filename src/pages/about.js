@@ -11,7 +11,7 @@ export const Highlight = ({ children, color }) => (
       borderRadius: "2px",
       color: "#fff",
       padding: "0.2rem",
-      textDecoration: "none"
+      textDecoration: "none",
     }}
   >
     {children}
@@ -36,7 +36,7 @@ function Home() {
           <p>
             Hi 👋 <br />I am{" "}
             <Highlight color="#362066">
-              <b>Rémi Doreau</b>
+              Rémi Doreau
             </Highlight>
             , a french FullStack Developer passionated about the <span>Software
             Engineering word</span>. <br />I also have a{" "}

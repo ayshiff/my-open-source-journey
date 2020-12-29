@@ -8,13 +8,7 @@ import styles from './styles.module.css';
 
 export const Highlight = ({ children, color }) => (
   <span
-    style={{
-      color: color,
-      padding: "0.1rem 0.2rem",
-      fontWeight: 700,
-      underline: true,
-      textDecoration: "underline"
-    }}
+    className={clsx(styles.index_highlight)}
   >
     {children}
   </span>

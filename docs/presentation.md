@@ -3,13 +3,11 @@ id: presentation
 title: Concept presentation
 ---
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      fontWeight: 600,
-      padding: '0.2rem',
-    }}>{children}</span> );
+import clsx from 'clsx';
+import styles from '../src/pages/styles.module.css';
+
+export const Highlight = ({children, color}) => ( <span 
+      className={clsx(styles.article_highlight)}>{children}</span> );
 
 The concept is simple, each week (surely be Wednesdays) I choose a **contribution** to Open Source that I made during the week that I find quite complete and particularly interesting to present to you.   
 This contribution will be in the form of a <Highlight color="#362066">Pull Request</Highlight>.

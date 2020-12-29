@@ -35,7 +35,7 @@
 } 
 
 .about_description span {
-  color: #362066;
+  color: var(--ifm-color-primary);
   font-weight: 800;
 }
 
@@ -82,4 +82,27 @@
   position: absolute;
   text-align: center;
   bottom: 20px;
+}
+
+.index_highlight {
+  color: var(--ifm-color-primary);
+  padding: 0.1rem 0.2rem;
+  font-weight: 700 !important;
+  text-decoration: underline;
+}
+
+.article_highlight {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  padding: 0.2rem;
+  border-radius: 2px;
+  font-weight: 600 !important;
+}
+
+.about_highlight {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  padding: 0.2rem;
+  border-radius: 2px;
+  text-decoration: none;
 }
