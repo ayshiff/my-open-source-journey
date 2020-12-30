@@ -25,6 +25,7 @@ function Home() {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
+      wrapperClassName={clsx(styles.layout)}
     >
       <div className={clsx(styles.about_container)}>
         <img
@@ -34,16 +35,14 @@ function Home() {
         />
         <main className={clsx(styles.about_description)}>
           <p>
-            Hi 👋 <br />I am{" "}
-            <Highlight color="#362066">
-              Rémi Doreau
-            </Highlight>
-            , a french FullStack Developer passionated about the <span>Software
-            Engineering word</span>. <br />I also have a{" "}
+            Hi 👋 <br />I am <Highlight color="#362066">Rémi Doreau</Highlight>,
+            a french FullStack Developer passionated about the{" "}
+            <span>Software Engineering word</span>. <br />I also have a{" "}
             <a href="https://remidoreau.com/">
               <Highlight color="#362066">blog</Highlight>
             </a>{" "}
-            where you can find various articles about programming, soft skills... in french and english. <br />
+            where you can find various articles about programming, soft
+            skills... in french and english. <br />
             You can find most of my work on{" "}
             <a href="https://github.com/ayshiff/">
               <Highlight color="#362066">GitHub</Highlight>
@@ -51,9 +50,11 @@ function Home() {
             and{" "}
             <a href="https://gitlab.com/ayshiff">
               <Highlight color="#362066">GitLab</Highlight>
-            </a>.
+            </a>
+            .
             <br />
-            In my free time I love doing <span>algorithms</span> and <span>competitive programming</span>.
+            In my free time I love doing <span>algorithms</span> and{" "}
+            <span>competitive programming</span>.
           </p>
         </main>
       </div>

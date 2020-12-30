@@ -36,3 +36,11 @@ html[data-theme='dark'] {
 .hero {
   padding: 0 1.5rem !important;
 }
+
+.marginRight {
+  margin-right: 10px;
+}
+
+.marginBottom {
+  margin-bottom: 20px;
+}

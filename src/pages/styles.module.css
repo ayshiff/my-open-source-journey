@@ -22,8 +22,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
   margin: 30px;
 } 
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.test {
+  margin-right: 10px;
+}
 
 .about_container span {
   font-weight: 600;

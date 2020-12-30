@@ -13,6 +13,13 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+<div class="marginBottom">
+  <span class="badge badge--secondary marginRight">Typescript</span>
+  <span class="badge badge--secondary marginRight">AWS</span>
+  <span class="badge badge--secondary marginRight">Documentation</span>
+</div>
+
+
 :::info Pull-Request link
 https://github.com/backstage/backstage/pull/3794
 :::
@@ -22,8 +29,6 @@ This PR is a new **feature**.
 :::
 
 ## Introduction
-
-
 
 ### Project description
 
@@ -67,9 +72,6 @@ https://github.com/backstage/backstage/issues/3714
 :::
 
 ## Implement the solution
-
-**NOTE:** the code blocks are intentionally not complete for the sake of readability.
-If you want to read the full code you'll find it in the PR link at the top.
 
 :::caution code blocks
 The code blocks are intentionally not complete for the sake of readability.   
