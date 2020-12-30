@@ -8,7 +8,23 @@ module.exports = {
     {
       type: "category",
       label: "Articles",
-      items: ["backstage3794"],
+      items: [
+        {
+          type: "category",
+          label: "Spotify - Backstage",
+          items: ["backstage3794"],
+        },
+        {
+          type: "category",
+          label: "xLayers",
+          items: ["xlayers395"],
+        },
+        {
+          type: "category",
+          label: "Apple - SwiftNIO",
+          items: ["apple-swift-nio1692"],
+        },
+      ]
     },
   ],
 };
