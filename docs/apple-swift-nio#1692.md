@@ -13,9 +13,9 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<div class="marginBottom">
-  <span class="badge badge--secondary marginRight">Swift</span>
-  <span class="badge badge--secondary marginRight">protocol servers & clients</span>
+<div className="marginBottom">
+  <span className="badge badge--secondary marginRight">Swift</span>
+  <span className="badge badge--secondary marginRight">protocol servers & clients</span>
 </div>
 
 :::info Pull-Request link
@@ -38,7 +38,7 @@ SwiftNIO is a NIO client server framework which enables quick and easy developme
 
 ### Current behavior
 
-Currently a user can create a `SocketAddress` from a string representation of an IP address.   
+Currently a user can create a `SocketAddress` (represent a socket address to which we may want to connect) from a string representation of an IP address.   
 That would be good if we had helpers to create it from packed byte representation.   
 
 :::note Issue link
@@ -61,6 +61,13 @@ To recap, IP addresses have the following length:
 - IP V4 address: **4 bytes**
 - IP V6 address: **16 bytes**
 
+<p align="center">
+<img
+  alt="IP address logic"
+  src={useBaseUrl('img/swiftnio1692/main-logic.png')}
+/>
+</p>
+
 ### Create `SocketAddress` from packed byte representation
 
 As said above, the way we are going to differentiate an IPV6 address from IPV4 is thanks to their size.
@@ -69,6 +76,20 @@ We are going to retrieve our IP Address which is a `ByteBuffer` and retrieve its
 We will therefore be able to add our switch statement which will tell us if our `packedIpAddress` is in the form of IPv6 (a length of 16) or IPv4 (a length of 4).
 
 Then inside our switch statement we will use our `ByteBufferView` to create a new `SocketAddress`. 
+
+Let's take a closer look at `sockaddr_in()` (the behavior of `sockaddr_in6()` is essentially the same):
+
+<p align="center">
+<img
+  alt="IP address logic"
+  src={useBaseUrl('img/swiftnio1692/sockaddr-in.png')}
+/>
+<br/>
+<em>sockaddr_in()</em>
+</p>
+
+
+
 
 ```ts title="Sources/NIO/SocketAddresses.swift"
 /// Create a new `SocketAddress` for an IP address in ByteBuffer form.
@@ -87,12 +108,14 @@ public init(packedIpAddress: ByteBuffer, port: Int) throws {
         ipv4Addr.sin_family = sa_family_t(AF_INET)
         ipv4Addr.sin_port = in_port_t(port).bigEndian
         withUnsafeMutableBytes(of: &ipv4Addr.sin_addr) { $0.copyBytes(from: packed) }
+        // Init our IPv4 address
         self = .v4(.init(address: ipv4Addr, host: ""))
     case 16:
         var ipv6Addr = sockaddr_in6()
         ipv6Addr.sin6_family = sa_family_t(AF_INET6)
         ipv6Addr.sin6_port = in_port_t(port).bigEndian
         withUnsafeMutableBytes(of: &ipv6Addr.sin6_addr) { $0.copyBytes(from: packed) }
+        // Init our IPv6 address
         self = .v6(.init(address: ipv6Addr, host: ""))
     default:
         throw SocketAddressError.FailedToParseIPByteBuffer(address: packedIpAddress)
@@ -134,14 +157,15 @@ An **IPv6** adress contains 16 bytes, let's take the `ByteBuffer` representation
 
 ```ts title="Tests/NIOTests/SocketAddressTest.swift"
 func testDescriptionWorksWithByteBufferIPv6IP() throws {
-    let IPv6: [UInt8] = [0xfe, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05]
+    let IPv6: [UInt8] = 
+        [0xfe, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05]
     let ipv6Address: ByteBuffer = ByteBuffer.init(bytes: IPv6)
     let sa = try! SocketAddress(packedIpAddress: ipv6Address, port: 12345)
     XCTAssertEqual("[IPv6]fe80::5:12345", sa.description)
 }
 ```
 
-If we provide a `ByteBuffer` IP address with a wrong length we need to throw a new `FailedToParseIPByteBuffer` error.
+If we provide a `ByteBuffer` IP address with a wrong length we need to throw a new `FailedToParseIPByteBuffer` error.   
 
 ```ts title="Tests/NIOTests/SocketAddressTest.swift"
 func testRejectsWrongIPByteBufferLength() {
