@@ -16,10 +16,10 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<div class="marginBottom">
-  <span class="badge badge--secondary marginRight">Angular</span>
-  <span class="badge badge--secondary marginRight">Typescript</span>
-  <span class="badge badge--secondary marginRight">UX</span>
+<div className="marginBottom">
+  <span className="badge badge--secondary marginRight">Angular</span>
+  <span className="badge badge--secondary marginRight">Typescript</span>
+  <span className="badge badge--secondary marginRight">UX</span>
 </div>
 
 :::info Pull-Request link
