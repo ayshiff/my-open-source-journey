@@ -13,7 +13,7 @@ module.exports = {
       title: 'Home',
       logo: {
         alt: 'My Open Source journey',
-        src: 'img/new_logo.svg',
+        src: 'img/logo.svg',
       },
       items: [
         {

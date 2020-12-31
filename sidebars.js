@@ -3,7 +3,7 @@ module.exports = {
     {
       type: "category",
       label: "Introduction",
-      items: ["presentation", "contribute"],
+      items: ["presentation"],
     },
     {
       type: "category",
