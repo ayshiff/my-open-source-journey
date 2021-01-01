@@ -9,7 +9,17 @@ import styles from '../src/pages/styles.module.css';
 export const Highlight = ({children, color}) => ( <span 
       className={clsx(styles.article_highlight)}>{children}</span> );
 
-The concept is simple, each week I choose a **contribution** to Open Source that I made during the week that I find quite complete and particularly interesting to present to you.   
+export const HighlightWebsite = ({children, color}) => ( <span style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+      fontWeight: 600,
+    }}>{children}</span> );
+
+The concept is simple, **each week** I choose a **contribution** to Open Source that I made during the week that I find quite complete and particularly interesting to present to you.   
+It is also an opportunity for me to **present some Open Source projects**.   
+
 This contribution will be in the form of a <Highlight color="#203666">Pull Request</Highlight>.
 
 I will share with you an article which will be in the form below but I keep the freedom to adjust the shape of the articles according to the content I want to present..
@@ -49,10 +59,12 @@ The purpose of this step is to make you understand the usefulness of the project
 
 This step will be a continuation of the first one, it will allow you to understand in **more detail** the context in which the contribution takes place.
 
+I will also add the **project website link** (if available) in the following form: <a href=""><HighlightWebsite color="#25c2a0">Example website link</HighlightWebsite></a>
 
 ## Current Behavior - *actual state*
 
 This step will give you an overview of the **current state** (if there is one) and the **desired state**.   
+
 It will allow you to understand from a **functional point of view** what we expect this contribution to achieve.   
 It will recall the **outcome statement** and add information you will need to have to understand the article.
 
@@ -63,6 +75,7 @@ This is an example of an issue link badge.
 ## The solution - *expected state*
 
 This step will surely be the **most important**.   
+
 I will explain my reasoning to you and general **concepts** you need to understand.   
 I will illustrate my reasoning with certain **pieces of code**, some **diagrams**...   
 
@@ -71,8 +84,9 @@ I will try to be as clear as possible so that you can broadly understand the wor
 ## Takeaway
 ### Problem encountered
 
-Here I will show you some issues (if there were any) that I may have encountered while resolving the issue.   
-I will present these problems to you with a little perspective to show you how I was able to learn from these problems and find solutions.
+Here I will show you some **issues** (if there were any) that I may have encountered while resolving the issue.   
+
+I will present these problems to you with a little perspective to show you how I was able to **learn from these problems** and find solutions.
 
 ### What did I learn ?
 

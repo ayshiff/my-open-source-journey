@@ -8,8 +8,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'ayshiff', // Usually your GitHub org/user name.
   projectName: 'my-open-source-journey', // Usually your repo name.
-  url: 'myopensourcejourney.com', // Your website URL
-  baseUrl: '/',
+  url: 'https://myopensourcejourney.com', // Your website URL
   themeConfig: {
     navbar: {
       title: 'Home',
