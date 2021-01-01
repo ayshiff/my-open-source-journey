@@ -71,7 +71,6 @@ function Home() {
       title="My Open Source journey"
       description="My Open Source journey">
       <header className={clsx('hero', styles.header)}>
-          {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
           <img src="img/logo.svg" alt={siteConfig.title} />
           <div>
           <p className={clsx(styles.description)}>Discover the benefits of Open Source through <Highlight color="#203666">concrete examples</Highlight>. <br/> A publication <Highlight color="#203666">every week</Highlight>.</p>
