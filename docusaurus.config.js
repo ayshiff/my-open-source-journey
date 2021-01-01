@@ -6,8 +6,10 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'ayshiff', // Usually your GitHub org/user name.
+  projectName: 'my-open-source-journey', // Usually your repo name.
+  url: 'myopensourcejourney.com', // Your website URL
+  baseUrl: '/',
   themeConfig: {
     navbar: {
       title: 'Home',
