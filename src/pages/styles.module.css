@@ -5,12 +5,66 @@
  * and scoped locally.
  */
 
-.heroBanner {
+.header {
   padding: 4rem 0;
+  height: calc(100vh - var(--ifm-navbar-height));
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.about_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 30px;
+} 
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.test {
+  margin-right: 10px;
+}
+
+.about_container span {
+  font-weight: 600;
+} 
+
+.about_description {
+  width: 400px;
+  max-width: 85%;
+} 
+
+.about_description span {
+  color: var(--ifm-color-primary);
+  font-weight: 800;
+}
+
+.about_profile_img {
+  margin-bottom: 20px;
+  border-radius: 100px;
+}
+
+.description {
+  font-size: 1.3rem;
+  margin-top: 30px;
+}
+
+.description span {
+  font-weight: 600;
+}
+
 
 @media screen and (max-width: 966px) {
   .heroBanner {
@@ -34,4 +88,33 @@
 .featureImage {
   height: 200px;
   width: 200px;
+}
+
+.arrow_down {
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
+}
+
+.index_highlight {
+  color: var(--ifm-color-primary);
+  padding: 0.1rem 0.2rem;
+  font-weight: 700 !important;
+  text-decoration: underline;
+}
+
+.article_highlight {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  padding: 0.2rem;
+  border-radius: 2px;
+  font-weight: 600 !important;
+}
+
+.about_highlight {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  padding: 0.2rem;
+  border-radius: 2px;
+  text-decoration: none;
 }
