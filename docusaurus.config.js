@@ -10,6 +10,9 @@ module.exports = {
   projectName: 'my-open-source-journey', // Usually your repo name.
   url: 'https://myopensourcejourney.com', // Your website URL
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'G-77VSQKVMXC',
+    },
     navbar: {
       title: 'Home',
       logo: {
@@ -103,10 +106,6 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
-        },
-        googleAnalytics: {
-          trackingID: 'G-77VSQKVMXC',
-          anonymizeIP: true,
         },
       },
     ],
