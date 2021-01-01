@@ -9,7 +9,11 @@ module.exports = {
   organizationName: 'ayshiff', // Usually your GitHub org/user name.
   projectName: 'my-open-source-journey', // Usually your repo name.
   url: 'https://myopensourcejourney.com', // Your website URL
+  plugins: ['@docusaurus/plugin-google-analytics'],
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'G-77VSQKVMXC',
+    },
     navbar: {
       title: 'Home',
       logo: {
