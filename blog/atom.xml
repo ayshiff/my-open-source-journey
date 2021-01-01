@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://myopensourcejourney.com/blog</id>
+    <title>My Open Source journey Blog</title>
+    <updated>2015-10-25T23:29:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://myopensourcejourney.com/blog"/>
+    <subtitle>My Open Source journey Blog</subtitle>
+    <icon>https://myopensourcejourney.com/img/favicon.ico</icon>
+</feed>
