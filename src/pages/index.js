@@ -68,7 +68,6 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title="My Open Source journey"
       description="My Open Source journey">
       <header className={clsx('hero', styles.header)}>
           <img src="img/logo.svg" alt={siteConfig.title} />
