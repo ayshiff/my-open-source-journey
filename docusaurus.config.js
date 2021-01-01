@@ -47,10 +47,6 @@ module.exports = {
           title: 'Presentation',
           items: [
             {
-              label: 'Why contribute to Open Source ?',
-              to: 'docs/contribute',
-            },
-            {
               label: 'Concept presentation',
               to: 'docs/presentation',
             },

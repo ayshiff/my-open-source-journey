@@ -12,19 +12,17 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group">
             <path d="M235.613278,0 C362.439596,0 399.563328,37.8909795 346.984473,113.672939 C284.646599,191.897809 240.604304,202.662803 214.857587,145.967919 C176.237511,60.9255937 45.3738008,2.2833468e-14 235.613278,0 Z" id="Path-4" fill="url(#pattern-1)"></path>
-            <polygon id="Rectangle" fill="#362066" points="0 57 306 22.7999284 306 94.7999284 0 129"></polygon>
-            <path d="M56,114.753616 L56,166.728711 L251,144.934547 L251,92.9594527 L56,114.753616 Z" id="Rectangle" stroke="#362066" stroke-width="4" fill="#FFFFFF"></path>
-            <path d="M18,35.0006837 L18,65.9757784 L82,58.8228223 L82,27.8477276 L18,35.0006837 Z" id="Rectangle" stroke="#362066" stroke-width="4" fill="#FFFFFF"></path>
-            <text id="WITH-REMI" fill="#362066" transform="translate(153.476133, 136.636500) rotate(-6.000000) translate(-153.476133, -136.636500) " font-family="Verdana" font-size="21" font-weight="normal">
-                <tspan x="79.4761326" y="139.6365">WITH</tspan>
-                <tspan x="137.800351" y="139.6365" font-size="27"> </tspan>
-                <tspan x="147.292539" y="139.6365" font-family="Verdana-Bold, Verdana" font-size="27" font-weight="bold">REMI</tspan>
+            <polygon id="Rectangle" fill="#203666" points="0 57 306 22.7999284 306 94.7999284 0 129"></polygon>
+            <path d="M75,109.767587 L75,151.007005 L233,133.473636 L233,92.2342182 L75,109.767587 Z" id="Rectangle" stroke="#203666" stroke-width="4" fill="#FFFFFF"></path>
+            <path d="M18,38.2883017 L18,65.9773201 L76,59.5352043 L76,31.8461859 L18,38.2883017 Z" id="Rectangle" stroke="#203666" stroke-width="4" fill="#FFFFFF"></path>
+            <text id="JOURNEY" fill="#203666" transform="translate(153.964002, 121.474271) rotate(-6.000000) translate(-153.964002, -121.474271) " font-family="Verdana-Bold, Verdana" font-size="20" font-weight="bold">
+                <tspan x="100.964002" y="129.474271">JOURNEY</tspan>
             </text>
-            <text id="OPEN-SOURCE" transform="translate(153.925424, 77.571209) rotate(-6.000000) translate(-153.925424, -77.571209) " font-family="Verdana-Bold, Verdana" font-size="35" font-weight="bold" fill="#FFFFFF">
-                <tspan x="13.425424" y="91.5712089">OPEN SOURCE</tspan>
+            <text id="OPEN-SOURCE" transform="translate(153.925424, 75.571209) rotate(-6.000000) translate(-153.925424, -75.571209) " font-family="Verdana-Bold, Verdana" font-size="35" font-weight="bold" fill="#FFFFFF">
+                <tspan x="13.425424" y="89.5712089">OPEN SOURCE</tspan>
             </text>
-            <text id="THE" fill="#362066" transform="translate(49.191566, 46.626621) rotate(-6.000000) translate(-49.191566, -46.626621) " font-family="Verdana" font-size="21" font-weight="normal">
-                <tspan x="28.1915656" y="55.1266214">THE</tspan>
+            <text id="MY" fill="#203666" transform="translate(47.172170, 48.502190) rotate(-6.000000) translate(-47.172170, -48.502190) " font-family="Verdana" font-size="20" font-weight="normal">
+                <tspan x="32.17217" y="56.5021897">MY</tspan>
             </text>
         </g>
     </g>

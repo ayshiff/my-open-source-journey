@@ -23,7 +23,7 @@ function Home() {
   const { siteConfig = {} } = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={siteConfig.title}
       description="Description will go into a meta tag in <head />"
       wrapperClassName={clsx(styles.layout)}
     >
@@ -35,21 +35,21 @@ function Home() {
         />
         <main className={clsx(styles.about_description)}>
           <p>
-            Hi 👋 <br />I am <Highlight color="#362066">Rémi Doreau</Highlight>,
+            Hi 👋 <br />I am <Highlight color="#203666">Rémi Doreau</Highlight>,
             a french FullStack Developer passionated about the{" "}
             <span>Software Engineering word</span>. <br />I also have a{" "}
             <a href="https://remidoreau.com/">
-              <Highlight color="#362066">blog</Highlight>
+              <Highlight color="#203666">blog</Highlight>
             </a>{" "}
             where you can find various articles about programming, soft
             skills... in french and english. <br />
             You can find most of my work on{" "}
             <a href="https://github.com/ayshiff/">
-              <Highlight color="#362066">GitHub</Highlight>
+              <Highlight color="#203666">GitHub</Highlight>
             </a>{" "}
             and{" "}
             <a href="https://gitlab.com/ayshiff">
-              <Highlight color="#362066">GitLab</Highlight>
+              <Highlight color="#203666">GitLab</Highlight>
             </a>
             .
             <br />
