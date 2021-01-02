@@ -50,11 +50,21 @@ https://github.com/apple/swift-nio/issues/1649
 To introduce the solution, we must know what an IP address (**I**nternet **P**rotocol address) is.   
 An IP address is a numerical label (an **identifier**) which is assigned to a device connected to a particular network (which uses IP to communicate).
 
-We must also know that an IP address can be in the form of IPv4 or IPv6.
+We must also know that an IP address can be in the form of **IPv4** or **IPv6**.
 
-IPv4 is the first version of IP. It uses a 32-bit address scheme and it is the most widely used IP version.
+### IPv4
 
-Conversely, IPv6 is the most recent version of IP. It uses a 128-bit address scheme and it resolve some issues which are associated with IPv4.
+IPv4 is the first version of IP. It uses a **32-bit** address scheme and it is the **most widely used** IP version.   
+It is expressed in **dotted-decimal notation**, with every bits represented by a number from 1 to 255.   
+
+For example: **`168.212.226.204`**.
+
+### IPv6
+
+Conversely, IPv6 is the **most recent** version of IP. It uses a **128-bit** address scheme and it resolve some issues which are associated with IPv4.   
+It is represented by eight sets of four hexadecimal digits separated by a colon.   
+
+For example: **`fe80:0:0:0:0:0:0:5`** which can be abbreviated as **`fe80::5`** in our test case bellow.
 
 To recap, IP addresses have the following length:
 
@@ -72,10 +82,21 @@ To recap, IP addresses have the following length:
 
 As said above, the way we are going to differentiate an IPV6 address from IPV4 is thanks to their size.
 
-We are going to retrieve our IP Address which is a `ByteBuffer` and retrieve its size with `readableBytes`.
-We will therefore be able to add our switch statement which will tell us if our `packedIpAddress` is in the form of IPv6 (a length of 16) or IPv4 (a length of 4).
+We are first going to retrieve our IP Address which is a `ByteBuffer`.
 
-Then inside our switch statement we will use our `ByteBufferView` to create a new `SocketAddress`. 
+#### The `ByteBuffer`struct
+
+`ByteBuffer` is a specific SwiftNIO type of object, it stores contiguoulsy allocated raw bytes.
+
+Here is a definition of the API that we will use:
+
+- `readableBytesView`: a **view** into the readable bytes of the ByteBuffer
+- `readableBytes`: the **number** of bytes readable
+- `copyBytes(at:to:length:)`: **copies length bytes** starting at the `fromIndex` to `toIndex`
+
+Now that we have defined what a `ByteBuffer` is, we are going to retrieve its **size** with `readableBytes` and we will therefore be able to add our switch statement which will tell us if our `packedIpAddress` is in the form of **IPv6** (a length of 16) or **IPv4** (a length of 4).
+
+Then inside our switch statement we will use our `ByteBufferView` (thanks to `readableBytesView`) to create a new `SocketAddress`. 
 
 Let's take a closer look at `sockaddr_in()` (the behavior of `sockaddr_in6()` is essentially the same):
 
@@ -87,8 +108,6 @@ Let's take a closer look at `sockaddr_in()` (the behavior of `sockaddr_in6()` is
 <br/>
 <em>sockaddr_in()</em>
 </p>
-
-
 
 
 ```ts title="Sources/NIO/SocketAddresses.swift"
@@ -207,5 +226,5 @@ This is why I implemented the error as a `struct`.
 
 ### What did I learn ?
 
-This contribution allowed me to learn more about IP addresses and packed bytes representation.   
+This contribution allowed me to learn more about **IP addresses** and **packed bytes representation**.   
 Swift is not the language I usually use, so it allowed me to put into practice some concepts that I have learned in the past.

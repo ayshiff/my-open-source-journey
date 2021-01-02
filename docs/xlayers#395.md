@@ -81,7 +81,8 @@ https://github.com/xlayers/xlayers/issues/379
 ## Implement the solution
 
 - On the landing page, we will allow users to **choose their framework** they wanna generate code for.
-- The code generation UI should only show **the selected framework**. Users can **switch** the selected framework.
+- The code generation UI should only show **the selected framework**.   
+Users can **switch** the selected framework.
 
 :::caution code blocks
 The code blocks are intentionally not complete for the sake of readability.  
@@ -90,8 +91,8 @@ If you want to read the full code you'll find it in the PR link at the top.
 
 ### Update the landing page
 
-My first suggestion for this page was to implement a carousel with all the supported frameworks.   
-By discussing with the other members of the team we decided to display only a simple list.
+My first suggestion for this page was to implement a **carousel** with all the supported frameworks.   
+By discussing with the other members of the team we decided to display only a **simple list**.
 
 <p align="center">
 <img
@@ -107,9 +108,9 @@ As we need to use the different `CodeGenKind` (frameworks) in two different page
 
 Each element contains:
 
-- a **label** for the preview
-- a **svgIcon** for the icon
-- a **codegenType** for the id
+- a **label** for the text preview
+- a **svgIcon** for the icon name
+- a **codegenType** to reference the element
 
 ```ts title="apps/xlayers/src/shared/codegen-list.ts"
 export interface UICodeGen {
@@ -140,7 +141,7 @@ export const codeGenList: UICodeGen[] = [
 
 ### Update the code generation page
 
-As this page already includes a way to switch between frameworks, my first suggestion was to remove the frameworks tab bar and replace it with a simple dropdown component which will be much more unobtrusive and it will not disturb the user. (And we also save space for the code editor).
+As this page **already includes** a way to switch between frameworks, my first suggestion was to remove the frameworks tab bar and replace it with a simple dropdown component which will be much more **unobtrusive** and it will not disturb the user. And we also **save space** for the code editor !
 
 <p align="center">
 <img
@@ -151,7 +152,7 @@ As this page already includes a way to switch between frameworks, my first sugge
 <em>The code generation page wireframe</em>
 </p>
 
-Nothing magic here, we have a `mat-select` containing our frameworks.   
+Nothing magic here, we have a `mat-select` containing our list of frameworks.   
 The `mat-select-trigger` allows us to add the framework `mat-icon` inside the select.   
 
 ```html title="apps/xlayers/src/app/editor/code/editor-container/editor-container.component.html"
@@ -182,6 +183,16 @@ The `mat-select-trigger` allows us to add the framework `mat-icon` inside the se
 ### Update the store
 
 As we need to make the user choice persistent between the two pages, we will update our <a href="https://ngrx.io/"><Highlight color="#25c2a0">NgRx</Highlight></a> store by creating a new `Action` that will be dispatched when the user choose a framework in the landing page.
+
+<p align="center">
+<img
+  alt="NgRx diagram"
+  src={useBaseUrl('img/xlayers395/ngrx.png')}
+  height="600px"
+/>
+<br/>
+<em>NgRx diagram</em>
+</p>
 
 This Action updates the `kind` value of the `codegen` state which will tell us which framework the user has chosen.
 If for some reason the user didn't choose a framework, we set `kind` as 1 (corresponding to `Angular`) by default.   
@@ -223,7 +234,7 @@ selectKind(
 }
 ```
 
-Inside the landing page we will know dispatch the `SelectCodegenKind` action:
+Inside the landing page we will know **dispatch** the `SelectCodegenKind` action:
 
 ```ts title="apps/xlayers/src/home/landing/landing.component.ts"
 selectFramework(framework: CodeGenKind) {
@@ -232,7 +243,7 @@ selectFramework(framework: CodeGenKind) {
 }
 ```
 
-Inside the codegen generation page, we can know subsribe to the `codegen.kind` from our store and generate the code for the selected framework.
+Inside the codegen generation page, we can know **subsribe** to the `codegen` from our store and generate the code for the selected `codegen.kind`.
 
 ```ts title="apps/xlayers/src/app/editor/code/editor-container/editor-container.component.ts"
 ngOnInit() {
@@ -276,13 +287,11 @@ Here is a small presentation of the final user workflow in xLayers.
 
 ### Problems encountered
 
-Someone in the comments suggested using <a href="https://aws.amazon.com/about-aws/whats-new/2020/12/aws-sdk-javascript-version-3-generally-available/"><Highlight color="#25c2a0">AWS JavaScript SDK v3</Highlight></a> as it has first-class TypeScript support.
-The issue was that there was a problem with Typescript that was going to be fixed in a <a href="https://github.com/aws/aws-sdk-js-v3/pull/1812"><Highlight color="#25c2a0">PR</Highlight></a>.  
-So I had to wait until the fix was merged to bump the aws sdk version.
+The simplest part of this contribution was the implementation of the solution.   
+The thinking around the user experience was a little more interesting and asked us a few more questions.
 
 ### What did I learn ?
 
-This contribution allowed me to use the `aws-sdk` v3 and to compare it with the v2 version.
-It also allowed me to improve my english by writing some documentation (Not being a native English speaker, it is important for me to improve myself by practicing my English.)
+As I said above, the richest part was the reflection around the user experience.   
+In addition, I was able to discover a codebase that I did not know and apply some concepts of NgRx.
 
-It allowed me, thanks to the review of the different members working on the project, to improve my code, my logic and to question my work to be more rigorous.

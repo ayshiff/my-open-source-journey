@@ -1,7 +1,6 @@
 module.exports = {
   title: 'My Open Source journey',
   tagline: 'Discover Open Source Software through concrete examples. A publication every week.',
-  url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

@@ -100,7 +100,7 @@ Before implementaing our methods we need to instatntiate the AWS SDK with some c
 
 Now that our sdk is instantiated we can implement our methods.
 
-I'll take the example of the `fetchTechDocsMetadata` method:
+We'll take the example of the `fetchTechDocsMetadata` method:
 
 ```ts title="packages/techdocs-common/src/stages/publish/awsS3.ts"
   fetchTechDocsMetadata(entityName: EntityName): Promise<string> {
@@ -138,7 +138,7 @@ I'll take the example of the `fetchTechDocsMetadata` method:
 
 I followed the TDD method by writing my tests first and then write the code that will allow these tests to pass.
 
-For a better understanding in this article, I preferred to present the code to you before presenting the tests.
+For a better understanding in this article, I prefer to present the code to you before presenting the tests.
 
 Following the BDD Approach for the `fetchTechDocsMetadata` test, we have something like:
 
@@ -172,9 +172,9 @@ describe('fetchTechDocsMetadata', () => {
 });
 ```
 
-As you can see in the code above, we don't actually use the AWS SDK, we mocked it.
+As you can see in the code above, we don't actually use the real AWS SDK, we mocked it.
 
-To test the publisher behavior, I needed to **mock the AWS SDK** which provides a JS API for AWS services.
+To test the publisher behavior, we need to **mock the AWS SDK** which provides a JS API for AWS services.
 To do this I used jest's mock feature. As our library is called `aws-sdk`, we will create a file` aws-sdk.ts` in `__mocks__` containing our implementation of the `S3` methods.   
 We will then have to define in this file an `S3` class which corresponds to the class we are using.
 
