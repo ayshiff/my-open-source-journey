@@ -78,7 +78,7 @@ The code blocks are intentionally not complete for the sake of readability.
 If you want to read the full code you'll find it in the PR link at the top.
 :::
 
-### Added a new `awsS3` publisher
+### Add a new `awsS3` publisher
 
 The publisher is used for **two things**:
 
@@ -94,8 +94,8 @@ Each publisher needs to implement `PublisherBase` abstract class and its four me
 
 Before implementaing our methods we need to instatntiate the AWS SDK with some config:
 
-- credentials -> `accessKeyId`: the User access key id
-- credentials -> `secretAccessKey`: the User secret access key
+- `credentials.accessKeyId`: the User **access key id**
+- `credentials.secretAccessKey`: the User **secret access key**
 - `region`: AWS Region
 
 Now that our sdk is instantiated we can implement our methods.
@@ -134,7 +134,7 @@ We'll take the example of the `fetchTechDocsMetadata` method:
   }
 ```
 
-### Added tests and mock `aws-sdk`
+### Add tests and mock `aws-sdk`
 
 I followed the TDD method by writing my tests first and then write the code that will allow these tests to pass.
 
@@ -218,7 +218,7 @@ export default {
 };
 ```
 
-### Added steps about how to use AWS S3 in TechDocs
+### Add steps about how to use AWS S3 in TechDocs
 
 The main step here was to explain to the users how they can **configure an AWS S3 Bucket** with TechDocs.   
 

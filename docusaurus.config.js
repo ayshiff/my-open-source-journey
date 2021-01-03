@@ -47,11 +47,15 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Presentation',
+          title: 'Content',
           items: [
             {
               label: 'Concept presentation',
               to: 'docs/presentation',
+            },
+            {
+              label: 'Articles',
+              to: 'docs/backstage3794',
             },
           ],
         },
