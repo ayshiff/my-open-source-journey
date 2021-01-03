@@ -10,7 +10,7 @@ module.exports = {
   url: 'https://myopensourcejourney.com', // Your website URL
   themeConfig: {
     googleAnalytics: {
-      trackingID: 'G-77VSQKVMXC',
+      trackingID: 'UA-186339279-1',
     },
     navbar: {
       title: 'Home',
