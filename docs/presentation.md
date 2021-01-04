@@ -17,7 +17,7 @@ export const HighlightWebsite = ({children, color}) => ( <span style={{
       fontWeight: 600,
     }}>{children}</span> );
 
-The concept is simple, **each week** I choose a **contribution** to Open Source that I made during the week that I find quite complete and particularly interesting to present to you.   
+The concept is simple, **every week** I choose a **contribution** to Open Source that I made during the week that I find quite complete and particularly interesting to present to you.   
 It is also an opportunity for me to **present some Open Source projects**.   
 
 This contribution will be in the form of a <Highlight color="#203666">Pull Request</Highlight>.

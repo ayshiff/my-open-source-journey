@@ -1,6 +1,7 @@
 ---
 id: apple-swift-nio1692
 title: SwiftNIO core - SocketAddress from packed byte representation
+sidebar_label: 3 / SwiftNIO core - SocketAddress creation
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
@@ -28,18 +29,16 @@ This PR is a new **feature**.
 
 ## Introduction
 
-### Project description
+### Project
 
-SwiftNIO is a NIO client server framework which enables quick and easy development of network applications in Swift.   
-
-<a href="https://apple.github.io/swift-nio/docs/current/NIO/index.html"><Highlight color="#25c2a0">Website link</Highlight></a>
+You can find the <a href="/docs/projects/apple-swift-nio"><Highlight color="#25c2a0">swiftNIO project presentation here</Highlight></a>.
 
 ### Context
 
 ### Current behavior
 
-Currently a user can create a `SocketAddress` (represent a socket address to which we may want to connect) from a string representation of an IP address.   
-That would be good if we had helpers to create it from packed byte representation.   
+Currently a user can create a `SocketAddress` (represent a socket address to which we may want to connect) from a **string representation** of an IP address.   
+That would be good if we had helpers to create it from **packed byte representation**.   
 
 :::note Issue link
 https://github.com/apple/swift-nio/issues/1649
@@ -76,6 +75,7 @@ To recap, IP addresses have the following length:
   alt="IP address logic"
   src={useBaseUrl('img/swiftnio1692/main-logic.png')}
 />
+<em>IP address parsing</em>
 </p>
 
 ### Create `SocketAddress` from packed byte representation

@@ -37,7 +37,7 @@ function Home() {
           <p>
             Hi 👋 <br />I am <Highlight color="#203666">Rémi Doreau</Highlight>,
             a french FullStack Developer passionated about the{" "}
-            <span>Software Engineering word</span>. <br />I also have a{" "}
+            <span>Software Engineering world</span>. <br />I also have a{" "}
             <a href="https://remidoreau.com/">
               <Highlight color="#203666">blog</Highlight>
             </a>{" "}

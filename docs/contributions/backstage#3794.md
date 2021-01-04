@@ -1,6 +1,7 @@
 ---
 id: backstage3794
 title: Backstage - Techdocs AWS Support
+sidebar_label: 1 / Backstage - Techdocs AWS Support
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
@@ -30,24 +31,20 @@ This PR is a new **feature**.
 
 ## Introduction
 
-### Project description
-
+<p align="center">
+<br/>
 <img
-  alt="Backstage presentation"
-  src="https://raw.githubusercontent.com/backstage/backstage/master/docs/assets/headline.png"
+  alt="Contribution presentation"
+  width="500px"
+  src={useBaseUrl('img/backstage3794/presentation.png')}
 />
+<br/>
+<em>Techdocs AWS Support</em>
+</p>
 
-<a href="https://backstage.io/"><Highlight color="#25c2a0">Website link</Highlight></a>
+### Project
 
-When you want to deploy something in the cloud you probably need tools like Terraform, Kubernetes, CI pipelines, the AWS CLI...
-
-Backstage is a platform that **unifies** all your infrastructure tooling, services, documentation with a single UI.   
-It gives you an uniform overview of all your services. It also lets you create easily new ressources such as a new backend service.
-
-Backstage was created by **Spotify** but is now hosted by the **Cloud Native Computing Foundation (CNCF)** as a Sandbox level project.
-
-For more informations about Backstage you can find it <a href="https://backstage.io/docs/overview/what-is-backstage"><Highlight color="#25c2a0">here</Highlight></a>.
-
+You can find the <a href="/docs/projects/backstage"><Highlight color="#25c2a0">Backstage project presentation here</Highlight></a>.
 
 ### Context
 
@@ -225,11 +222,19 @@ The main step here was to explain to the users how they can **configure an AWS S
 I did an <a href="https://github.com/backstage/backstage/blob/acdcf944e890ad44c0124e658981e4ed0d14893e/docs/features/techdocs/using-cloud-storage.md"><Highlight color="#25c2a0">explanation</Highlight></a> on how to use **AWS Policies** and how they work.   
 In the example we show how to use the *User* and *Bucket* policy to manage our access to our Bucket.
 
+<p align="center">
+<br/>
 <img
   alt="AWS S3 TechDocs"
   width="100%"
   src={useBaseUrl('img/backstage3794/aws-s3.drawio.svg')}
 />
+<br/>
+<em>AWS S3 in TechDocs</em>
+</p>
+
+As specified in the comments of the pull request, a next feature will be implemented on top of this one to handle S3 configuration apart from creating an access user agent.   
+It will add the possibility to read from the instance profile or `~/.aws/credentials`.
 
 ### Add the "glue" between our elements
 

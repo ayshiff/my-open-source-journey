@@ -1,10 +1,11 @@
 ---
 id: xlayers395
 title: xLayers - Rethink UX
+sidebar_label: 2 / xLayers - Rethink UX
 ---
 
 import clsx from 'clsx';
-import styles from '../src/pages/styles.module.css';
+import styles from '../../src/pages/styles.module.css';
 
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
@@ -32,20 +33,16 @@ This PR is a new **feature**.
 
 ## Introduction
 
-### Project description
+### Project
 
-xLayers is a tool made to **reduce the gap** between designers and developers.  
-It is a **code generation tool** that produces code from your design sketches.
-
-For more informations about xLayers you can find it <a href="https://github.com/xlayers/xlayers"><Highlight color="#25c2a0">here</Highlight></a>.
-
-<a href="https://xlayers.app/#/home"><Highlight color="#25c2a0">Website link</Highlight></a>
+You can find the <a href="/docs/projects/xlayers"><Highlight color="#25c2a0">xLayers project presentation here</Highlight></a>.
 
 <p align="center">
 <br/>
 <img
   alt="xLayers presentation"
-  src="https://raw.githubusercontent.com/xlayers/xlayers/main/apps/xlayers/src/assets/xlayers-ui-1.png?raw=true"
+  width="500px"
+  src={useBaseUrl('img/xlayers395/viewer.webp')}
 />
 <br/>
 <em>The Viewer interface</em>
