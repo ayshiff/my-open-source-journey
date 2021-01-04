@@ -7,24 +7,21 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Articles",
+      label: "Contributions",
       items: [
-        {
-          type: "category",
-          label: "Spotify - Backstage",
-          items: ["backstage3794"],
-        },
-        {
-          type: "category",
-          label: "xLayers",
-          items: ["xlayers395"],
-        },
-        {
-          type: "category",
-          label: "Apple - SwiftNIO",
-          items: ["apple-swift-nio1692"],
-        },
-      ]
+        "contributions/backstage3794",
+        "contributions/xlayers395",
+        "contributions/apple-swift-nio1692",
+      ],
+    },
+    {
+      type: "category",
+      label: "Projects",
+      items: [
+        "projects/backstage",
+        "projects/apple-swift-nio",
+        "projects/xlayers",
+      ],
     },
   ],
 };

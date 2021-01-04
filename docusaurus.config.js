@@ -26,9 +26,15 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/backstage3794',
-          activeBasePath: 'docs/backstage3794',
-          label: 'Articles',
+          to: 'docs/contributions/backstage3794',
+          activeBasePath: 'docs/contributions/backstage3794',
+          label: 'Contributions',
+          position: 'left',
+        },
+        {
+          to: 'docs/projects/backstage',
+          activeBasePath: 'docs/projects/backstage',
+          label: 'Projects',
           position: 'left',
         },
         {
@@ -54,8 +60,12 @@ module.exports = {
               to: 'docs/presentation',
             },
             {
-              label: 'Articles',
-              to: 'docs/backstage3794',
+              label: 'Contributions',
+              to: 'docs/contributions/backstage3794',
+            },
+            {
+              label: 'Projects',
+              to: 'docs/projects/backstage',
             },
           ],
         },
