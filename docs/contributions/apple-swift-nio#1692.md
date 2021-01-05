@@ -70,13 +70,13 @@ To recap, IP addresses have the following length:
 - IP V4 address: **4 bytes**
 - IP V6 address: **16 bytes**
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="IP address logic"
   src={useBaseUrl('img/swiftnio1692/main-logic.png')}
 />
 <em>IP address parsing</em>
-</p>
+</div>
 
 ### Create `SocketAddress` from packed byte representation
 
@@ -100,14 +100,14 @@ Then inside our switch statement we will use our `ByteBufferView` (thanks to `re
 
 Let's take a closer look at `sockaddr_in()` (the behavior of `sockaddr_in6()` is essentially the same):
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="IP address logic"
   src={useBaseUrl('img/swiftnio1692/sockaddr-in.png')}
 />
 <br/>
 <em>sockaddr_in()</em>
-</p>
+</div>
 
 
 ```ts title="Sources/NIO/SocketAddresses.swift"

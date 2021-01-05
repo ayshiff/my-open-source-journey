@@ -31,7 +31,7 @@ This PR is a new **feature**.
 
 ## Introduction
 
-<p align="center">
+<div className="image-wrapper">
 <br/>
 <img
   alt="Contribution presentation"
@@ -40,7 +40,7 @@ This PR is a new **feature**.
 />
 <br/>
 <em>Techdocs AWS Support</em>
-</p>
+</div>
 
 ### Project
 
@@ -222,7 +222,7 @@ The main step here was to explain to the users how they can **configure an AWS S
 I did an <a href="https://github.com/backstage/backstage/blob/acdcf944e890ad44c0124e658981e4ed0d14893e/docs/features/techdocs/using-cloud-storage.md"><Highlight color="#25c2a0">explanation</Highlight></a> on how to use **AWS Policies** and how they work.   
 In the example we show how to use the *User* and *Bucket* policy to manage our access to our Bucket.
 
-<p align="center">
+<div className="image-wrapper">
 <br/>
 <img
   alt="AWS S3 TechDocs"
@@ -231,7 +231,7 @@ In the example we show how to use the *User* and *Bucket* policy to manage our a
 />
 <br/>
 <em>AWS S3 in TechDocs</em>
-</p>
+</div>
 
 As specified in the comments of the pull request, a next feature will be implemented on top of this one to handle S3 configuration apart from creating an access user agent.   
 It will add the possibility to read from the instance profile or `~/.aws/credentials`.

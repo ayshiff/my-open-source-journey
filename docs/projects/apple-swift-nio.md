@@ -28,7 +28,7 @@ SwiftNIO is a NIO client server framework which enables quick and easy developme
 
 Here is a list of **low-level protocol** implementations:
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="Low-level protocol implementations"
   width="500px"
@@ -36,11 +36,11 @@ Here is a list of **low-level protocol** implementations:
 />
 <br/>
 <em>Low-level protocol implementations</em>
-</p>
+</div>
 
 SwiftNIO applications are constructed of 8 types of **components**:
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="Artchitecture"
   width="700px"
@@ -48,4 +48,4 @@ SwiftNIO applications are constructed of 8 types of **components**:
 />
 <br/>
 <em>Basic architecture</em>
-</p>
+</div>

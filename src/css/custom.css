@@ -49,3 +49,7 @@ html[data-theme='dark'] {
   background-color: #203666;
   color: white;
 }
+
+.image-wrapper {
+  text-align: center;
+}

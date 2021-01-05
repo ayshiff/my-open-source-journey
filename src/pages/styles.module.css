@@ -118,3 +118,12 @@
   border-radius: 2px;
   text-decoration: none;
 }
+
+.image-wrapper {
+  text-align: center;
+}
+
+.image-wrapper img {
+  max-width:100%;
+  height:auto;
+}

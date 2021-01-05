@@ -37,7 +37,7 @@ This PR is a new **feature**.
 
 You can find the <a href="/docs/projects/xlayers"><Highlight color="#25c2a0">xLayers project presentation here</Highlight></a>.
 
-<p align="center">
+<div className="image-wrapper">
 <br/>
 <img
   alt="xLayers presentation"
@@ -46,7 +46,7 @@ You can find the <a href="/docs/projects/xlayers"><Highlight color="#25c2a0">xLa
 />
 <br/>
 <em>The Viewer interface</em>
-</p>
+</div>
 
 ### Context
 
@@ -58,15 +58,15 @@ From the **first** page to the **last** one.
 
 Currently the user workflow looks like this:
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="xLayers current user workflow"
   src={useBaseUrl('img/xlayers395/current-workflow.png')}
-  height="600px"
+  width="450px"
 />
 <br/>
 <em>Current workflow diagram</em>
-</p>
+</div>
 
 The main issue is that xLayers generates code for **all** supported framework at once.   
 This could be problematic in the future if it supports **more frameworks**.
@@ -91,15 +91,14 @@ If you want to read the full code you'll find it in the PR link at the top.
 My first suggestion for this page was to implement a **carousel** with all the supported frameworks.   
 By discussing with the other members of the team we decided to display only a **simple list**.
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="xLayers current user workflow"
   src={useBaseUrl('img/xlayers395/landing-page.png')}
-  height="600px"
 />
 <br/>
 <em>The landing page wireframe</em>
-</p>
+</div>
 
 As we need to use the different `CodeGenKind` (frameworks) in two different pages, I extracted a list to a shared file where we put all our `CodeGenKind` elements.
 
@@ -140,14 +139,14 @@ export const codeGenList: UICodeGen[] = [
 
 As this page **already includes** a way to switch between frameworks, my first suggestion was to remove the frameworks tab bar and replace it with a simple dropdown component which will be much more **unobtrusive** and it will not disturb the user. And we also **save space** for the code editor !
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="xLayers current user workflow"
   src={useBaseUrl('img/xlayers395/code-generation-ui.png')}
 />
 <br/>
 <em>The code generation page wireframe</em>
-</p>
+</div>
 
 Nothing magic here, we have a `mat-select` containing our list of frameworks.   
 The `mat-select-trigger` allows us to add the framework `mat-icon` inside the select.   
@@ -181,15 +180,14 @@ The `mat-select-trigger` allows us to add the framework `mat-icon` inside the se
 
 As we need to make the user choice persistent between the two pages, we will update our <a href="https://ngrx.io/"><Highlight color="#25c2a0">NgRx</Highlight></a> store by creating a new `Action` that will be dispatched when the user choose a framework in the landing page.
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="NgRx diagram"
   src={useBaseUrl('img/xlayers395/ngrx.png')}
-  height="600px"
 />
 <br/>
 <em>NgRx diagram</em>
-</p>
+</div>
 
 This Action updates the `kind` value of the `codegen` state which will tell us which framework the user has chosen.
 If for some reason the user didn't choose a framework, we set `kind` as 1 (corresponding to `Angular`) by default.   
@@ -259,26 +257,26 @@ ngOnInit() {
 
 This is the final user workflow.
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="xLayers new user workflow"
   src={useBaseUrl('img/xlayers395/new-workflow.png')}
-  height="600px"
+  width="450px"
 />
 <br/>
 <em>New workflow diagram</em>
-</p>
+</div>
 
 Here is a small presentation of the final user workflow in xLayers.
 
-<p align="center">
+<div className="image-wrapper">
 <img
   alt="xLayers new user workflow"
   src={useBaseUrl('img/xlayers395/new-workflow.gif')}
 />
 <br/>
 <em>New workflow</em>
-</p>
+</div>
 
 ## Takeaway
 

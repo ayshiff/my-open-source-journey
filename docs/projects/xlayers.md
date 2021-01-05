@@ -32,7 +32,7 @@ For more informations about xLayers you can find it <a href="https://github.com/
 
 <a href="https://xlayers.app/#/home"><Highlight color="#25c2a0">Website link</Highlight></a>
 
-<p align="center">
+<div className="image-wrapper">
 <br/>
 <img
   alt="xLayers presentation"
@@ -40,5 +40,5 @@ For more informations about xLayers you can find it <a href="https://github.com/
 />
 <br/>
 <em>The Viewer interface</em>
-</p>
+</div>
 
