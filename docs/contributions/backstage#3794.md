@@ -331,6 +331,10 @@ In our case we only have `patch` changes.
 Someone in the comments suggested using <a href="https://aws.amazon.com/about-aws/whats-new/2020/12/aws-sdk-javascript-version-3-generally-available/"><Highlight color="#25c2a0">AWS JavaScript SDK v3</Highlight></a> as it has first-class TypeScript support.
 The issue was that there was a problem with Typescript that was going to be fixed in a <a href="https://github.com/aws/aws-sdk-js-v3/pull/1812"><Highlight color="#25c2a0">PR</Highlight></a>.   
 So I had to wait until the fix was merged to bump the aws sdk version.
+
+In addition, after merging the PR into master, the tests on Windows did not pass.   
+This was related to the path delimiters used in tests by `mock-fs`.   
+So I had to do another <a href="https://github.com/backstage/backstage/pull/3925"><Highlight color="#25c2a0">Pull Request</Highlight></a> to fix this problem.
 ### What did I learn ?
 
 This contribution allowed me to use the `aws-sdk` v3 and to compare it with the v2 version.
