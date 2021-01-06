@@ -22,7 +22,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Project description
 
-SwiftNIO is a NIO client server framework which enables quick and easy development of **network applications** in Swift.   
+SwiftNIO is a NIO (**N**on Blocking **I**nput **O**utput) client server framework which enables quick and easy development of **network applications** in Swift.   
 
 <a href="https://apple.github.io/swift-nio/docs/current/NIO/index.html"><Highlight color="#25c2a0">Website link</Highlight></a>
 
