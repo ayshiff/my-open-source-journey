@@ -71,7 +71,7 @@ https://github.com/backstage/backstage/issues/3714
 ## Implement the solution
 
 :::caution code blocks
-The code blocks are intentionally not complete for the sake of readability.   
+The code blocks are intentionally incomplete for the sake of readability.   
 If you want to read the full code you'll find it in the PR link at the top.
 :::
 
@@ -89,7 +89,7 @@ Each publisher needs to implement `PublisherBase` abstract class and its four me
 - The `fetchTechDocsMetadata` method is used to fetch the `techdocs_metadata.json` file from our bucket.
 - The `docsRouter` method is used to create an express middleware that serves static files in techdocs-backend.
 
-Before implementaing our methods we need to instatntiate the AWS SDK with some config:
+Before implementaing our methods we need to instantiate the AWS SDK with some config:
 
 - `credentials.accessKeyId`: the User **access key id**
 - `credentials.secretAccessKey`: the User **secret access key**
@@ -135,7 +135,7 @@ We'll take the example of the `fetchTechDocsMetadata` method:
 
 I followed the TDD method by writing my tests first and then write the code that will allow these tests to pass.
 
-For a better understanding in this article, I prefer to present the code to you before presenting the tests.
+For a better understanding of this article, I prefer to present the code to you before presenting the tests.
 
 Following the BDD Approach for the `fetchTechDocsMetadata` test, we have something like:
 

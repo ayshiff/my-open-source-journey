@@ -82,7 +82,7 @@ https://github.com/xlayers/xlayers/issues/379
 Users can **switch** the selected framework.
 
 :::caution code blocks
-The code blocks are intentionally not complete for the sake of readability.  
+The code blocks are intentionally incomplete for the sake of readability.  
 If you want to read the full code you'll find it in the PR link at the top.
 :::
 
