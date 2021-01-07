@@ -11,11 +11,18 @@ module.exports = function () {
     injectHtmlTags() {
       return {
         headTags: [
-          '<meta property="og:title" content="My Open Source journey">',
-          '<meta property="og:description" content="Discover Open Source Software through concrete examples. A publication every week.">',
-          '<meta property="og:image" content="https://myopensourcejourney.com/img/logo.png">',
-          '<meta property="og:url" content="https://myopensourcejourney.com/">',
-          '<meta name="twitter:card" content="summary_large_image">',
+          `<meta name="title" content="My Open Source journey">`,
+          `<meta name="description" content="Discover Open Source Software through concrete examples. A publication every week.">`,
+          `<meta property="og:type" content="website">`,
+          `<meta property="og:url" content="https://myopensourcejourney.com/">`,
+          `<meta property="og:title" content="My Open Source journey">`,
+          `<meta property="og:description" content="Discover Open Source Software through concrete examples. A publication every week.">`,
+          `<meta property="og:image" content="https://myopensourcejourney.com/img/logo.png">`,
+          `<meta property="twitter:card" content="summary_large_image">`,
+          `<meta property="twitter:url" content="https://myopensourcejourney.com/">`,
+          `<meta property="twitter:title" content="My Open Source journey">`,
+          `<meta property="twitter:description" content="Discover Open Source Software through concrete examples. A publication every week.">`,
+          `<meta property="twitter:image" content="https://myopensourcejourney.com/img/logo.png"></meta>`,
         ],
       };
     },
