@@ -250,7 +250,7 @@ ngOnInit() {
     }
     this.codeSetting = this.codegen.generate(codegen.kind);
   });
-}	  }
+}
 ```
 
 ## Final result
