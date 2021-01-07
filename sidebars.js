@@ -9,9 +9,9 @@ module.exports = {
       type: "category",
       label: "Contributions",
       items: [
-        "contributions/backstage3794",
-        "contributions/xlayers395",
         "contributions/apple-swift-nio1692",
+        "contributions/xlayers395",
+        "contributions/backstage3794",
       ],
     },
     {

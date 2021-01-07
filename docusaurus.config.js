@@ -106,7 +106,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Open Source journey. Built with Docusaurus.`,
+      copyright: `<div style="margin-top: 40px"><img src="https://myopensourcejourney.com/img/logo.svg" width="200" /><p>Build with 💙 by <b>Rémi Doreau</b></p></div>`,
     },
   },
   plugins: [require.resolve("./header-plugin")],
