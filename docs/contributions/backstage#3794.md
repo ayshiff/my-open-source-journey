@@ -15,12 +15,12 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Status } from '../utils.md';
+import { Merged } from '../utils.md';
 
 <div className="pr_infos">
 <div className="marginBottom">
   <div>
-    <Status url="https://api.github.com/repos/backstage/backstage/pulls/3794" />
+    <Merged />
   </div>
   <span className="badge badge--secondary marginRight">Typescript</span>
   <span className="badge badge--secondary marginRight">AWS</span>

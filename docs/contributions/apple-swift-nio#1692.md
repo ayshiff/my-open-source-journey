@@ -15,12 +15,12 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Status } from '../utils.md';
+import { Merged } from '../utils.md';
 
 <div className="pr_infos">
 <div className="marginBottom">
     <div>
-        <Status url="https://api.github.com/repos/apple/swift-nio/pulls/1692" />
+        <Merged />
     </div>
   <span className="badge badge--secondary marginRight">Swift</span>
   <span className="badge badge--secondary marginRight">protocol servers & clients</span>

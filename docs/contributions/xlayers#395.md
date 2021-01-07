@@ -17,14 +17,14 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-import { Status } from '../utils.md';
+import { Open } from '../utils.md';
 
 <p className="post_date">20 Nov 2020</p>
 
 <div className="pr_infos">
 <div className="marginBottom">
 <div>
-<Status url="https://api.github.com/repos/xlayers/xlayers/pulls/395" />
+<Open />
 </div>
   <span className="badge badge--secondary marginRight">Angular</span>
   <span className="badge badge--secondary marginRight">Typescript</span>
