@@ -1,8 +1,10 @@
 ---
 id: apple-swift-nio1692
-title: SwiftNIO core - SocketAddress from packed byte representation
-sidebar_label: 3 / SwiftNIO core - SocketAddress creation
+title: SwiftNIO core - SocketAddress from packed bytes
+sidebar_label: 1. SwiftNIO core - SocketAddress creation
 ---
+
+<p className="post_date">19 Nov 2020 </p>
 
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
@@ -13,10 +15,16 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { Status } from '../utils.md';
 
+<div className="pr_infos">
 <div className="marginBottom">
+    <div>
+        <Status url="https://api.github.com/repos/apple/swift-nio/pulls/1692" />
+    </div>
   <span className="badge badge--secondary marginRight">Swift</span>
   <span className="badge badge--secondary marginRight">protocol servers & clients</span>
+</div>
 </div>
 
 :::info Pull-Request link

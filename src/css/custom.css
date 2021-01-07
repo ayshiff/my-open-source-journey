@@ -41,10 +41,6 @@ html[data-theme='dark'] {
   margin-right: 10px;
 }
 
-.marginBottom {
-  margin-bottom: 20px;
-}
-
 .menu--responsive .menu__button {
   background-color: #203666;
   color: white;
@@ -52,4 +48,22 @@ html[data-theme='dark'] {
 
 .image-wrapper {
   text-align: center;
+}
+
+.post_date {
+  position: absolute;
+  top: calc(var(--ifm-navbar-height) + 20px);
+  left: auto;
+  font-weight: 500;
+}
+
+.container {
+  margin: 10px auto;
+}
+
+.pr_infos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }

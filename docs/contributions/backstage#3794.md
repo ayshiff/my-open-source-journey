@@ -1,8 +1,10 @@
 ---
 id: backstage3794
 title: Backstage - Techdocs AWS Support
-sidebar_label: 1 / Backstage - Techdocs AWS Support
+sidebar_label: 3. Backstage - Techdocs AWS Support
 ---
+
+<p className="post_date">7 Jan 2021</p>
 
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
@@ -13,13 +15,18 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { Status } from '../utils.md';
 
+<div className="pr_infos">
 <div className="marginBottom">
+  <div>
+    <Status url="https://api.github.com/repos/backstage/backstage/pulls/3794" />
+  </div>
   <span className="badge badge--secondary marginRight">Typescript</span>
   <span className="badge badge--secondary marginRight">AWS</span>
   <span className="badge badge--secondary marginRight">Documentation</span>
 </div>
-
+</div>
 
 :::info Pull-Request link
 https://github.com/backstage/backstage/pull/3794
@@ -53,13 +60,13 @@ To understand a little bit more about the initial issue you need to understand w
 Techdocs is a docs-like-code solution build into Backstage.
 This means you can write your documentation in Markdown files which live next to your code.
 
-*Today, it is one of the core products in Spotify’s developer experience offering with 2,400+ documentation sites and 1,000+ engineers using it daily.* ***backstage.io***
+_Today, it is one of the core products in Spotify’s developer experience offering with 2,400+ documentation sites and 1,000+ engineers using it daily._ **_backstage.io_**
 
 You can read more about TechDocs announcement <a href="https://backstage.io/blog/2020/09/08/announcing-tech-docs"><Highlight color="#25c2a0">here</Highlight></a>.
 
 ### Current behavior
 
-To render the documentation, TechDocs uses the generated static files.   
+To render the documentation, TechDocs uses the generated static files.  
 In the "recommended" setup you need to add a cloud storage providers like `Google GCS`, `AWS S3`, etc.
 
 Currently only `Google GCS` is supported by TechDocs, the goal of the issue is to implement `AWS S3` as TechDocs external storage to store and read generated documentation sites.
@@ -71,7 +78,7 @@ https://github.com/backstage/backstage/issues/3714
 ## Implement the solution
 
 :::caution code blocks
-The code blocks are intentionally incomplete for the sake of readability.   
+The code blocks are intentionally incomplete for the sake of readability.  
 If you want to read the full code you'll find it in the PR link at the top.
 :::
 
@@ -80,7 +87,7 @@ If you want to read the full code you'll find it in the PR link at the top.
 The publisher is used for **two things**:
 
 - **publish** generated static files to a storage
-- **read** files from storage when users visit a TechDocs page 
+- **read** files from storage when users visit a TechDocs page
 
 Each publisher needs to implement `PublisherBase` abstract class and its four methods (`publish`, `fetchTechDocsMetadata`, `docsRouter` and `hasDocsBeenGenerated`).
 
@@ -146,33 +153,33 @@ Following the BDD Approach for the `fetchTechDocsMetadata` test, we have somethi
 By taking the previous method, we have a test file that looks like:
 
 ```ts title="packages/techdocs-common/src/stages/publish/publish.test.ts"
-describe('fetchTechDocsMetadata', () => {
-   it('should return tech docs metadata', async () => {
+describe("fetchTechDocsMetadata", () => {
+  it("should return tech docs metadata", async () => {
     const entityNameMock = {
-      name: 'name',
-      namespace: '/namespace',
-      kind: 'kind',
+      name: "name",
+      namespace: "/namespace",
+      kind: "kind",
     };
     const entityRootDir = `${entityNameMock.namespace}/${entityNameMock.kind}/${entityNameMock.name}`;
 
     mockFs({
       [entityRootDir]: {
-        'techdocs_metadata.json': 'file-content',
+        "techdocs_metadata.json": "file-content",
       },
     });
 
     expect(await publisher.fetchTechDocsMetadata(entityNameMock)).toBe(
-      'file-content',
+      "file-content"
     );
     mockFs.restore();
-   });
+  });
 });
 ```
 
 As you can see in the code above, we don't actually use the real AWS SDK, we mocked it.
 
 To test the publisher behavior, we need to **mock the AWS SDK** which provides a JS API for AWS services.
-To do this I used jest's mock feature. As our library is called `aws-sdk`, we will create a file` aws-sdk.ts` in `__mocks__` containing our implementation of the `S3` methods.   
+To do this I used jest's mock feature. As our library is called `aws-sdk`, we will create a file` aws-sdk.ts` in `__mocks__` containing our implementation of the `S3` methods.  
 We will then have to define in this file an `S3` class which corresponds to the class we are using.
 
 For the tests we mock the reading of our files from a bucket with local files that we mock with `mock-fs`.
@@ -195,14 +202,14 @@ export class S3 {
         const emitter = new EventEmitter();
         process.nextTick(() => {
           if (fs.existsSync(Key)) {
-            emitter.emit('data', Buffer.from(fs.readFileSync(Key)));
+            emitter.emit("data", Buffer.from(fs.readFileSync(Key)));
           } else {
             emitter.emit(
-              'error',
-              new Error(`The file ${Key} doest not exist !`),
+              "error",
+              new Error(`The file ${Key} doest not exist !`)
             );
           }
-          emitter.emit('end');
+          emitter.emit("end");
         });
         return emitter;
       },
@@ -217,10 +224,10 @@ export default {
 
 ### Add steps about how to use AWS S3 in TechDocs
 
-The main step here was to explain to the users how they can **configure an AWS S3 Bucket** with TechDocs.   
+The main step here was to explain to the users how they can **configure an AWS S3 Bucket** with TechDocs.
 
-I did an <a href="https://github.com/backstage/backstage/blob/acdcf944e890ad44c0124e658981e4ed0d14893e/docs/features/techdocs/using-cloud-storage.md"><Highlight color="#25c2a0">explanation</Highlight></a> on how to use **AWS Policies** and how they work.   
-In the example we show how to use the *User* and *Bucket* policy to manage our access to our Bucket.
+I did an <a href="https://github.com/backstage/backstage/blob/acdcf944e890ad44c0124e658981e4ed0d14893e/docs/features/techdocs/using-cloud-storage.md"><Highlight color="#25c2a0">explanation</Highlight></a> on how to use **AWS Policies** and how they work.  
+In the example we show how to use the _User_ and _Bucket_ policy to manage our access to our Bucket.
 
 <div className="image-wrapper">
 <br/>
@@ -233,13 +240,13 @@ In the example we show how to use the *User* and *Bucket* policy to manage our a
 <em>AWS S3 in TechDocs</em>
 </div>
 
-As specified in the comments of the pull request, a next feature will be implemented on top of this one to handle S3 configuration apart from creating an access user agent.   
+As specified in the comments of the pull request, a next feature will be implemented on top of this one to handle S3 configuration apart from creating an access user agent.  
 It will add the possibility to read from the instance profile or `~/.aws/credentials`.
 
 ### Add the "glue" between our elements
 
-This step contains all the other elements that form the glue between the main pieces of this contribution.   
-I still find it important to add it since without these elements our code cannot work.   
+This step contains all the other elements that form the glue between the main pieces of this contribution.  
+I still find it important to add it since without these elements our code cannot work.
 
 Our job as developers is also to write documentation, add comments ... which will improve the **Developer experience (DX)**.
 
@@ -311,8 +318,8 @@ awsS3:
 
 ### Add changesets
 
-The final step is to add **changesets** which will contains the list of our file changes.   
-It lets us declare **how our changes should be released**.   
+The final step is to add **changesets** which will contains the list of our file changes.  
+It lets us declare **how our changes should be released**.  
 In our case we only have `patch` changes.
 
 ```py title=".changeset/chilly-dodos-drop.md"
@@ -329,18 +336,19 @@ In our case we only have `patch` changes.
 ### Problems encountered
 
 Someone in the comments suggested using <a href="https://aws.amazon.com/about-aws/whats-new/2020/12/aws-sdk-javascript-version-3-generally-available/"><Highlight color="#25c2a0">AWS JavaScript SDK v3</Highlight></a> as it has first-class TypeScript support.
-The issue was that there was a problem with Typescript that was going to be fixed in a <a href="https://github.com/aws/aws-sdk-js-v3/pull/1812"><Highlight color="#25c2a0">PR</Highlight></a>.   
+The issue was that there was a problem with Typescript that was going to be fixed in a <a href="https://github.com/aws/aws-sdk-js-v3/pull/1812"><Highlight color="#25c2a0">PR</Highlight></a>.  
 So I had to wait until the fix was merged to bump the aws sdk version.
 
-In addition, after merging the PR into master, the tests on Windows did not pass.   
-This was related to the path delimiters used in tests by `mock-fs`.   
+In addition, after merging the PR into master, the tests on Windows did not pass.  
+This was related to the path delimiters used in tests by `mock-fs`.  
 So I had to do another <a href="https://github.com/backstage/backstage/pull/3925"><Highlight color="#25c2a0">Pull Request</Highlight></a> to fix this problem.
 
 This PR also made it possible to identify new features:
 
-- Enable publishers support using nested directories in a bucket: <a href="https://github.com/backstage/backstage/issues/3948"><Highlight color="#25c2a0">Issue link</Highlight></a> 
-- Load GCS credentials from the environment: <a href="https://github.com/backstage/backstage/issues/3947"><Highlight color="#25c2a0">Issue link</Highlight></a> 
-- Load AWS credentials from the shared credentials file: <a href="https://github.com/backstage/backstage/issues/3946"><Highlight color="#25c2a0">Issue link</Highlight></a> 
+- Enable publishers support using nested directories in a bucket: <a href="https://github.com/backstage/backstage/issues/3948"><Highlight color="#25c2a0">Issue link</Highlight></a>
+- Load GCS credentials from the environment: <a href="https://github.com/backstage/backstage/issues/3947"><Highlight color="#25c2a0">Issue link</Highlight></a>
+- Load AWS credentials from the shared credentials file: <a href="https://github.com/backstage/backstage/issues/3946"><Highlight color="#25c2a0">Issue link</Highlight></a>
+
 ### What did I learn ?
 
 This contribution allowed me to use the `aws-sdk` v3 and to compare it with the v2 version.
