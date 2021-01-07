@@ -335,6 +335,12 @@ So I had to wait until the fix was merged to bump the aws sdk version.
 In addition, after merging the PR into master, the tests on Windows did not pass.   
 This was related to the path delimiters used in tests by `mock-fs`.   
 So I had to do another <a href="https://github.com/backstage/backstage/pull/3925"><Highlight color="#25c2a0">Pull Request</Highlight></a> to fix this problem.
+
+This PR also made it possible to identify new features:
+
+- Enable publishers support using nested directories in a bucket: <a href="https://github.com/backstage/backstage/issues/3948"><Highlight color="#25c2a0">Issue link</Highlight></a> 
+- Load GCS credentials from the environment: <a href="https://github.com/backstage/backstage/issues/3947"><Highlight color="#25c2a0">Issue link</Highlight></a> 
+- Load AWS credentials from the shared credentials file: <a href="https://github.com/backstage/backstage/issues/3946"><Highlight color="#25c2a0">Issue link</Highlight></a> 
 ### What did I learn ?
 
 This contribution allowed me to use the `aws-sdk` v3 and to compare it with the v2 version.
