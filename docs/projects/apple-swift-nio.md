@@ -23,6 +23,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## Project description
 
 SwiftNIO is a NIO (**N**on Blocking **I**nput **O**utput) client server framework which enables quick and easy development of **network applications** in Swift.   
+As indicated by its name, it uses **"non-blocking I/O"** in opposition to blocking I/O as the application doesn't wait for data to be sent to or received from the network.
+
+<div className="image-wrapper">
+<img
+  alt="Non-blocking I/O"
+  width="700px"
+  src={useBaseUrl('img/swiftnio1692/non-blocking-io.png')}
+/>
+</div>
+
+It doesn't aim to provide high-level solutions as it is focused on providing the low-level building blocks for higher-level applications.   
+
 
 <a href="https://apple.github.io/swift-nio/docs/current/NIO/index.html"><Highlight color="#25c2a0">Website link</Highlight></a>
 

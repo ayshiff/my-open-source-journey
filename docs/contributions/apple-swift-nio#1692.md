@@ -46,6 +46,7 @@ You can find the <a href="/docs/projects/apple-swift-nio"><Highlight color="#25c
 ### Current behavior
 
 Currently a user can create a `SocketAddress` (represent a socket address to which we may want to connect) from a **string representation** of an IP address.   
+
 That would be good if we had helpers to create it from **packed byte representation**.   
 
 :::note Issue link
