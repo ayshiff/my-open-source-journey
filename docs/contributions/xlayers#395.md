@@ -199,7 +199,7 @@ As we need to make the user choice persistent between the two pages, we will upd
 </div>
 
 This Action updates the `kind` value of the `codegen` state which will tell us which framework the user has chosen.
-If for some reason the user didn't choose a framework, we set `kind` as 1 (corresponding to `Angular`) by default.   
+If for some reason the user didn't choose a framework, we set `kind` to 1 (corresponding to `Angular`) by default.   
 
 ```ts {3-4,7-10,14-16,24-34} title="apps/xlayers/src/app/core/state/page.state.ts"
 export interface CodeGenSettings {
@@ -247,7 +247,7 @@ selectFramework(framework: CodeGenKind) {
 }
 ```
 
-Inside the codegen generation page, we can know **subsribe** to the `codegen` from our store and generate the code for the selected `codegen.kind`.
+Inside the codegen generation page, we can know **subscribe** to the `codegen` from our store and generate the code for the selected `codegen.kind`.
 
 ```ts title="apps/xlayers/src/app/editor/code/editor-container/editor-container.component.ts"
 ngOnInit() {
@@ -292,7 +292,7 @@ Here is a small presentation of the final user workflow in xLayers.
 ### Problems encountered
 
 The simplest part of this contribution was the implementation of the solution.   
-The thinking around the user experience was a little more interesting and asked us a few more questions.
+The design of the user experience was a little more interesting and needed us to think way more than we thought.
 
 ### What did I learn ?
 
