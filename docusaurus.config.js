@@ -1,7 +1,7 @@
 module.exports = {
   title: "My Open Source journey",
   tagline:
-    "Discover Open Source Software through concrete examples. A publication every week.",
+    "Discover Open Source Software through concrete examples. A publication every two weeks.",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",

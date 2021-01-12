@@ -72,7 +72,7 @@ function Home() {
       <header className={clsx('hero', styles.header)}>
           <img src="img/logo.svg" alt={siteConfig.title} />
           <div>
-          <p className={clsx(styles.description)}>Discover the benefits of Open Source through <Highlight color="#203666">concrete examples</Highlight>. <br/> A publication <Highlight color="#203666">every week</Highlight>.</p>
+          <p className={clsx(styles.description)}>Discover the benefits of Open Source through <Highlight color="#203666">concrete examples</Highlight>. <br/> A publication <Highlight color="#203666">every two weeks</Highlight>.</p>
           <div className={styles.buttons}>
             <Link
               className={clsx(

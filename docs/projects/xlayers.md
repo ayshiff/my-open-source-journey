@@ -42,3 +42,7 @@ For more informations about xLayers you can find it <a href="https://github.com/
 <em>The Viewer interface</em>
 </div>
 
+### Related contributions
+
+- <a href="/docs/contributions/xlayers395"><Highlight color="#25c2a0">2. xLayers - Rethink UX</Highlight></a>
+

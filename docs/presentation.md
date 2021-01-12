@@ -17,7 +17,7 @@ export const HighlightWebsite = ({children, color}) => ( <span style={{
       fontWeight: 600,
     }}>{children}</span> );
 
-The concept is simple, **every week** I choose a **contribution** to Open Source that I made during the week that I find quite complete and particularly interesting to present to you.   
+The concept is simple, **every two weeks** (semi-monthly) I choose a **contribution** to Open Source that I made during these two weeks that I find quite complete and particularly interesting to present to you.   
 It is also an opportunity for me to **present some Open Source projects**.   
 
 This contribution will be in the form of a <Highlight color="#203666">Pull Request</Highlight>.
@@ -54,6 +54,8 @@ You can find them in the following form:
 I will put here a brief **description** of the project to which the contribution is made.   
 **Understanding**, **playing** with and **familiarizing** yourself with the project is important when contributing to an Open Source repository.   
 The purpose of this step is to make you understand the usefulness of the project and to provide you with an **introductory context**.
+
+Note that each project may have **several contributions**.
 
 ### Context
 

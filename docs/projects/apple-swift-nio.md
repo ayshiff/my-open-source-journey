@@ -61,3 +61,7 @@ SwiftNIO applications are constructed of 8 types of **components**:
 <br/>
 <em>Basic architecture</em>
 </div>
+
+### Related contributions
+
+- <a href="/docs/contributions/apple-swift-nio1692"><Highlight color="#25c2a0">1. SwiftNIO core - SocketAddress creation</Highlight></a>
