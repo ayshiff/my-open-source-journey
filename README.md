@@ -1,4 +1,13 @@
-# My Open Source journey
+<a href="http://myopensourcejourney.com/">
+    <p align="center">
+        <img width="300""alt="my_open_source_journey" src="./static/img/logo.svg"/>
+    </p>
+</a>
+
+The concept is simple, **every two weeks** I choose a contribution to Open Source that I made that I find quite complete and particularly interesting to present to you.   
+This is also an opportunity for me to introduce you to some Open Source projects.
+
+The idea is to discover the benefits of contributing to Open Source through concrete examples.
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
@@ -15,19 +24,3 @@ yarn start
 ```
 
 This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```console
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
