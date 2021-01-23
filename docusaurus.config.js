@@ -27,8 +27,8 @@ module.exports = {
           position: "left",
         },
         {
-          to: "docs/contributions/backstage3794",
-          activeBasePath: "docs/contributions/backstage3794",
+          to: "docs/contributions/apple-swift-nio1692",
+          activeBasePath: "docs/contributions/apple-swift-nio1692",
           label: "Contributions",
           position: "left",
         },
@@ -62,7 +62,7 @@ module.exports = {
             },
             {
               label: "Contributions",
-              to: "docs/contributions/backstage3794",
+              to: "docs/contributions/apple-swift-nio1692",
             },
             {
               label: "Projects",

@@ -12,6 +12,7 @@ module.exports = {
         "contributions/apple-swift-nio1692",
         "contributions/xlayers395",
         "contributions/backstage3794",
+        "contributions/lifetime28",
       ],
     },
     {
@@ -21,6 +22,7 @@ module.exports = {
         "projects/backstage",
         "projects/apple-swift-nio",
         "projects/xlayers",
+        "projects/lifetime",
       ],
     },
   ],
