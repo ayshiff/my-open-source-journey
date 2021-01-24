@@ -27,12 +27,12 @@ import { Merged } from '../utils.md';
 </div>
 </div>
 
-:::info Pull-Request link
+:::info Contribution link
 https://github.com/apple/swift-nio/pull/1692
 :::
 
-:::tip Pull-Request Type
-This PR is a new **feature**.
+:::tip Contribution Type
+This contribution is a new **feature**.
 :::
 
 ## Introduction
@@ -235,5 +235,5 @@ This is why I implemented the error as a `struct`.
 
 ### What did I learn ?
 
-This contribution allowed me to learn more about **IP addresses** and **packed bytes representation**.   
+This contribution is allowed me to learn more about **IP addresses** and **packed bytes representation**.   
 Swift is not the language I usually use, so it allowed me to put into practice some concepts that I have learned in the past.
