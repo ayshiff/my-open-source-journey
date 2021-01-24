@@ -24,16 +24,16 @@ This contribution will be in the form of a <Highlight color="#203666">Pull Reque
 
 I will share with you an article which will be in the form below but I keep the freedom to adjust the shape of the articles according to the content I want to present.
 
-### Contribution references
-#### Pull-Request references
+### Contribution details
+#### Contribution references
 
-A badge will indicate the **Pull-Request link** (on GitHub) and another badge will indicate the **type of contribution** (feature, bug fix ...)
+A badge will indicate the **Contribution link** (on GitHub) and another badge will indicate the **type of contribution** (feature, bug fix ...)
 
-:::info Pull-Request link
+:::info Contribution link
 This is an example of a Pull Request link badge.
 :::
 
-:::tip Pull-Request Type
+:::tip Contribution Type
 This is an example of a Pull Request type badge.
 :::
 #### Tags
