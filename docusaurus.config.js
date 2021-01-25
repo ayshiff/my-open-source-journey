@@ -1,3 +1,6 @@
+const math = require('remark-math')
+const katex = require('rehype-katex')
+
 module.exports = {
   title: "My Open Source journey",
   tagline:
@@ -9,6 +12,15 @@ module.exports = {
   organizationName: "ayshiff", // Usually your GitHub org/user name.
   projectName: "my-open-source-journey", // Usually your repo name.
   url: "https://myopensourcejourney.com", // Your website URL
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
+      crossorigin: "anonymous",
+    },
+  ],
   themeConfig: {
     googleAnalytics: {
       trackingID: "UA-186339279-1",
@@ -116,6 +128,8 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
           // Please change this to your repo.
           editUrl:
             "https://github.com/facebook/docusaurus/edit/master/website/",
