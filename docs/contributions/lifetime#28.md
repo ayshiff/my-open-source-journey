@@ -39,7 +39,7 @@ This contribution is a new **feature**.
 ## Introduction
 
 This contribution is for me the opportunity to present you to a language that I particularly like... <a href="https://reasonml.github.io/"><Highlight color="#DD4B39">ReasonML</Highlight></a>.  
-In this project we will use some Reason bindings `reason-react-native` to allow to use Reason with <a href="https://reasonml.github.io/"><Highlight color="#48A9DC">ReasonReact</Highlight></a> to make our mobile app.
+In this project we will use some Reason bindings `reason-react-native` to allow to use Reason with <a href="https://reasonml.github.io/"><Highlight color="#48A9DC">ReasonReact</Highlight></a> (which will be used to create our React components) to make our mobile app.
 
 <div className="image-wrapper">
 <br/>
@@ -131,7 +131,7 @@ If you want to read the full code you'll find it in the PR link at the top.
 
 The idea is pretty straightforward.
 
-1. **As a** User **I want** to see the events of the week I was on the home page **so that** I can directly see more details about the week I was on.
+1. **As a** User **I want** to see the events of the week I was on the home page **so that** I can directly see more details about the current week.
     - Find a way to keep the week currently viewed on the home screen 
     - Fetch the events related to this week
 
@@ -332,10 +332,11 @@ let eventsPerDate = React.useMemo4(() => {
       })->Array.keep(((id, _, _)) => id != ""))
   })
 }, (events, settings, dates, width))
-
 ```
 
 #### Final result
+
+Here is the activity chart
 
 <div className="image-wrapper">
 <br/>
@@ -349,6 +350,12 @@ let eventsPerDate = React.useMemo4(() => {
 </div>
 
 ### 3. Add the events list
+
+We will display the following information about the event:
+- event **date** in the format: DD-MM
+- event **start date** in the format: HH:SS
+- event **end date** in the format: HH:SS
+- event **duration** in the form of a duration bar
 
 <div className="image-wrapper">
 <br/>
@@ -516,6 +523,29 @@ switch eventsWithDuration->Array.length {
 }
 ```
 
+#### A little extra note
+
+If you take a closer look you may notice the use of a component `Spacer`.   
+It is used to replace margins. You can learn more about Spacer <a href="https://www.joshwcomeau.com/react/modern-spacer-gif/"><Highlight color="#25c2a0">here</Highlight></a>.
+
+This is how it is implemented in `react-multiversal`:
+
+```reason title="react-multiversal - src/Spacer.re"
+let size =
+  fun
+  | XXL => space *. 4.
+  | XL => space *. 3.
+  | L => space *. 2.
+  | M => space *. 1.
+  | S => space *. 3. /. 4.
+  | XS => space *. 2. /. 4.
+  | XXS => space *. 1. /. 4.
+  | Custom(value) => value;
+```
+
+We can use several sizes that are the result of a ratio with a constant, `space`.   
+This allows us to have more consistent spaces in our application.
+
 #### Final result
 
 <div className="image-wrapper">
@@ -530,11 +560,40 @@ switch eventsWithDuration->Array.length {
 </div>
 <br/>
 
-We have the `<Spacer />` component which is used to ...
+### Full result - Future ?
+
+We will surely have to change some little things to make the user experience more enjoyable.
+
+As mentionned in the comments:
+
+- load the current week then **lazy load** the other weeks
+- in the same week, if a user has a lot of events, add a **see more** button to fetch the erst of the events
+
+All these improvements will improve the performance and fluidity of navigation in the application.
+
+For the moment here is the final version of the screen:
+
+<div className="image-wrapper">
+<br/>
+<img
+  alt="Final result"
+  width="180px"
+  src={useBaseUrl('img/lifetime/final.png')}
+/>
+<br/>
+<em>Events list + chart</em>
+</div>
 
 ## Takeaway
 
 ### Problems encountered
+
+The first problem that I've encountered was about the way I built the Activity detail events list.    
+I started by building it by fetching events from **all the weeks at once**.   
+The events were grouped according to their week in the list.
+
+As you can imagine, this could be problematic if the user has a lot of events and it could lead to **performance issues**.
+I then thought about fetching the events **by week** as on the Home screen (triggered when the user switch week).
 
 ### What did I learn ?
 
