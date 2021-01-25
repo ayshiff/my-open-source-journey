@@ -2,6 +2,7 @@
 id: lifetime28
 title: LifeTime - Events list
 sidebar_label: 4. LifeTime - Events list
+image: https://myopensourcejourney.com/img/lifetime/cover.jpg
 ---
 
 <p className="post_date">19 Jan 2021</p>
