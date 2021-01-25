@@ -39,15 +39,15 @@ This contribution is a new **feature**.
 
 ## Introduction
 
-This contribution is for me the opportunity to present you to a language that I particularly like... <a href="https://reasonml.github.io/"><Highlight color="#DD4B39">ReasonML</Highlight></a>.  
-In this project we will use some Reason bindings `reason-react-native` to allow to use Reason with <a href="https://reasonml.github.io/"><Highlight color="#48A9DC">ReasonReact</Highlight></a> (which will be used to create our React components) to make our mobile app.
+This contribution combines two things that I love: **Meta Languages** and **time management**.   
+It is for me the opportunity to present you to a language that I particularly like... <a href="https://reasonml.github.io/"><Highlight color="#DD4B39">ReasonML</Highlight></a>.  
 
 <div className="image-wrapper">
 <br/>
 <img
   alt="LifeTime presentation"
   width="100%"
-  src={useBaseUrl('img/lifetime/presentation2.png')}
+  src={useBaseUrl('img/lifetime/presentation2.jpg')}
 />
 <br/>
 <em>LifeTime = ReasonML + calendars</em>
@@ -61,11 +61,10 @@ You can find the <a href="/docs/projects/lifetime"><Highlight color="#25c2a0">Li
 
 To understand a little bit more about the solution you need to understand what **ReasonML** is.
 
-ReasonML is a programming langugage created at Facebook and powered by **OCaml**.   
+ReasonML is a programming language created at Facebook and powered by **OCaml**.   
 It is a **new syntax** for the programming language OCaml. Anything possible in OCaml is possible in Reason!
 
-It means that we can benefit from the OCaml solid type-system.
-
+It means that we can benefit from the OCaml solid type-system.   
 The idea behind Reason is pretty simple: if it compiles it will works! (99% of the time)
 
 Here is a schema showing how ReasonML fits in the OCaml ecosystem.
@@ -82,9 +81,11 @@ Here is a schema showing how ReasonML fits in the OCaml ecosystem.
 </div>
 <br/>
 
+In this project we will use some Reason bindings `reason-react-native` to allow to use Reason with <a href="https://reasonml.github.io/"><Highlight color="#48A9DC">ReasonReact</Highlight></a> (which will be used to create our React components) to make our mobile app.
+
 **The story of Messenger.com**
 
-On September 8, 2017 the team at facebook working on ReasonML published a post where they explain that 50% of Messenger.com (the web version of Facebook Messenger) codebase was converted to Reason code.   
+On September 8, 2017 the team at Facebook working on ReasonML published a post where they explain that 50% of Messenger.com (the web version of Facebook Messenger) codebase was converted to Reason code.   
 
 Here are some benefits they noticed:
 - Build of the entire Reason part of the codebase is ~2s
@@ -130,7 +131,8 @@ The code blocks are intentionally incomplete for the sake of readability.
 If you want to read the full code you'll find it in the PR link at the top.
 :::
 
-The idea is pretty straightforward.
+The idea is pretty straightforward.   
+Here are the **user stories**:
 
 1. **As a** User **I want** to see the events of the week I was on the home page **so that** I can directly see more details about the current week.
     - Find a way to keep the week currently viewed on the home screen 
@@ -161,7 +163,6 @@ When the user will tap an activity from the Home screen, we will pass to the Act
 ```
 
 ```jsx {7} title="src/components/TopActivities.res"
-// ...
 <TouchableOpacity
   key=title
   onPress={_ =>
@@ -342,12 +343,12 @@ Here is the activity chart
 <div className="image-wrapper">
 <br/>
 <img
-  alt="Avtivity chart"
+  alt="Activity chart"
   width="300px"
   src={useBaseUrl('img/lifetime/activity-chart.png')}
 />
 <br/>
-<em>Avtivity chart</em>
+<em>Activity chart</em>
 </div>
 
 ### 3. Add the events list
@@ -370,7 +371,7 @@ We will display the following information about the event:
 </div>
 <br/>
 
-#### The events duration
+#### Compute the events duration
 
 ```js title="src/components/Events.res"
 // Set the layout width
@@ -441,87 +442,116 @@ switch eventsWithDuration->Array.length {
     {eventsWithDuration->Array.mapWithIndex((index, eventWithDuration) => {
       let (event, duration) = eventWithDuration
       let durationString = duration->Date.minToString
-      <View key=event.id>
-        <View style={Predefined.styles["rowSpaceBetween"]}>
-          <Row>
-            <Spacer size=S />
-            <View>
-              <Text
-                style={Style.array([styles["text"], theme.styles["textLight1"]])}
-                numberOfLines=1
-                adjustsFontSizeToFit=true>
-                {(event.endDate->Js.Date.fromString->Js.Date.getDate->Belt.Float.toString ++
-                " " ++
-                event.endDate->Js.Date.fromString->Date.monthShortString)->React.string}
-              </Text>
-              <Row style={Predefined.styles["alignCenter"]}>
-                <View
-                  style={
-                    open Style
-                    array([
-                      theme.styles["backgroundGray3"],
-                      viewStyle(
-                        ~width=(duration /. maxDuration *. availableWidthForBar)->dp,
-                        ~height=6.->dp,
-                        ~borderRadius=6.,
-                        ~overflow=#hidden,
-                        (),
-                      ),
-                    ])
-                  }
-                />
-                <Spacer size=XXS />
-                <Text
-                  style={
-                    open Style
-                    array([Theme.text["footnote"], theme.styles["textLight1"]])
-                  }
-                  numberOfLines=1
-                  adjustsFontSizeToFit=true>
-                  {durationString->React.string}
-                </Text>
-              </Row>
-            </View>
-          </Row>
-          <View>
-            <SpacedView vertical=XS horizontal=None>
-              <View style={Predefined.styles["row"]}>
-                <View style={Predefined.styles["flexGrow"]}>
-                  <Text style={Style.array([styles["text"], theme.styles["textLight1"]])}>
-                    {(Js.Date.fromString(event.startDate)
-                    ->Js.Date.getHours
-                    ->Belt.Float.toString
-                    ->padTime ++
-                    ":" ++
-                    Js.Date.fromString(event.startDate)
-                    ->Js.Date.getMinutes
-                    ->Belt.Float.toString
-                    ->padTime)->React.string}
-                  </Text>
-                  <Text style={Style.array([styles["text"], theme.styles["text"]])}>
-                    {(Js.Date.fromString(event.endDate)
-                    ->Js.Date.getHours
-                    ->Belt.Float.toString
-                    ->padTime ++
-                    ":" ++
-                    Js.Date.fromString(event.endDate)
-                    ->Js.Date.getMinutes
-                    ->Belt.Float.toString
-                    ->padTime)->React.string}
-                  </Text>
-                </View>
-                <Spacer size=S />
-              </View>
-            </SpacedView>
-          </View>
-        </View>
-        {index !== eventsWithDuration->Array.length - 1
-          ? <Separator style={theme.styles["separatorOnBackground"]} />
-          : React.null}
-      </View>
+      // Display the current event
     })->React.array}
   </View>
 }
+```
+
+#### Display the duration bar
+
+This component will be used to display the duration bar.   
+Here is the formula to compute the width of the bar, in `dp`:
+
+$duration = \frac{eventDuration}{maxDuration} * availableWidthForBar$
+
+For example, given:
+- max duration through all the events: **90min**
+- current event duration: **50min**
+- available width: **200dp**
+
+The result will be equal to (50 / 90) * 200 = **111dp**
+
+```jsx title="src/components/Events.res"
+<Row style={Predefined.styles["alignCenter"]}>
+  <View
+    style={
+      open Style
+      array([
+        theme.styles["backgroundGray3"],
+        viewStyle(
+          ~width=(duration /. maxDuration *. availableWidthForBar)->dp,
+          ~height=6.->dp,
+          ~borderRadius=6.,
+          ~overflow=#hidden,
+          (),
+        ),
+      ])
+    }
+  />
+  <Spacer size=XXS />
+  <Text
+    style={
+      open Style
+      array([Theme.text["footnote"], theme.styles["textLight1"]])
+    }
+    numberOfLines=1
+    adjustsFontSizeToFit=true>
+    // Display the duration
+    // ex: 15h12m
+    {durationString->React.string}
+  </Text>
+</Row>
+```
+
+#### Display the rest of the event information
+
+We can know display the rest of the event information to the User.   
+
+```jsx title="src/components/Events.res"
+<View key=event.id>
+  <View style={Predefined.styles["rowSpaceBetween"]}>
+    <Row>
+      <Spacer size=S />
+      <View>
+        <Text
+          style={Style.array([styles["text"], theme.styles["textLight1"]])}
+          numberOfLines=1
+          adjustsFontSizeToFit=true>
+          {(event.endDate->Js.Date.fromString->Js.Date.getDate->Belt.Float.toString ++
+          " " ++
+          event.endDate->Js.Date.fromString->Date.monthShortString)->React.string}
+        </Text>
+        // The duration bar goes here
+      </View>
+    </Row>
+    <View>
+      <SpacedView vertical=XS horizontal=None>
+        // Display the start and end date of the event 
+        <View style={Predefined.styles["row"]}>
+          <View style={Predefined.styles["flexGrow"]}>
+            <Text style={Style.array([styles["text"], theme.styles["textLight1"]])}>
+              {(Js.Date.fromString(event.startDate)
+              ->Js.Date.getHours
+              ->Belt.Float.toString
+              ->padTime ++
+              ":" ++
+              Js.Date.fromString(event.startDate)
+              ->Js.Date.getMinutes
+              ->Belt.Float.toString
+              ->padTime)->React.string}
+            </Text>
+            <Text style={Style.array([styles["text"], theme.styles["text"]])}>
+              {(Js.Date.fromString(event.endDate)
+              ->Js.Date.getHours
+              ->Belt.Float.toString
+              ->padTime ++
+              ":" ++
+              Js.Date.fromString(event.endDate)
+              ->Js.Date.getMinutes
+              ->Belt.Float.toString
+              ->padTime)->React.string}
+            </Text>
+          </View>
+          <Spacer size=S />
+        </View>
+      </SpacedView>
+    </View>
+  </View>
+  {index !== eventsWithDuration->Array.length - 1
+    ? <Separator style={theme.styles["separatorOnBackground"]} />
+    : React.null}
+</View>
 ```
 
 #### A little extra note
@@ -544,8 +574,8 @@ let size =
   | Custom(value) => value;
 ```
 
-We can use several sizes that are the result of a ratio with a constant, `space`.   
-This allows us to have more consistent spaces in our application.
+We can use several sizes that are the result of a ratio with a constant `space`.   
+This allows us to have more consistent margins in our application.
 
 #### Final result
 
@@ -565,14 +595,14 @@ This allows us to have more consistent spaces in our application.
 
 We will surely have to change some little things to make the user experience more enjoyable.
 
-As mentionned in the comments:
+As mentioned in the comments:
 
 - load the current week then **lazy load** the other weeks
-- in the same week, if a user has a lot of events, add a **see more** button to fetch the erst of the events
+- in the same week, if a user has a lot of events, add a **see more** button to fetch the rest of the events
 
 All these improvements will improve the performance and fluidity of navigation in the application.
 
-For the moment here is the final version of the screen:
+Here is the final version of the Activity detail screen:
 
 <div className="image-wrapper">
 <br/>
