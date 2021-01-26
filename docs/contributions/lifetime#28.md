@@ -2,7 +2,6 @@
 id: lifetime28
 title: LifeTime - Activity detail
 sidebar_label: 4. LifeTime - Activity detail
-image: https://myopensourcejourney.com/img/lifetime/cover.jpg
 ---
 
 <p className="post_date">19 Jan 2021</p>

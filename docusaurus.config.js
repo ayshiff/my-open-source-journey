@@ -132,7 +132,7 @@ module.exports = {
           rehypePlugins: [katex],
           // Please change this to your repo.
           editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
+            "https://github.com/ayshiff/my-open-source-journey",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
