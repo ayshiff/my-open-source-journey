@@ -156,7 +156,17 @@ Before fetching the events, we need to know from which week we'll fetch them.
 To do so, the `TopActivites` component (which is responsible for showing the activities) will need to know the current week the user is on.
 
 When the user will tap an activity from the Home screen, we will pass to the Activity Detail Screen the current week information: the week **start date** and the week **end date**.   
-TODO: explain
+
+Here is a schema to show the logic and the file hierarchy:
+
+<div className="image-wrapper">
+<img
+  alt="Week Props"
+  width="800px"
+  src={useBaseUrl('img/lifetime/week-props.png')}
+/>
+</div>
+
 ```jsx {5,6} title="src/components/Home.res"
 <TopActivities
   mapTitleDuration
@@ -501,7 +511,7 @@ let eventsPerDate = React.useMemo4(() => {
 ```
 
 #### Final result
-TODO something ?   
+ 
 The user can change weeks by swiping to the right or left.
 
 <div className="image-wrapper">
@@ -538,7 +548,11 @@ We will display the following information about the event:
 
 #### Compute the events duration
 
-TODO
+As seen above, the event duration will be displayed as a duration bar.   
+To do so we will need to compute some values:
+- `availableWidthForBar` which corresponds to the total width we can use to display the duration bar
+- `maxDuration` which corresponds to the max duration through all the events
+- `eventsWithDuration` which is create an Array with `(event, duration)`
 
 ```js title="src/components/Events.res"
 // Set the layout width
@@ -548,10 +562,9 @@ let onLayout = React.useCallback1((layoutEvent: Event.layoutEvent) => {
   setWidth(_ => width)
 }, [setWidth])
 
-// This is the total width we can use to display the duration bar
 let availableWidthForBar = width -. 85. -. SpacedView.space *. 4.
 
-// We calculate the duration for all the events
+// We compute the duration for all the events
 // It will be used to display the duration bar
 let eventsWithDuration = events->Array.map(event => {
   let durationInMin =
@@ -562,7 +575,7 @@ let eventsWithDuration = events->Array.map(event => {
   (event, durationInMin)
 })
 
-// We calculate the max duration through all the events
+// We compute the max duration through all the events
 // It will be used to calculate the correct duration bar width
 // in accordance with the event which has the longest duration
 let maxDuration =
@@ -668,8 +681,6 @@ The result will be equal to (50 / 90) \* 200 = **111dp**
 
 #### Display the rest of the event information
 
-TODO
-
 We can now display the rest of the event information to the User.
 
 ```jsx title="src/components/Events.res"
@@ -743,8 +754,6 @@ This allows us to have more consistent margins in our application.
 
 #### Final result
 
-TODO
-
 <div className="image-wrapper">
 <br/>
 <img
@@ -753,7 +762,7 @@ TODO
   src={useBaseUrl('img/lifetime/events-list.png')}
 />
 <br/>
-<em>Events list</em>
+<em>Events list implemented</em>
 </div>
 <br/>
 
