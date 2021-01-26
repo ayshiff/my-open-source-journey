@@ -28,12 +28,12 @@ import { Merged } from '../utils.md';
 </div>
 </div>
 
-:::info Pull-Request link
+:::info Contribution link
 https://github.com/backstage/backstage/pull/3794
 :::
 
-:::tip Pull-Request Type
-This PR is a new **feature**.
+:::tip Contribution Type
+This contribution is a new **feature**.
 :::
 
 ## Introduction
@@ -351,7 +351,7 @@ This PR also made it possible to identify new features:
 
 ### What did I learn ?
 
-This contribution allowed me to use the `aws-sdk` v3 and to compare it with the v2 version.
+This contribution is allowed me to use the `aws-sdk` v3 and to compare it with the v2 version.
 It also allowed me to improve my english by writing some documentation (Not being a native English speaker, it is important for me to improve myself by practicing my English.)
 
 It allowed me, thanks to the review of the different members working on the project, to improve my code, my logic and to question my work to be more rigorous.

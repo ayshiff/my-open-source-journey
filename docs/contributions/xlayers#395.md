@@ -32,12 +32,12 @@ import { Open } from '../utils.md';
 </div>
 </div>
 
-:::info Pull-Request link
+:::info Contribution link
 https://github.com/xlayers/xlayers/pull/395
 :::
 
-:::tip Pull-Request Type
-This PR is a new **feature**.
+:::tip Contribution Type
+This contribution is a new **feature**.
 :::
 
 ## Introduction
