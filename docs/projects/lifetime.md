@@ -44,5 +44,5 @@ For more information about LifeTime you can find it <a href="https://github.com/
 
 ### Related contributions
 
-- <a href="/docs/contributions/lifetime28"><Highlight color="#25c2a0">4. LifeTime - Events list</Highlight></a>
+- <a href="/docs/contributions/lifetime28"><Highlight color="#25c2a0">4. LifeTime - Activity detail</Highlight></a>
 
