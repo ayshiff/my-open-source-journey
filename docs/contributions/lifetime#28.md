@@ -88,7 +88,7 @@ On September 8, 2017 the team at Facebook working on ReasonML published a post w
 
 Here are some benefits they noticed:
 
-- Build of the entire Reason part of the codebase is ~ (several hundred files)
+- Build of the entire Reason part of the codebase is ~2s (several hundred files)
 - Bug reports has decreased (from a few one per day to **10 bugs** a year)
 - Refactors are faster and introduce fewer bugs
 
@@ -156,7 +156,7 @@ To do so, the `TopActivites` component (which is responsible for showing the act
 
 When the user will tap an activity from the Home screen, we will pass to the Activity Detail Screen the current week information: the week **start date** and the week **end date**.   
 
-Here is a schema to show the logic and the file hierarchy:
+Here is a schema to show you the logic and the file hierarchy:
 
 <div className="image-wrapper">
 <img
@@ -330,6 +330,7 @@ We will display the events in the form of a chronogram.
 This chronogram will be used to display all the events **day by day**.
 
 When the user changes the current week, we will update `startDate` and `supposedEndDate` seen above (1. Fetch the events).   
+
 `onViewableItemsChanged` will trigger the events fetch with the new week range.
 
 ```js title="src/components/ActivityOptions.res"
