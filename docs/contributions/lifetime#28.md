@@ -352,7 +352,6 @@ When we don't allow the function to fetch new events, it will look in the Map to
 You can see this like a store for our events.
 
 <details><summary>Calendars - getEvents</summary>
-<p>
 
 ```jsx title="src/Calendars.res"
 let getEvents = React.useCallback2((startDate, endDate, allowFetch) => {
@@ -393,7 +392,6 @@ let getEvents = React.useCallback2((startDate, endDate, allowFetch) => {
 }
 ```
 
-</p>
 </details>
 <br />
 
