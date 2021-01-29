@@ -19,7 +19,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <div className="marginBottom">
   <span className="badge badge--secondary marginRight">coaching</span>
   <span className="badge badge--secondary marginRight">react-native</span>
-  <span className="badge badge--secondary marginRight">ReasonML</span>
+  <span className="badge badge--secondary marginRight">Reason / ReScript</span>
 </div>
 
 ## Project description

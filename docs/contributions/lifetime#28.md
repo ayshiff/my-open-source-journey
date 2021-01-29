@@ -24,7 +24,7 @@ import { Open } from '../utils.md';
   </div>
   <span className="badge badge--secondary marginRight">coaching</span>
   <span className="badge badge--secondary marginRight">react-native</span>
-  <span className="badge badge--secondary marginRight">ReasonML</span>
+  <span className="badge badge--secondary marginRight">Reason / ReScript</span>
 </div>
 </div>
 
@@ -39,7 +39,7 @@ This contribution is a new **feature**.
 ## Introduction
 
 This contribution combines two things that I love: **Meta Languages** and **time management**.  
-It is for me the opportunity to present you to a language that I particularly like... <a href="https://reasonml.github.io/"><Highlight color="#DD4B39">ReasonML</Highlight></a>.
+It is for me the opportunity to present you to a language that I particularly like... <a href="https://reasonml.github.io/"><Highlight color="#DD4B39">Reason</Highlight></a> / <a href="https://rescript-lang.org/"><Highlight color="#DD4B39">ReScript</Highlight></a>.
 
 <div className="image-wrapper">
 <br/>

@@ -4,6 +4,7 @@ title: Concept presentation
 ---
 
 import clsx from 'clsx';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from '../src/pages/styles.module.css';
 
 export const Highlight = ({children, color}) => ( <span 
@@ -23,6 +24,15 @@ It is also an opportunity for me to **present some Open Source projects**.
 This contribution will be in the form of a <Highlight color="#203666">Pull Request</Highlight>.
 
 I will share with you an article which will be in the form below but I keep the freedom to adjust the shape of the articles according to the content I want to present.
+
+<div className="image-wrapper">
+<br />
+<img
+  alt="Contribution timeline"
+  width="700px"
+  src={useBaseUrl('img/timeline.png')}
+/>
+</div>
 
 ### Contribution details
 #### Contribution references
