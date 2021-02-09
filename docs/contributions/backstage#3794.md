@@ -351,7 +351,7 @@ This PR also made it possible to identify new features:
 
 ### What did I learn ?
 
-This contribution is allowed me to use the `aws-sdk` v3 and to compare it with the v2 version.
+This contribution has allowed me to use the `aws-sdk` v3 and to compare it with the v2 version.
 It also allowed me to improve my english by writing some documentation (Not being a native English speaker, it is important for me to improve myself by practicing my English.)
 
 It allowed me, thanks to the review of the different members working on the project, to improve my code, my logic and to question my work to be more rigorous.

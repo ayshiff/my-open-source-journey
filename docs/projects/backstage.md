@@ -42,3 +42,4 @@ For more information about Backstage you can find it <a href="https://backstage.
 ### Related contributions
 
 - <a href="/docs/contributions/backstage3794"><Highlight color="#25c2a0">3. Backstage - Techdocs AWS Support</Highlight></a>
+- <a href="/docs/contributions/backstage-splunk-on-call"><Highlight color="#25c2a0">5. Backstage - Splunk On-Call Plugin</Highlight></a>
