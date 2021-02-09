@@ -4,7 +4,7 @@ title: Backstage - Splunk On-Call Plugin
 sidebar_label: 5. Backstage - Splunk On-Call Plugin
 ---
 
-<p className="post_date">7 Jan 2021</p>
+<p className="post_date">7 Feb 2021</p>
 
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
@@ -29,7 +29,7 @@ import { Open } from '../utils.md';
 </div>
 
 :::info Contribution link
-https://github.com/backstage/backstage/pull/3794
+https://github.com/backstage/backstage/pull/4416
 :::
 
 :::tip Contribution Type
@@ -784,7 +784,7 @@ Here is the final result with a sample workflow:
 - **Creation of a new incident** to the current team
 - **Acknowledgement** of the incident
 - **Resolution** of the incident
-- **Displaying the incident** on the Splunk On-Call dashboard
+- **Incident display** on the Splunk On-Call dashboard
 
 <div>
   <video width="100%" muted controls>
