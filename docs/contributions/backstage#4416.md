@@ -53,11 +53,11 @@ You can find the <a href="/docs/projects/backstage"><Highlight color="#25c2a0">B
 
 ### Context
 
-To understand a little bit more about the initial issue you need to understand what a **plugin** is.
+In order to understand the initial issue you need to have a basic understanding of what a **plugin** is.
 
 #### What is a Backstage plugin ?
 
-Backstage is an application build on top of a set of plugins.
+Backstage is an application build on top of a set of plugins.   
 A plugin lets you expose any kind of **infrastructure** or **software development tool** in Backstage.
 
 This means you can write your own plugins to add **new functionalities** to Backstage.
@@ -86,7 +86,7 @@ Before continuing, you need to have a basic familiarity with **incident manageme
 
 #### Incident management
 
-An incident management system apply a logical operation to an Incident. It can determines:
+An incident management system apply a logical operation to an Incident.It can determines:
 
 - Who should be **alerted** to this particular incident
 - What method of **notification** is used (SMS, email, etc)
@@ -96,19 +96,19 @@ Here are the “Five Phases” of the Incident Management framework:
 
 <div className="image-wrapper">
 <img
-  alt="Incident mnagement framework"
+  alt="Incident management framework"
   width="400"
   src={useBaseUrl('img/backstage-splunk-on-call/incident-management-framework.png')}
 />
 <br />
-<em>Incident mnagement framework</em>
+<em>Incident management framework</em>
 </div>
 
 You can learn more about Effective DevOps Incident Management Teams <a href="https://victorops.com/blog/ten-practices-of-highly-effective-devops-incident-management-teams"><Highlight color="#25c2a0">here</Highlight></a>.
 
 **1.** The initial step of the incident lifecycle is knowing about the problem.
 
-**2.** The second step helps you establish the sevirity and priority of the problem.  
+**2.** The second step helps you establish the severity and priority of the problem.  
  We can split it into three points:
 
     - Triage (What's going on?)
@@ -136,11 +136,11 @@ Here is the list of some terms with their definition that you can find in this a
 
 - **Escalation policy**: this answers the question of how your organization handles these incidents.  
   It defines who should be notified when an incident is triggered, and who the incident should escalate to if the first responder isn’t available.  
-  Once one persone has responded, the escalation policy will stop escalation, and no further notifications will be sent.
+  Once one person has responded, the escalation policy will stop escalation, and no further notifications will be sent.
 
 <div className="image-wrapper">
 <img
-  alt="Splunk On-Call Escalation polcy creation"
+  alt="Splunk On-Call Escalation policy creation"
   width="650"
   src={useBaseUrl('img/backstage-splunk-on-call/escalation-policies.png')}
 />
@@ -217,12 +217,13 @@ export const plugin = createPlugin({
 #### Folder structure
 
 The plugin looks like a separate package, it has a `package.json` and a `src` folder.
-It allows us to have a better independence of the different plugins, to deploy them separately and to work on them in isolation from the rest of the application.
-The `index.ts` files are there to let us import from the folder path and not specific files.
+It allows us to have a better independence of the different plugins, to deploy them separately and to work on them in isolation from the rest of the application.  
+
+Note that the `index.ts` files are there to let us import from the folder path and not specific files.
 
 ```bash
 .
-├── README.md # Display informations about the plugin
+├── README.md # Display information about the plugin
 ├── dev
 │   └── index.tsx
 ├── package.json
@@ -259,7 +260,7 @@ The `index.ts` files are there to let us import from the folder path and not spe
     │   └── types.ts
     ├── index.ts # Plugin entry point
     ├── plugin.test.ts
-    ├── plugin.ts # Create the plugin
+    ├── plugin.ts # Plugin creation
     └── setupTests.ts
 ```
 
@@ -269,7 +270,7 @@ In order to allow people to use our plugin, we need to add it to the <a href="ht
 
 The marketplace is used to:
 
-- List the avalaible plugins with **informations** (title, description, tag, etc)
+- List the available plugins with **information** (title, description, tag, etc)
 - Show who that contributed it (**user-company**)
 - Link to appropriate **documentation**
 
@@ -316,15 +317,15 @@ Here is the list of all the routes we are going to implement.
 | `triggerAlarm`          | **Triggers** an incident to specific users and/or specific teams. |
 | `resolveIncident`       | **Resolves** an incident.                                         |
 | `acknowledgeIncident`   | **Acknowledge** an incident.                                      |
-| `getUsers`              | Get a **list of users** for your organization.                    |
-| `getTeams`              | Get a **list of teams** for your organization.                    |
-| `getEscalationPolicies` | Get a **list of escalation policies** for your organization.      |
+| `getUsers`              | Get a **list of users** for the user organization.                    |
+| `getTeams`              | Get a **list of teams** for the user organization.                    |
+| `getEscalationPolicies` | Get a **list of escalation policies** for the user organization.      |
 
 #### Proxying
 
-The proxy will allow us to redirect calls from `/splunk-on-call` to `https://api.victorops.com/api-public` and add authentication information in the headers.
+The proxy will allow us to redirect calls from `/splunk-on-call` to the Splunk On-Call API `https://api.victorops.com/api-public` and add authentication information in the headers.
 
-By default, the proxy is already added to the defaultBackstage project:
+By default, the proxy is already added to the default Backstage project:
 
 ```ts title="packages/backend/src/index.ts"
 const proxyEnv = useHotMemoize(module, () => createEnv("proxy"));
@@ -350,11 +351,10 @@ proxy:
 
 #### The `getIncidents` example
 
-In order to
+In order to understand how the API works, we will take the `getIncidents` method example.
 
-We will take the `getIncidents` method to show the logic behind this API.
-
-The `this.config.discoveryApi.getBaseUrl('proxy')` call return the proxy base url.
+Note that the factory method `fromConfig` takes in parameter `configApi` and `discoveryApi` which allows us to retrieve some variables related to the app configuration.   
+(e.g. the `this.config.discoveryApi.getBaseUrl('proxy')` refers to the proxy base url)
 
 ```ts title="plugins/splunk-on-call/src/api/client.ts"
 export class SplunkOnCallClient implements SplunkOnCallApi {
@@ -421,7 +421,7 @@ The `components` folder contains all of our components.
 
 #### SplunkOnCallCard
 
-This is the main root component, the one that includes the rest of the components.
+This is the main root component, the one that includes the rest of the child components.
 
 <div className="image-wrapper">
 <img
@@ -765,7 +765,7 @@ it("Handle errors", async () => {
 
 ### Add changesets
 
-The final step is to add **changesets** which will contains the list of our file changes.  
+The final step is to add a **changeset** which will contains the list of our file changes.  
 It lets us declare **how our changes should be released**.  
 In our case we only have `patch` changes.
 
@@ -796,10 +796,10 @@ Here is the final result with a sample workflow:
 
 ### Problems encountered
 
-I found that there were some inconsistencies in the [Splunk On-Call API swagger](https://portal.victorops.com/api-docs/), especially in the models.  
+I found that there were some inconsistencies in the [Splunk On-Call API documentation](https://portal.victorops.com/api-docs/), especially in the **models**.  
 Therefore I had to go back several times on my TypeScript models to fix them.
 
 ### What did I learn ?
 
-This contribution has allowed me to use an Incident management tool (Splunk On-Call) and to familiarize myself with the creation of plugins for Backstage.  
+This contribution has allowed me to use an **Incident management tool** (Splunk On-Call) and to familiarize myself with the **creation of plugins for Backstage**.  
 It allowed me to interact with parts of Backstage that I had never contributed to before.
