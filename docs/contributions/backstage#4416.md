@@ -62,7 +62,7 @@ A plugin lets you expose any kind of **infrastructure** or **software developmen
 
 This means you can write your own plugins to add **new functionalities** to Backstage.
 
-In this case we will implement a plugin to integrate <a href="https://www.splunk.com/en_us/software/splunk-on-call.html"><Highlight color="#25c2a0">Splunk On-Call</Highlight></a> (previously **VictorOps**).
+In this case we will implement a plugin to integrate <a href="https://www.splunk.com/en_us/software/splunk-on-call.html"><Highlight color="#25c2a0">Splunk On-Call</Highlight></a> (previously **VictorOps**) functionalities.
 
 #### What is Splunk On-Call ?
 
@@ -80,6 +80,7 @@ Splunk On-Call helps you answer these questions by **automating incident managem
 <br/>
 <em>Splunk On-Call dashboard</em>
 </div>
+<br/>
 
 Before continuing, you need to have a basic familiarity with **incident management** concepts.
 
@@ -105,23 +106,51 @@ Here are the “Five Phases” of the Incident Management framework:
 
 You can learn more about Effective DevOps Incident Management Teams <a href="https://victorops.com/blog/ten-practices-of-highly-effective-devops-incident-management-teams"><Highlight color="#25c2a0">here</Highlight></a>.
 
-1.
+**1.** The initial step of the incident lifecycle is knowing about the problem.
 
-2.
+**2.** The second step helps you establish the sevirity and priority of the problem.  
+ We can split it into three points:
 
-3.
+    - Triage (What's going on?)
+    - Investigation (How bad is it?)
+    - Identification (How long has it been occuring?)
 
-4.
+**3.** The third step helps you to understand more regarding leading factors of incidents during remediation.
+For example, a small "fix" can have implications elsewhere in your system and you must be aware of this.
 
-5.
+**4.** The fourth step will allow you to make a complete analysis about the incident:
+
+    - How do we know about the problem faster?
+    - How do we recover from the problem faster?
+
+**5.** The fifth step will provides great metrics to review for further improvements.  
+ It will allow your team to improve the way they respond to incidents.
+
+    - What you can learn from those mistakes?
 
 Here is the list of some terms with their definition that you can find in this article:
 
-- **Escalation policy**: engage one person in incident response, it will escalate until one person has responded. Once one person has responded, the escalation policy will stop escalating, and no further notifications will be sent.
+- **Rotation**: A rotation is a recurring schedule, consisting of one or multiple work shifts, with team members alternating through a work shift.
+
+- **Incident escalation**: this is what happens when a person can't resolve an incident themselves and needs to report the incident to someone else (team, person, etc)
+
+- **Escalation policy**: this answers the question of how your organization handles these incidents.  
+  It defines who should be notified when an incident is triggered, and who the incident should escalate to if the first responder isn’t available.  
+  Once one persone has responded, the escalation policy will stop escalation, and no further notifications will be sent.
+
+<div className="image-wrapper">
+<img
+  alt="Splunk On-Call Escalation polcy creation"
+  width="650"
+  src={useBaseUrl('img/backstage-splunk-on-call/escalation-policies.png')}
+/>
+<br />
+<em>Splunk On-Call Escalation policy creation</em>
+</div>
 
 ### Current behavior
 
-Currently only one incident management plugin exists, PagerDuty.
+For the moment only one incident management plugin exists, PagerDuty.  
 Some people use Splunk On-Call VictorOps as their on-duty rotation manager and would like it to be integrated into backstage.
 
 The goal of the issue is to implement a new plugin for **Splunk On-Call**.
@@ -236,7 +265,7 @@ The `index.ts` files are there to let us import from the folder path and not spe
 
 ### Create the plugin Marketplace entry
 
-We need to add our plugin to the <a href="https://backstage.io/plugins"><Highlight color="#25c2a0">Backstage plugin marketplace</Highlight></a>.  
+In order to allow people to use our plugin, we need to add it to the <a href="https://backstage.io/plugins"><Highlight color="#25c2a0">Backstage plugin marketplace</Highlight></a>.
 
 The marketplace is used to:
 
@@ -266,13 +295,12 @@ category: Monitoring
 description: Splunk On-Call offers a simple way to identify incidents and escalation policies.
 documentation: https://github.com/backstage/backstage/tree/master/plugins/splunk-on-call
 iconUrl: data:image/svg+xml;base64, # ...
-npmPackageName: '@backstage/plugin-splunk-on-call'
+npmPackageName: "@backstage/plugin-splunk-on-call"
 tags:
   - monitoring
   - errors
   - alerting
   - splunk
-
 ```
 
 ### Create the plugin API
@@ -407,9 +435,9 @@ This is the main root component, the one that includes the rest of the component
 
 #### Incident list
 
-This component is used to display the list of the different incidents with their associated information (creator name, creation date, etc).   
+This component is used to display the list of the different incidents with their associated information (creator name, creation date, etc).
 
-An incident can have several **status**: `triggered`, `acknowledge` or `resolved`.   
+An incident can have several **status**: `triggered`, `acknowledge` or `resolved`.  
 It also have an **action section** where the user can `acknowledge` or `resolve` the incident.
 
 <div className="image-wrapper">
@@ -550,12 +578,12 @@ This component is used to trigger a new incident to specific users and/or teams.
 
 <div className="image-wrapper">
 <img
-  alt="Plugin errors"
+  alt="Trigger Dialog"
   width="80%"
   src={useBaseUrl('img/backstage-splunk-on-call/trigger-dialog.jpg')}
 />
 <br />
-<em>Plugin errors</em>
+<em>Trigger Dialog</em>
 </div>
 
 #### Errors
@@ -716,6 +744,7 @@ This will trigger the alert API.
 
 ```ts title="plugins/splunk-on-call/src/components/Incident/Incidents.test.tsx"
 it("Handle errors", async () => {
+  // Mock the getIncidents call to throw an error
   mockSplunkOnCallApi.getIncidents = jest
     .fn()
     .mockRejectedValueOnce(new Error("Error occurred"));
@@ -742,21 +771,35 @@ In our case we only have `patch` changes.
 
 ```py title=".changeset/itchy-camels-grin.md"
 ---
-'@backstage/plugin-catalog': patch
 '@backstage/plugin-splunk-on-call': patch
 ---
 
 Added splunk-on-call plugin.
 ```
 
+## Final result
+
+Here is the final result with a sample workflow:
+
+- **Creation of a new incident** to the current team
+- **Acknowledgement** of the incident
+- **Resolution** of the incident
+- **Displaying the incident** on the Splunk On-Call dashboard
+
+<div>
+  <video width="100%" muted controls>
+    <source src={useBaseUrl('img/backstage-splunk-on-call/plugin-splunk-on-call.mp4')} type="video/mp4" />
+  </video>
+</div>
+
 ## Takeaway
 
 ### Problems encountered
 
 I found that there were some inconsistencies in the [Splunk On-Call API swagger](https://portal.victorops.com/api-docs/), especially in the models.  
-So I had to go back several times on my TypeScript models to fix them.
+Therefore I had to go back several times on my TypeScript models to fix them.
 
 ### What did I learn ?
 
-This contribution has allowed me to use an Incident management tool (Splunk On-Call) and to familiarize myself with the creation of plugins for Backstage.
+This contribution has allowed me to use an Incident management tool (Splunk On-Call) and to familiarize myself with the creation of plugins for Backstage.  
 It allowed me to interact with parts of Backstage that I had never contributed to before.
