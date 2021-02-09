@@ -46,7 +46,7 @@ It is for me the opportunity to present you to a language that I particularly li
 <img
   alt="LifeTime presentation"
   width="100%"
-  src={useBaseUrl('img/lifetime/presentation2.jpg')}
+  src={useBaseUrl('img/lifetime/cover_final.jpg')}
 />
 <br/>
 <em>LifeTime = ReasonML + calendars</em>
