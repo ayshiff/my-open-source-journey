@@ -235,5 +235,5 @@ This is why I implemented the error as a `struct`.
 
 ### What did I learn ?
 
-This contribution is allowed me to learn more about **IP addresses** and **packed bytes representation**.   
+This contribution allowed me to learn more about **IP addresses** and **packed bytes representation**.   
 Swift is not the language I usually use, so it allowed me to put into practice some concepts that I have learned in the past.
