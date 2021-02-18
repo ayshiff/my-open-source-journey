@@ -238,7 +238,7 @@ selectKind(
 }
 ```
 
-Inside the landing page we will know **dispatch** the `SelectCodegenKind` action:
+Inside the landing page we will **dispatch** the `SelectCodegenKind` action:
 
 ```ts title="apps/xlayers/src/home/landing/landing.component.ts"
 selectFramework(framework: CodeGenKind) {
@@ -247,7 +247,7 @@ selectFramework(framework: CodeGenKind) {
 }
 ```
 
-Inside the codegen generation page, we can know **subscribe** to the `codegen` from our store and generate the code for the selected `codegen.kind`.
+Inside the codegen generation page, we can **subscribe** to the `codegen` from our store and generate the code for the selected `codegen.kind`.
 
 ```ts title="apps/xlayers/src/app/editor/code/editor-container/editor-container.component.ts"
 ngOnInit() {
