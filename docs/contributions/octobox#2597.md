@@ -15,7 +15,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Merged } from '../utils.md';
+import { Merged, ImageWrapper } from '../utils.md';
 
 <div className="pr_infos">
 <div className="marginBottom">
@@ -50,7 +50,7 @@ This contribution is a new **feature**.
 
 ### Project
 
-You can find the <a href="/docs/projects/octobox"><Highlight color="#25c2a0">octobox project presentation here</Highlight></a>.
+You can find the <a href="/docs/projects/octobox"><Highlight color="#25c2a0">Octobox project presentation here</Highlight></a>.
 
 To access Octobox.io you just need to sign in with your GitHub profile or install the GitHub app on the <a href="https://octobox.io/"><Highlight color="#25c2a0">homepage</Highlight></a>.
 
@@ -64,23 +64,70 @@ Notifications can be of different types: `Issue`, `Pull request` or `Vulnerabili
 Here is a list of some filters that can be used:
 
 - **repo:`octobox/octobox`**	Only search notifications from the **octobox/octobox repository**.
-- **owner:`microsoft`**	Only search notifications from repos in the **microsoft organisation**.
+- **owner:`microsoft`**	Only search notifications from repositories in the **microsoft organisation**.
 - **type:`pull_request`**	Only search **pull requests**. Also accepts: issue, release, commit, repository_invitation and repository_vulnerability_alert.
 
 The goal of this contribution is to be able to add filtering according to the number of the issue and/or the pull-request, like Github does:
 
 <div className="image-wrapper">
-<img
-  alt="IP address logic"
-  width="100%"
-  src={useBaseUrl('img/octobox/issue_number.png')}
-/>
+  <ImageWrapper src={useBaseUrl('img/octobox/issue_number.png')} width="100%" alt="Issue number" />
 </div>
 <br />
 
 :::note Issue link
 https://github.com/octobox/octobox/issues/2144
 :::
+
+## Setting up the project
+
+In order to contribute to the project, we will need to set up certain elements.
+
+1. **Fork** and **clone** the Octobox repository to our local machine.
+  ```bash
+  git clone git@github.com:<OUR_GITHUB_USERNAME>/octobox.git # Using SSH
+  ```
+2. Install **Ruby 2.7.2** using <a href="https://github.com/rbenv/rbenv"><Highlight color="#25c2a0">rbenv</Highlight></a> which is a version manager for Ruby.   
+  It will allow us to install the correct version of Ruby for our project.
+  ```bash
+  brew install rbenv ruby-build
+  rbenv install 2.7.2
+  rbenv global 2.7.2
+  ```
+3. Install **PostgreSQL** which will be used to store our notifications.
+  ```bash
+  brew install postgres
+  ```
+4. Install the "Gems" dependencies from the `Gemfile`
+  ```bash
+  gem install bundler && rbenv rehash
+  bundle install
+  ```
+5. Create the **databases** and **tables** with "Rake"(it is a task runner in Ruby).
+  ```bash
+  bundle exec rake db:create db:migrate
+  ```
+6. Register a new <a href="https://github.com/settings/applications/new"><Highlight color="#25c2a0">GitHub OAuth Application</Highlight></a>.   
+
+  It will allow us to connect our **GitHub identity** to our local Octobox instance using **OAuth** and to **retrieve account notifications**.
+
+  <div className="image-wrapper">
+    <ImageWrapper src={useBaseUrl('img/octobox/oauth-github.png')} width="600" alt="GitHub OAuth Application" />
+  </div>
+
+  Once this step has been completed, we need to write down the two keys and create an `.env` file with the **client id** and **client secret**:
+
+  ```bash
+  GITHUB_CLIENT_ID=<OUR_GITHUB_CLIENT_ID>
+  GITHUB_CLIENT_SECRET=<OUR_GITHUB_CLIENT_SECRET>
+  ```
+
+7. Make sure that PostgreSQL is running and **start** the project with:
+
+  ```bash
+  rails s
+  ```
+
+Now that our project is running locally, we can start **implementing the solution**.
 
 ## Implement the solution
 
@@ -112,9 +159,13 @@ end
 
 The following tests will allow us to test that the notifications are properly filtered according to the number(s) we specified in the search input.   
 
-For example, given the following search input, the route:   
+For example, given the following search input, the URL   
 `/?q=inbox%3Atrue+type%3Aissue+number%3A4555` will be used.   
-(**NOTE**: `3A` corresponds to the character `:`)
+
+**NOTE:** When building a URL, we must ensure that it contains **only valid characters**.   
+All characters to be URL-encoded are encoded using the `%` character and two hexadecimal digits corresponding to their UTF-8 character.   
+
+This means that `3A` corresponds to the character `:` and `+` to a space (the real percent encoding uses `%20` while form data in URLs is in a modified form that uses `+`).
 
 <div className="image-wrapper">
 <img
@@ -161,17 +212,17 @@ end
 In order to make our tests pass, we will need to implement different things:
 
 - Add a new param `number` for the search which will be used to query the right filters.
-- Add a new `number` scope which will be used to select the notifications from our table with a number which matches to our.
-- Add a new `-number` scope which will be used to select the notifications from our table with a number which is different to our.
+- Add a new `number` scope which will be used to select the notifications from our table with a number which **matches** to our.
+- Add a new `-number` scope which will be used to select the notifications from our table with a number which is **different** to our.
 
 ### Add the new search params
 
 This step involves adding our two new params `number` and `-number` (`exclude_number`).   
 They will allow to pass the right information to the scopes who will take care of the logic to retrieve the corresponding notifications in our database.   
 
-`exclude_number` works as a negative filter and will therefore filter in the opposite way to `number`: `-number'.
+`exclude_number` works as a negative filter and will therefore filter in the opposite way to `number`: `-number`.
 
-```ruby title="app/models/search.rb"
+```ruby {32,33,37-39,41-43} title="app/models/search.rb"
 class Search
   attr_accessor :parsed_query
   attr_accessor :scope
@@ -228,6 +279,12 @@ The `subject_url` is in the following format:
 
 With the reference number at the end of the url.
 
+If the filter is combined with the `type` filter, it will only search notifications of this type.
+
+<div className="image-wrapper">
+  <ImageWrapper src={useBaseUrl('img/octobox/filtering-schema.png')} width="100%" alt="Filtering schema" />
+</div>
+
 In the inclusive case we need to retrieve the notifications that **have** a reference number that corresponds to the one we provide.
 
 ```ruby title="lib/octobox/notifications/inclusive_scope.rb"
@@ -283,11 +340,7 @@ To help the user use the correct filters, there is a modal-component that is use
 It display some information to the user about the different filters he can use.
 
 <div className="image-wrapper">
-<img
-  alt="Filter list helper"
-  width="600"
-  src={useBaseUrl('img/octobox/filter-list-doc.png')}
-/>
+  <ImageWrapper src={useBaseUrl('img/octobox/filter-list-doc.png')} width="600" alt="Filter list helper" />
 <br />
 <em>Filter list helper</em>
 </div>
@@ -311,10 +364,7 @@ Here is the final result with a sample workflow:
 - Filtering with a **negated** reference number
 
 <div className="image-wrapper">
-<img
-  alt="Final result"
-  src={useBaseUrl('img/octobox/final_result.gif')}
-/>
+  <ImageWrapper src={useBaseUrl('img/octobox/final_result.gif')} width="100%" alt="Final result" />
 </div>
 <br />
 
