@@ -22,7 +22,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Project description
 
-Octobox is a tool that helps you manage your GitHub notifications efficiently.   
+Octobox is a tool that helps you manage your **GitHub notifications** efficiently.   
+It manages your notifications in the same way as a mailbox could do with your emails.
 
 For more information about Octobox you can find it <a href="https://octobox.io/documentation"><Highlight color="#25c2a0">here</Highlight></a>.
 

@@ -39,6 +39,15 @@ This contribution is a new **feature**.
 
 ## Introduction
 
+<div className="image-wrapper">
+<img
+  alt="Contribution presentation"
+  src={useBaseUrl('img/octobox/cover.jpg')}
+/>
+<br/>
+<em>Octobox + Notifications filter</em>
+</div>
+
 ### Project
 
 You can find the <a href="/docs/projects/octobox"><Highlight color="#25c2a0">octobox project presentation here</Highlight></a>.
@@ -49,7 +58,8 @@ To access Octobox.io you just need to sign in with your GitHub profile or instal
 
 ### Current behavior
 
-Users can currently filter notifications with specific filters.
+Users can currently refine their GitHub notifications with specific filters.   
+Notifications can be of different types: `Issue`, `Pull request` or `Vulnerability alert`.
 
 Here is a list of some filters that can be used:
 
@@ -57,9 +67,7 @@ Here is a list of some filters that can be used:
 - **owner:`microsoft`**	Only search notifications from repos in the **microsoft organisation**.
 - **type:`pull_request`**	Only search **pull requests**. Also accepts: issue, release, commit, repository_invitation and repository_vulnerability_alert.
 
-The goal of this contribution is to be able to add filtering according to the number of the issue and/or the pull-request.
-
-As Github does:
+The goal of this contribution is to be able to add filtering according to the number of the issue and/or the pull-request, like Github does:
 
 <div className="image-wrapper">
 <img
@@ -105,7 +113,8 @@ end
 The following tests will allow us to test that the notifications are properly filtered according to the number(s) we specified in the search input.   
 
 For example, given the following search input, the route:   
-`/?q=inbox%3Atrue+type%3Aissue+number%3A4555` will be used.
+`/?q=inbox%3Atrue+type%3Aissue+number%3A4555` will be used.   
+(**NOTE**: `3A` corresponds to the character `:`)
 
 <div className="image-wrapper">
 <img
@@ -149,9 +158,18 @@ end
 
 ### Make our tests pass
 
+In order to make our tests pass, we will need to implement different things:
 
+- Add a new param `number` for the search which will be used to query the right filters.
+- Add a new `number` scope which will be used to select the notifications from our table with a number which matches to our.
+- Add a new `-number` scope which will be used to select the notifications from our table with a number which is different to our.
 
-#### Add the search
+### Add the new search params
+
+This step involves adding our two new params `number` and `-number` (`exclude_number`).   
+They will allow to pass the right information to the scopes who will take care of the logic to retrieve the corresponding notifications in our database.   
+
+`exclude_number` works as a negative filter and will therefore filter in the opposite way to `number`: `-number'.
 
 ```ruby title="app/models/search.rb"
 class Search
@@ -202,7 +220,9 @@ end
 
 ### Add the scopes
 
-The `subject_url`is in the following format:
+Now that we have the filters requested by the user, all we have to do is retrieve the corresponding elements.
+
+The `subject_url` is in the following format:
 
 `https://github.com/octobox/octobox/issues` **`/2520`**
 
@@ -232,6 +252,10 @@ scope :exclude_number, ->(subject_numbers)  {
 }
 ```
 
+### Add the helpers
+
+Now that we have developed our new filtering system, all we have to do is add various helpers that will allow the user to use our filters correctly.
+
 #### Add the search filter element
 
 In order to help the user visualize the filters that are currently selected, we will add a new element to the `_filter-list` view.
@@ -247,7 +271,7 @@ In order to help the user visualize the filters that are currently selected, we 
 </div>
 <br />
 
-```html title="app/views/notifications/_filter-list.html.erb"
+```auto title="app/views/notifications/_filter-list.html.erb"
 <%= filter_option :number do %>
   Number: <%= params[:number] %>
 <% end %>
@@ -298,12 +322,10 @@ Here is the final result with a sample workflow:
 
 ### Problems encountered
 
-At first I started implementing the new error in the existing enum `SocketAddressError`:
-
-But adding new cases to enumerations is a Semver major change.   
-This is why I implemented the error as a `struct`.
+The local setup of the project was a bit long (configuration of the ruby version, setting up postgres/redis...).   
+But it allowed me to understand how the project works.
 
 ### What did I learn ?
 
-This contribution allowed me to learn more about **IP addresses** and **packed bytes representation**.   
-Swift is not the language I usually use, so it allowed me to put into practice some concepts that I have learned in the past.
+This contribution allowed me to learn more about **Ruby On-Rails** and its usage in a concrete project.    
+Ruby is not a language I usually use, it allowed me to use a different language from the ones I usually use.
