@@ -67,7 +67,7 @@ Here is a list of some filters that can be used:
 - **owner:`microsoft`**	Only search notifications from repositories in the **microsoft organisation**.
 - **type:`pull_request`**	Only search **pull requests**. Also accepts: issue, release, commit, repository_invitation and repository_vulnerability_alert.
 
-The goal of this contribution is to be able to add **filtering** according to the **number** of the **issue** and/or the **pull-request**, like *Github* does:
+The goal of this contribution is to be able to add **filtering** according to the **number** of the **issue** and/or the **pull-request**, like *GitHub* does:
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/octobox/issue_number.png')} width="100%" alt="Issue number" />
