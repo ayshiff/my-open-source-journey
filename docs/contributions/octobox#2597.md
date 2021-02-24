@@ -58,8 +58,12 @@ To access Octobox.io you just need to sign in with your GitHub profile or instal
 
 ### Current behavior
 
-Users can currently refine their GitHub notifications with specific filters.   
-Notifications can be of different types: `Issue`, `Pull request` or `Vulnerability alert`.
+In order to understand the current behavior you need to understand what a GitHub notification is.
+
+Notifications provide updates about the **activities** and **conversations** you're interested in.   
+In the Octobox context, they can be of three different types: `Issue`, `Pull request` or `Vulnerability alert`.   
+
+Users can currently **refine** their notifications with **specific filters**.   
 
 Here is a list of some filters that can be used:
 
@@ -67,7 +71,7 @@ Here is a list of some filters that can be used:
 - **owner:`microsoft`**	Only search notifications from repositories in the **microsoft organisation**.
 - **type:`pull_request`**	Only search **pull requests**. Also accepts: issue, release, commit, repository_invitation and repository_vulnerability_alert.
 
-The goal of this contribution is to be able to add filtering according to the number of the issue and/or the pull-request, like Github does:
+The goal of this contribution is to be able to add **filtering** according to the **number** of the **issue** and/or the **pull-request**, like *Github* does:
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/octobox/issue_number.png')} width="100%" alt="Issue number" />
@@ -159,13 +163,15 @@ end
 
 The following tests will allow us to test that the notifications are properly filtered according to the number(s) we specified in the search input.   
 
-For example, given the following search input, the URL   
-`/?q=inbox%3Atrue+type%3Aissue+number%3A4555` will be used.   
+For example, given the following search input, the following URL will be used.   
+```
+/?q=inbox%3Atrue+type%3Aissue+number%3A4555
+```   
 
 **NOTE:** When building a URL, we must ensure that it contains **only valid characters**.   
 All characters to be URL-encoded are encoded using the `%` character and two hexadecimal digits corresponding to their UTF-8 character.   
 
-This means that `3A` corresponds to the character `:` and `+` to a space (the real percent encoding uses `%20` while form data in URLs is in a modified form that uses `+`).
+This means that `3A` corresponds to the character `:` and `+` to a space (the real encoding uses `%20` but form data in URLs uses `+`).
 
 <div className="image-wrapper">
 <img
@@ -222,29 +228,12 @@ They will allow to pass the right information to the scopes who will take care o
 
 `exclude_number` works as a negative filter and will therefore filter in the opposite way to `number`: `-number`.
 
-```ruby {32,33,37-39,41-43} title="app/models/search.rb"
+We will update our `Search` **model** to add our new params.
+
+```ruby {14-15,19-21,23-25,29-32} title="app/models/search.rb"
 class Search
   attr_accessor :parsed_query
   attr_accessor :scope
-
-  def self.initialize_for_saved_search(query:, user:, params: {})
-    eager_load_relation = [
-      {
-        subject: :labels
-      }, 
-      {
-        repository: 
-        {
-          app_installation: 
-            {
-              subscription_purchase: :subscription_plan
-            }
-        }
-      }
-    ]
-    scope = user.notifications.includes(eager_load_relation)
-    Search.new(query: query, scope: scope, params: params)
-  end
 
   def initialize(query: '', scope:, params: {})
     @parsed_query = SearchParser.new(query)
@@ -254,6 +243,7 @@ class Search
 
   def results
     res = scope
+    # This is used to get our parsed_query :number
     res = res.number(number) if number.present?
     res = res.exclude_number(exclude_number) if exclude_number.present?
     # ... other params
@@ -266,26 +256,64 @@ class Search
   def exclude_number
     parsed_query[:'-number']
   end
+
+  def convert(params)
+    # ... other params
+    [:repo, :owner, :author, :number].each do |filter|
+      next if params[filter].blank?
+      @parsed_query[filter] = Array(params[filter])
+    end
+  end
 end
+```
+
+We will also need to add our new filter to the filter list inside the notification helper.   
+In particular, we will use it to display the `number` filter in the list of selected filters thanks to the helper `filter_option`. (see the <a href="/docs/contributions/octobox2597#add-the-search-filter-element"><Highlight color="#25c2a0">search filter element</Highlight></a> section)
+
+```ruby {7} title="app/helpers/notifications_helper.rb"
+module NotificationsHelper
+  def filters
+    {
+      reason:          params[:reason],
+      unread:          params[:unread],
+      repo:            params[:repo],
+      number:          params[:number],
+      # ... other filters
+    }
+  end
+
+  def filter_option(param)
+    if filters[param].present?
+      link_to root_path(filters.except(param)), class: "btn btn-sm btn-outline-dark" do
+        concat octicon('x', :height => 16)
+        concat ' '
+        concat yield
+      end
+    end
+  end
+
+  # ... other helpers
 ```
 
 ### Add the scopes
 
 Now that we have the filters requested by the user, all we have to do is retrieve the corresponding elements.
 
-The `subject_url` is in the following format:
+There is one property of the `notification` element that we will use: `subject_url`.
 
-`https://github.com/octobox/octobox/issues` **`/2520`**
+The `subject_url` property is in the following format:
 
-With the reference number at the end of the url.
+`https://github.com/octobox/octobox/issues` **`/2520`** (with the reference number at the end of the url).
 
-If the filter is combined with the `type` filter, it will only search notifications of this type.
+Note that if the filter is combined with the `type` filter, it will only search notifications of this type.
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/octobox/filtering-schema.png')} width="100%" alt="Filtering schema" />
+  <em>Notifications filtering</em>
 </div>
+<br />
 
-In the inclusive case we need to retrieve the notifications that **have** a reference number that corresponds to the one we provide.
+In the **inclusive case** we need to retrieve the notifications that **have** a reference number that corresponds to the one we provide.
 
 ```ruby title="lib/octobox/notifications/inclusive_scope.rb"
 scope :number, ->(subject_numbers)  {
@@ -297,7 +325,7 @@ scope :number, ->(subject_numbers)  {
 }
 ```
 
-In the exclusive case we need to retrieve the notifications that **have not** a reference number that corresponds to the one we provide.
+In the **exclusive case** we need to retrieve the notifications that **have not** a reference number that corresponds to the one we provide.
 
 ```ruby title="lib/octobox/notifications/exclusive_scope.rb"
 scope :exclude_number, ->(subject_numbers)  {
@@ -336,12 +364,11 @@ In order to help the user visualize the filters that are currently selected, we 
 
 #### Add the filters list helper
 
-To help the user use the correct filters, there is a modal-component that is used.   
+To help the user use the correct filters, a modal-component is available.   
 It display some information to the user about the different filters he can use.
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/octobox/filter-list-doc.png')} width="600" alt="Filter list helper" />
-<br />
 <em>Filter list helper</em>
 </div>
 <br />
@@ -372,8 +399,11 @@ Here is the final result with a sample workflow:
 
 ### Problems encountered
 
-The local setup of the project was a bit long (configuration of the ruby version, setting up postgres/redis...).   
-But it allowed me to understand how the project works.
+I did not have any major problems with this contribution.   
+
+The local setup of the project was a bit long (configuration of the GitHub OAuth Application, setting up postgres/redis...) especially for the configuration of the ruby version where I had incompatibilities between the `rbenv` version and my local ruby version using `rvm`.  
+
+But it gave me a better idea of how the project worked.
 
 ### What did I learn ?
 
