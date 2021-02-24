@@ -41,7 +41,6 @@ This contribution is a new **feature**.
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/octobox/cover.jpg')} width="100%" alt="Contribution presentation" />
-<br/>
 <em>Octobox + Notifications filter</em>
 </div>
 
@@ -386,7 +385,6 @@ Here is the final result with a sample workflow:
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/octobox/final_result.gif')} width="100%" alt="Final result" />
 </div>
-<br />
 
 ## Takeaway
 
