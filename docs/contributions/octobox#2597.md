@@ -67,7 +67,7 @@ Here is a list of some filters that can be used:
 - **owner:`microsoft`**	Only search notifications from repositories in the **microsoft organisation**.
 - **type:`pull_request`**	Only search **pull requests**. Also accepts: issue, release, commit, repository_invitation and repository_vulnerability_alert.
 
-The goal of this contribution is to be able to add **filtering** according to the **number** of the **issue** and/or the **pull-request**, like *GitHub* does:
+The goal of this contribution is to add **filtering** based on the **issue number** and/or the **pull-request number** like *GitHub* does:
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/octobox/issue_number.png')} width="100%" alt="Issue number" />
@@ -140,7 +140,7 @@ Moreover, it will allow us to do refactoring afterwards by making sure that the 
 
 ### Add the failing tests
 
-To filter the notifications according to their reference numbers, we need to validate that our Search engine will correctly converts our params to the right query prefix.   
+To filter the notifications based on their reference numbers, we need to validate that our Search engine will correctly converts our params to the right query prefix.   
 
 ```ruby title="test/models/search_test.rb"
 class SearchTest < ActiveSupport::TestCase
@@ -152,7 +152,7 @@ class SearchTest < ActiveSupport::TestCase
 end
 ```
 
-The following tests will allow us to test that the notifications are properly filtered according to the number(s) we specified in the search input.   
+The following tests will allow us to test that the notifications are properly filtered based on the number(s) we specified in the search input.   
 
 For example, given the following search input, the following URL will be used.   
 ```
@@ -297,7 +297,7 @@ The `subject_url` property is in the following format:
 
 `https://github.com/octobox/octobox/issues` **`/2520`** (with the reference number at the end of the url).
 
-Note that if the filter is combined with the `type` filter, it will only search notifications of this type.
+Note that if the `number` filter is combined with the `type` filter, it will only search notifications of this type.
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/octobox/filtering-schema.png')} width="100%" alt="Filtering schema" />
