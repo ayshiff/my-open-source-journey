@@ -1,4 +1,6 @@
 import clsx from "clsx";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 import styles from "./utils.css";
 
 export const Merged = () => (
@@ -22,6 +24,23 @@ export const Merged = () => (
     </span>
   </div>
 );
+
+export const ImageWrapper = ({ src, alt, width }) => {
+const [isOpen, setIsOpen] = React.useState(false);
+return (
+  <div>
+    <div className="image-zoom" onClick={() => setIsOpen(true)}>
+      <img src={src} alt={alt} width={width} />
+    </div>
+    {isOpen && (
+      <Lightbox
+        mainSrc={src}
+        onCloseRequest={() => setIsOpen(false)}
+      />
+    )}
+  </div>
+);
+}
 
 export const Open = () => (
   <div className="open">

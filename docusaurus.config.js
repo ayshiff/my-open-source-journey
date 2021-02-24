@@ -25,6 +25,9 @@ module.exports = {
     googleAnalytics: {
       trackingID: "UA-186339279-1",
     },
+    prism: {
+      additionalLanguages: ['ruby'],
+    },
     navbar: {
       title: "Home",
       logo: {

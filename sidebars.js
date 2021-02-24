@@ -14,6 +14,7 @@ module.exports = {
         "contributions/backstage3794",
         "contributions/lifetime28",
         "contributions/backstage4416",
+        "contributions/octobox2597",
       ],
     },
     {
@@ -24,6 +25,7 @@ module.exports = {
         "projects/apple-swift-nio",
         "projects/xlayers",
         "projects/lifetime",
+        "projects/octobox",
       ],
     },
   ],
