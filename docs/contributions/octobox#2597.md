@@ -40,10 +40,7 @@ This contribution is a new **feature**.
 ## Introduction
 
 <div className="image-wrapper">
-<img
-  alt="Contribution presentation"
-  src={useBaseUrl('img/octobox/cover.jpg')}
-/>
+  <ImageWrapper src={useBaseUrl('img/octobox/cover.jpg')} width="100%" alt="Contribution presentation" />
 <br/>
 <em>Octobox + Notifications filter</em>
 </div>
@@ -58,7 +55,7 @@ To access Octobox.io you just need to sign in with your GitHub profile or instal
 
 ### Current behavior
 
-In order to understand the current behavior you need to understand what a GitHub notification is.
+In order to understand the current behavior you need to be familiar with what a GitHub notification is.
 
 Notifications provide updates about the **activities** and **conversations** you're interested in.   
 In the Octobox context, they can be of three different types: `Issue`, `Pull request` or `Vulnerability alert`.   
@@ -112,13 +109,13 @@ In order to contribute to the project, we will need to set up certain elements.
   ```
 6. Register a new <a href="https://github.com/settings/applications/new"><Highlight color="#25c2a0">GitHub OAuth Application</Highlight></a>.   
 
-  It will allow us to connect our **GitHub identity** to our local Octobox instance using **OAuth** and to **retrieve account notifications**.
+  It will allow us to connect our **GitHub identity** to our local Octobox instance using **OAuth** and to **retrieve our account notifications**.
 
   <div className="image-wrapper">
     <ImageWrapper src={useBaseUrl('img/octobox/oauth-github.png')} width="600" alt="GitHub OAuth Application" />
   </div>
 
-  Once this step has been completed, we need to write down the two keys and create an `.env` file with the **client id** and **client secret**:
+  Once this step has been completed, we need to write down the **client id** and **client secret** and create an `.env` file with the following content:
 
   ```bash
   GITHUB_CLIENT_ID=<OUR_GITHUB_CLIENT_ID>
@@ -135,21 +132,16 @@ Now that our project is running locally, we can start **implementing the solutio
 
 ## Implement the solution
 
-We will follow the TDD (**T**est **D**riven **D**evelopment) approach by developing test cases to specify and validate what the code will do.
+We will follow the TDD (**T**est **D**riven **D**evelopment) approach by developing test cases to specify and validate what the code will do.   
+Moreover, it will allow us to do refactoring afterwards by making sure that the functional part is good.
 
 <div className="image-wrapper">
-<img
-  alt="TDD presentation"
-  width="600"
-  src={useBaseUrl('img/octobox/TDD.png')}
-/>
+  <ImageWrapper src={useBaseUrl('img/octobox/TDD.png')} width="600" alt="TDD presentation" />
 </div>
 
 ### Add the failing tests
 
 To filter the notifications according to their reference numbers, we need to validate that our Search engine will correctly converts our params to the right query prefix.   
-
-Moreover, it will allow us to do refactoring afterwards by making sure that the functional part is good.
 
 ```ruby title="test/models/search_test.rb"
 class SearchTest < ActiveSupport::TestCase
@@ -217,14 +209,14 @@ end
 
 In order to make our tests pass, we will need to implement different things:
 
-- Add a new param `number` for the search which will be used to query the right filters.
+- Add a new param `number` for the search model which will be used to query the right filters.
 - Add a new `number` scope which will be used to select the notifications from our table with a number which **matches** to our.
 - Add a new `-number` scope which will be used to select the notifications from our table with a number which is **different** to our.
 
 ### Add the new search params
 
-This step involves adding our two new params `number` and `-number` (`exclude_number`).   
-They will allow to pass the right information to the scopes who will take care of the logic to retrieve the corresponding notifications in our database.   
+This step involves adding our two new params `number` and `-number`.   
+It will allow us to pass the right information to the scopes who will take care of the logic to retrieve the corresponding notifications in our database.   
 
 `exclude_number` works as a negative filter and will therefore filter in the opposite way to `number`: `-number`.
 
@@ -267,8 +259,9 @@ class Search
 end
 ```
 
-We will also need to add our new filter to the filter list inside the notification helper.   
-In particular, we will use it to display the `number` filter in the list of selected filters thanks to the helper `filter_option`. (see the <a href="/docs/contributions/octobox2597#add-the-search-filter-element"><Highlight color="#25c2a0">search filter element</Highlight></a> section)
+We will also need to add our new filter to the filter list inside the notifications helper.   
+
+In particular, it will be useful for displaying the filter in the list of selected filters thanks to the `filter_option` helper. (see the <a href="/docs/contributions/octobox2597#add-the-search-filter-element"><Highlight color="#25c2a0">search filter element</Highlight></a> section)
 
 ```ruby {7} title="app/helpers/notifications_helper.rb"
 module NotificationsHelper
