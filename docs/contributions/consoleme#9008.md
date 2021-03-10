@@ -82,7 +82,7 @@ You can use IAM to control **_WHO_** can do **_WHAT_** on which **_RESOURCES_**.
 Here is the project Architecture Diagram taken from the ConsoleMe <a href="https://hawkins.gitbook.io/consoleme/architecture"><Highlight color="#203666">documentation</Highlight></a>.
 
 <div className="image-wrapper">
-  <ImageWrapper src="https://gblobscdn.gitbook.com/assets%2F-MHx2J68O31YPShOxOKk%2F-MJ7GbFrl8pYrBmMaMIq%2F-MJ7W7DcUI3oC2N-3H94%2FConsoleMe%20Diagram%20(1).png?alt=media&token=0bad1fb5-cb27-4f96-a498-f45b47554ec7" width="80%" alt="Architecture Diagram" />
+  <ImageWrapper src={useBaseUrl('img/consoleme/diagram.png')} width="80%" alt="Architecture Diagram" />
 <em>Architecture Diagram</em>
 </div>
 
