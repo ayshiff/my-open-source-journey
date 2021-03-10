@@ -25,7 +25,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ConsoleMe is a multi-account AWS administrator tool that helps you **manage multiple accounts** into a single web interface.
 
-It allows administrators to get credentials and console access to their onboarded accounts based on their authorization level.
+For example, it allows administrators to obtain console access to their onboarded accounts according to their authorization level.
 
 For more information about ConsoleMe you can find it <a href="https://github.com/Netflix/consoleme"><Highlight color="#25c2a0">here</Highlight></a>.
 

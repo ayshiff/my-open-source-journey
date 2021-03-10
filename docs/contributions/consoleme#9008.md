@@ -51,19 +51,15 @@ You can find the **ConsoleMe project presentation** <a href="/docs/projects/cons
 
 ### Context
 
-In order to understand the project you need to be familiar with what IAM is.
+In order to understand the problem that the project addresses, you need to be familiar with what a **Policy** is.   
+ConsoleMe has a **Policies view** interface that allows you to list all resources across your synchronized environment from the AWS configuration such as organization's IAM roles and S3 buckets.
 
-#### IAM
+#### Policy
 
-Identity and Access Management (IAM) is a service that helps you control access to your AWS ressources.  
-You can use IAM to control **_WHO_** can do **_WHAT_** on which **_RESSOURCES_**.
+You can manage access by creating policies and attaching them to **IAM identities** (users - group of users - roles) or **resources**.  
+A policy is an object that defines permissions when associated with an identity or a resource.
 
-#### IAM Policy
-
-You can manage access by creating policies and attaching them to IAM identities (users - group of users - roles) or ressources.  
-A policy is an object that defines permissions when associated with an identity or a ressource.
-
-Here is an example of a policy that allows the user to perform all actions (`dynamodb:*`) on all the tables of the dynamodb database in the account `123456789012`.
+Here is an example of a policy that allows the user to perform all actions (`dynamodb:*`) on all the tables of the DynamoDB database in the account `123456789012`.
 
 ```json
 {
@@ -76,9 +72,14 @@ Here is an example of a policy that allows the user to perform all actions (`dyn
 }
 ```
 
+#### *What is IAM?*
+
+Identity and Access Management (IAM) is a service that helps you control access to your AWS resources.  
+You can use IAM to control **_WHO_** can do **_WHAT_** on which **_RESOURCES_**.
+
 #### Project architecture
 
-Here is the project Architecture Diagram taken from <a href="https://hawkins.gitbook.io/consoleme/architecture"><Highlight color="#25c2a0">their documentation</Highlight></a>.
+Here is the project Architecture Diagram taken from the ConsoleMe <a href="https://hawkins.gitbook.io/consoleme/architecture"><Highlight color="#25c2a0">documentation</Highlight></a>.
 
 <div className="image-wrapper">
   <ImageWrapper src="https://gblobscdn.gitbook.com/assets%2F-MHx2J68O31YPShOxOKk%2F-MJ7GbFrl8pYrBmMaMIq%2F-MJ7W7DcUI3oC2N-3H94%2FConsoleMe%20Diagram%20(1).png?alt=media&token=0bad1fb5-cb27-4f96-a498-f45b47554ec7" width="80%" alt="Architecture Diagram" />
@@ -87,8 +88,8 @@ Here is the project Architecture Diagram taken from <a href="https://hawkins.git
 
 ### Current behavior
 
-Currently a user can **create** and **edit** policies in the application.  
-It would be interesting to show the user the potential linting errors he may have in his document.
+ConsoleMe has a native policy editors which allows users to **create** or **edit** IAM roles, SQS queues, SNS topics, and S3 buckets.   
+It would be interesting to show to the user the potential linting errors he may have in his document.
 
 :::note Issue link
 https://github.com/Netflix/consoleme/issues/8933
@@ -100,7 +101,7 @@ Here are the user stories we will use as a reference:
 
 As a _TYPE_OF_USER_, I want _SOME_GOAL_ so that _SOME_REASON_.
 
-- **As a** User **I want** to see the different linting errors on the editor **so that** I can directly see wich lines need updates.
+- **As a** User **I want** to see the different linting errors on the editor **so that** I can directly see which lines need updates.
 - **As a** User **I want** to see the severity of the different linting errors **so that** I can directly focus on top priority errors.
 - **As a** User **I want** to see the details of the different linting errors **so that** I can understand what I need to change.
 
@@ -110,6 +111,7 @@ To check the linting of our document we will use the <a href="https://github.com
 
 The `CheckPoliciesHandler` handler will be used to retrieve policy errors based on the provided policy string.  
 We will call the method `analyze_policy_string` from the `parliament` library which will return a `Finding` list.  
+TODO
 We will then need to enhance each of the elements to get the complete findings because the non-enhanced Finding representation is a simple string: `ISSUE - DETAIL - LOCATION`
 
 ```py title="consoleme/handlers/v2/policies.py"
@@ -151,7 +153,7 @@ def make_app(jwt_validator=None):
     (r"/api/v2/policies/check", CheckPoliciesHandler),
 ```
 
-### Add the handler tests
+### Add the parliament mocks
 
 In order to test our handler, we will need to mock the `parliament.analyze_policy_string` and `parliament.enhance_finding` method calls.   
 
@@ -172,40 +174,13 @@ def parliament(session_mocker):
         return_value=MockParliament(
             return_value=[
               """
-              RESOURCE_MISMATCH - 
-              {"action": "s3:GetObject", "required_format": "arn:*:s3:::*/*"}
-               - {"line": 3, "column": 18, "filepath": "test.json"}
+              RESOURCE_MISMATCH
+              - {"action": "s3:GetObject", "required_format": "arn:*:s3:::*/*"}
+              - {"line": 3, "column": 18, "filepath": "test.json"}
               """
             ]
         ),
     )
-```
-
-```py title="tests/conftest.py"
-class Finding:
-    issue = ""
-    detail = ""
-    location = {}
-    severity = ""
-    title = ""
-    description = ""
-
-    def __init__(
-        self,
-        issue,
-        detail,
-        location,
-        severity,
-        title,
-        description,
-    ):
-        self.issue = issue
-        self.detail = detail
-        self.location = location
-        self.severity = severity
-        self.title = title
-        self.description = description
-
     session_mocker.patch(
         "parliament.enhance_finding",
         return_value=Finding(
@@ -217,6 +192,41 @@ class Finding:
             location={},
         ),
     )
+```
+
+### Add the handler tests
+
+We can now test our handler by simulating a fetch with a **given request body**.   
+We can then test that the response of the fetch is the expected one (status code `200` and correct response body).
+
+```py title="tests/handlers/v2/test_policies.py"
+def test_policies_check_api(self):
+    from consoleme.config import config
+    headers = {
+        config.get("auth.user_header_name"): "user@example.com",
+        config.get("auth.groups_header_name"): "groupa,groupb,groupc",
+    }
+    body = """{
+        "Version": "2012-10-17",
+        "Statement": {
+            "Effect": "Allow",
+            "Action":["s3:GetObject"],
+            "Resource": ["arn:aws:s3:::bucket1"]
+        }
+    }"""
+    response = self.fetch(
+        "/api/v2/policies/check", headers=headers, method="POST", body=body
+    )
+    self.assertEqual(response.code, 200)
+    response_j = json.loads(response.body)
+    self.assertEqual(len(response_j), 1)
+    first_error = response_j[0]
+    self.assertEqual(first_error["issue"], "RESOURCE_MISMATCH")
+    self.assertEqual(
+        first_error["title"], "No resources match for the given action"
+    )
+    self.assertEqual(first_error["severity"], "MEDIUM")
+
 ```
 
 ### Add the Swagger entry
@@ -249,30 +259,31 @@ We will add a new entry for our route `/policies/check` with a documentation abo
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/consoleme/swagger.png')} width="400px" alt="Swagger" />
-<em>Swagger</em>
+<em>Swagger UI - Policies check</em>
 </div>
 
 
-### Integrate the errors to the editor
+### Integrate the errors to the editor - *UI*
 
-The idea is pretty straightforward: every time the User will edit the policy, we will trigger a timeout of `CHECK_POLICY_TIMEOUT` to check the linting errors of the docuement.
+The idea is pretty straightforward, every time the User will edit the policy, we will trigger a timeout of `CHECK_POLICY_TIMEOUT` to check the linting errors of the document.   
+The lint check is done with a **delay** to avoid too many calls when the user edits the document.
 
 ```tsx title=""
-  useEffect(() => {
-    // Avoid linting errors if disabled
-    if (!enableLinting) {
-      return false;
+useEffect(() => {
+  // Avoid linting errors if disabled
+  if (!enableLinting) {
+    return false;
+  }
+  timeout.current = setTimeout(() => {
+    if (policyDocument.length) {
+      policyCheck(policyDocument);
     }
-    timeout.current = setTimeout(() => {
-      if (policyDocument.length) {
-        policyCheck(policyDocument);
-      }
-    }, CHECK_POLICY_TIMEOUT);
+  }, CHECK_POLICY_TIMEOUT);
 
-    return () => {
-      clearInterval(timeout.current);
-    };
-  }, [policyCheck, policyDocument, enableLinting]);
+  return () => {
+    clearInterval(timeout.current);
+  };
+}, [policyCheck, policyDocument, enableLinting]);
 
 ```
 
@@ -302,8 +313,8 @@ The parliament library can return 6 different severity type which we will group 
 - `WARNING_ERRORS`: `MEDIUM`
 - `CRITICAL_ERRORS`: `HIGH | CRITICAL`
 
-These groups allow us to display errors with a different color in the list and in the editor.   
-This allows the user to identify the different level of severity at a glance.   
+These groups allow us to display errors with a different color in the editor.   
+This lets the user identify the different level of severity at a glance.   
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/consoleme/editor.jpg')} width="500" alt="Editor" />
@@ -337,9 +348,17 @@ const addEditorDecorations = ({ editor, errors }) => {
 };
 ```
 
+The `hoverMessage` attribute is used to display the linting error detail to the user on hover.
+
+<div className="image-wrapper">
+  <ImageWrapper src={useBaseUrl('img/consoleme/hover.png')} width="100%" alt="Hover decoration message" />
+<em>Hover decoration message</em>
+</div>
+
 ## Final result
 
-Here is the final result that identifies bad IAM policy patterns.   
+Here is the final result that identifies **bad IAM policy patterns** in the editor.   
+Every time we update the policy document, a **timeout** is triggered and when it ends, the linting error **fetch** is made and the errors are **highlighted** in the editor.
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/consoleme/final.gif')} width="90%" alt="Final result" />
