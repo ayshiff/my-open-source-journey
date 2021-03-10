@@ -47,7 +47,7 @@ This contribution is a new **feature**.
 
 ### Project
 
-You can find the **ConsoleMe project presentation** <a href="/docs/projects/consoleme"><Highlight color="#25c2a0">here</Highlight></a>.
+You can find the **ConsoleMe project presentation** <a href="/docs/projects/consoleme"><Highlight color="#203666">here</Highlight></a>.
 
 ### Context
 
@@ -79,7 +79,7 @@ You can use IAM to control **_WHO_** can do **_WHAT_** on which **_RESOURCES_**.
 
 #### Project architecture
 
-Here is the project Architecture Diagram taken from the ConsoleMe <a href="https://hawkins.gitbook.io/consoleme/architecture"><Highlight color="#25c2a0">documentation</Highlight></a>.
+Here is the project Architecture Diagram taken from the ConsoleMe <a href="https://hawkins.gitbook.io/consoleme/architecture"><Highlight color="#203666">documentation</Highlight></a>.
 
 <div className="image-wrapper">
   <ImageWrapper src="https://gblobscdn.gitbook.com/assets%2F-MHx2J68O31YPShOxOKk%2F-MJ7GbFrl8pYrBmMaMIq%2F-MJ7W7DcUI3oC2N-3H94%2FConsoleMe%20Diagram%20(1).png?alt=media&token=0bad1fb5-cb27-4f96-a498-f45b47554ec7" width="80%" alt="Architecture Diagram" />
@@ -105,7 +105,7 @@ As a _TYPE_OF_USER_, I want _SOME_GOAL_ so that _SOME_REASON_.
 - **As a** User **I want** to see the severity of the different linting errors **so that** I can directly focus on top priority errors.
 - **As a** User **I want** to see the details of the different linting errors **so that** I can understand what I need to change.
 
-To check the linting of our document we will use the <a href="https://github.com/duo-labs/parliament"><Highlight color="#25c2a0">parliament library</Highlight></a> which provides a way to reviews policies.
+To check the linting of our document we will use the <a href="https://github.com/duo-labs/parliament"><Highlight color="#203666">parliament library</Highlight></a> which provides a way to reviews policies.
 
 ### Add the new handler
 
@@ -231,7 +231,7 @@ def test_policies_check_api(self):
 
 ### Add the Swagger entry
 
-<a href="https://swagger.io/"><Highlight color="#25c2a0">Swagger</Highlight></a> is a a tool that helps you design, build and document REST APIs.    
+<a href="https://swagger.io/"><Highlight color="#203666">Swagger</Highlight></a> is a a tool that helps you design, build and document REST APIs.    
 
 We will add a new entry for our route `/policies/check` with a documentation about the request body and the response schema.
 
@@ -287,7 +287,7 @@ useEffect(() => {
 
 ```
 
-Once we have retrieved the linting errors from the API, we can display them in the <a href="https://microsoft.github.io/monaco-editor/"><Highlight color="#25c2a0">monaco editor</Highlight></a>.
+Once we have retrieved the linting errors from the API, we can display them in the <a href="https://microsoft.github.io/monaco-editor/"><Highlight color="#203666">monaco editor</Highlight></a>.
 
 We will use the `deltaDecorations` method on the editor instance. 
 
