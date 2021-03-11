@@ -30,7 +30,7 @@ function Home() {
       <div className={clsx(styles.about_container)}>
         <img
           className={clsx(styles.about_profile_img)}
-          src="/img/profile.jpg"
+          src="/img/profile.png"
           width="200"
         />
         <main className={clsx(styles.about_description)}>
