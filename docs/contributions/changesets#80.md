@@ -231,10 +231,37 @@ const pulls = await filteredQueries.filter(
 );
 ```
 
-5. Map through the list of commits and the list of PRs to find commit message or PRs body that closes an issue and get the issue number.
+5. Map through the list of commits and the list of PRs to find commit message or PRs body that closes an issue and get the issue number.   
+
+We will be using a library called <a href="https://github.com/pvdlg/issue-parser"><Highlight color="#203666">issue-parser</Highlight></a> which will parse the content of the Pull Request body and find <a href="https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue"><Highlight color="#203666">closing keywords</Highlight></a> like `Fix #25`.
+
+For example, given the PR body content `"Issue description, Fix #25"` it will give the following output:
+
+```json
+{
+    "actions": {
+        "close": [
+            {
+                "raw": "Fix #25",
+                "action": "Fix",
+                "prefix": "#",
+                "issue": "25"
+            }
+        ],
+        "duplicate": []
+    },
+    "refs": [],
+    "mentions": []
+}
+```
+
+We can then retrieve the referenced issue numbers with: `actions.close.map({issue}) => issue)`
 
 ```ts
 /* 5 */
+import issueParser from 'issue-parser';
+const parse = issueParser('github');
+
 const issues = [
   ...pulls.map((pr) => pr.body),
   ...commits.map(({ commit }) => commit.message),
