@@ -52,7 +52,7 @@ You can find the **Changesets project presentation** <a href="/docs/projects/cha
 This contribution will be made to a specific part of the Changesets project, the <a href="https://github.com/changesets/action"><Highlight color="#203666">Changesets Release Action</Highlight></a>.   
 This action will create a release pull request with all the package versions and changelogs updated.  
 
-Here is an example of a workflow.
+Here is a workflow example.
 
 ```yml
 name: Release
@@ -109,7 +109,7 @@ This PR being still Open, some parts are likely to change.
 :::
 
 Here is the main logic to comment on PRs and issues that have been released.   
-The boolean variable `comment` lets the User activate or not the feature via an Input.
+The boolean variable `comment` lets the User activate or not the feature via an input property.
 
 The comment logic is triggered once a whole repo release is published.
 
@@ -184,10 +184,10 @@ const filteredQueries = queries.filter(
   );
 ```
 
-Here is the `getSearchQueries` definition:
+Here is the `getSearchQueries` helper:
 
-Build a search query to retrieve pulls with commit hashes.   
-**Example:** `repo:<OWNER>/<REPO>+type:pr+is:merged+hash:<FIRST_COMMIT_HASH>+hash:<SECOND_COMMIT_HASH>...`
+- **Definition:** Build a search query to retrieve pulls with commit hashes.   
+- **Example:** `repo:<OWNER>/<REPO>+type:pr+is:merged+hash:<FIRST_COMMIT_HASH>+hash:<SECOND_COMMIT_HASH>...`
 
 ```ts
 const getSearchQueries = (base: string, commits: string[]) => {
@@ -275,8 +275,9 @@ await Promise.all(
 
 Every time a release is made, a comment will be made to PRs and issues that have been released.   
 
-I also created a <a href="https://codesandbox.io/s/winter-bird-pwn6v?file=/src/index.js"><Highlight color="#203666">codesandbox project</Highlight></a> where you can see the logic to get the issues and pull-requests associated to a release more easily.   
-NOTE: In the codesandbox, considering that the code does not run at the time the release is created, we will get more recent commits. This will not happen in the real world.
+I also created a <a href="https://codesandbox.io/s/winter-bird-pwn6v?file=/src/index.js"><Highlight color="#203666">codesandbox project</Highlight></a> where you can see the logic to get the issues and pull-requests associated to a release more easily. You can use your own GitHub token to increase the API rate limit.
+
+**NOTE:** In codesandbox, considering that the code does not run at the time the release is created, we will get more recent commits. This will not happen in the real world.
 
 ## Takeaway
 
