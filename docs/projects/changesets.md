@@ -37,6 +37,21 @@ For more information about Changesets you can find it <a href="https://github.co
 <em>Changesets bot</em>
 </div>
 
+<br/>
+
+A changeset file is written in `yaml` and contains:
+- a change summary which will be written to the changelog
+- packages that have changed
+- semver bump
+
+```yaml title=".changeset/UNIQUE_ID.md"
+---
+"@changesets/cli": major
+---
+
+Change all the things
+```
+
 ### Related contributions
 
 - <a href="/docs/contributions/changesets80"><Highlight color="#203666">8. Changesets - Comment on released PRs and issues</Highlight></a>
