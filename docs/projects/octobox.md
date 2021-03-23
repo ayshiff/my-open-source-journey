@@ -25,7 +25,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Octobox is a tool that helps you manage your **GitHub notifications** efficiently.   
 It manages your notifications in the same way a mailbox could do with your emails.
 
-For more information about Octobox you can find it <a href="https://octobox.io/documentation"><Highlight color="#25c2a0">here</Highlight></a>.
+For more information about Octobox you can find it <a href="https://octobox.io/documentation"><Highlight color="#203666">here</Highlight></a>.
 
 <div className="image-wrapper">
 <img
@@ -37,8 +37,8 @@ For more information about Octobox you can find it <a href="https://octobox.io/d
 <em>Octobox dashboard</em>
 </div>
 
-<a href="https://octobox.io//"><Highlight color="#25c2a0">Website link</Highlight></a>
+<a href="https://octobox.io//"><Highlight color="#203666">Website link</Highlight></a>
 
 ### Related contributions
 
-- <a href="/docs/contributions/octobox2597"><Highlight color="#25c2a0">6. Octobox - Notifications filter</Highlight></a>
+- <a href="/docs/contributions/octobox2597"><Highlight color="#203666">6. Octobox - Notifications filter</Highlight></a>

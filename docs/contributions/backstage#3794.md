@@ -51,7 +51,7 @@ This contribution is a new **feature**.
 
 ### Project
 
-You can find the <a href="/docs/projects/backstage"><Highlight color="#25c2a0">Backstage project presentation here</Highlight></a>.
+You can find the <a href="/docs/projects/backstage"><Highlight color="#203666">Backstage project presentation here</Highlight></a>.
 
 ### Context
 
@@ -62,7 +62,7 @@ This means you can write your documentation in Markdown files which live next to
 
 _Today, it is one of the core products in Spotify’s developer experience offering with 2,400+ documentation sites and 1,000+ engineers using it daily._ **_backstage.io_**
 
-You can read more about TechDocs announcement <a href="https://backstage.io/blog/2020/09/08/announcing-tech-docs"><Highlight color="#25c2a0">here</Highlight></a>.
+You can read more about TechDocs announcement <a href="https://backstage.io/blog/2020/09/08/announcing-tech-docs"><Highlight color="#203666">here</Highlight></a>.
 
 ### Current behavior
 
@@ -226,7 +226,7 @@ export default {
 
 The main step here was to explain to the users how they can **configure an AWS S3 Bucket** with TechDocs.
 
-I did an <a href="https://github.com/backstage/backstage/blob/acdcf944e890ad44c0124e658981e4ed0d14893e/docs/features/techdocs/using-cloud-storage.md"><Highlight color="#25c2a0">explanation</Highlight></a> on how to use **AWS Policies** and how they work.  
+I did an <a href="https://github.com/backstage/backstage/blob/acdcf944e890ad44c0124e658981e4ed0d14893e/docs/features/techdocs/using-cloud-storage.md"><Highlight color="#203666">explanation</Highlight></a> on how to use **AWS Policies** and how they work.  
 In the example we show how to use the _User_ and _Bucket_ policy to manage our access to our Bucket.
 
 <div className="image-wrapper">
@@ -335,19 +335,19 @@ In our case we only have `patch` changes.
 
 ### Problems encountered
 
-Someone in the comments suggested using <a href="https://aws.amazon.com/about-aws/whats-new/2020/12/aws-sdk-javascript-version-3-generally-available/"><Highlight color="#25c2a0">AWS JavaScript SDK v3</Highlight></a> as it has first-class TypeScript support.
-The issue was that there was a problem with Typescript that was going to be fixed in a <a href="https://github.com/aws/aws-sdk-js-v3/pull/1812"><Highlight color="#25c2a0">PR</Highlight></a>.  
+Someone in the comments suggested using <a href="https://aws.amazon.com/about-aws/whats-new/2020/12/aws-sdk-javascript-version-3-generally-available/"><Highlight color="#203666">AWS JavaScript SDK v3</Highlight></a> as it has first-class TypeScript support.
+The issue was that there was a problem with Typescript that was going to be fixed in a <a href="https://github.com/aws/aws-sdk-js-v3/pull/1812"><Highlight color="#203666">PR</Highlight></a>.  
 So I had to wait until the fix was merged to bump the aws sdk version.
 
 In addition, after merging the PR into master, the tests on Windows did not pass.  
 This was related to the path delimiters used in tests by `mock-fs`.  
-So I had to do another <a href="https://github.com/backstage/backstage/pull/3925"><Highlight color="#25c2a0">Pull Request</Highlight></a> to fix this problem.
+So I had to do another <a href="https://github.com/backstage/backstage/pull/3925"><Highlight color="#203666">Pull Request</Highlight></a> to fix this problem.
 
 This PR also made it possible to identify new features:
 
-- Enable publishers support using nested directories in a bucket: <a href="https://github.com/backstage/backstage/issues/3948"><Highlight color="#25c2a0">Issue link</Highlight></a>
-- Load GCS credentials from the environment: <a href="https://github.com/backstage/backstage/issues/3947"><Highlight color="#25c2a0">Issue link</Highlight></a>
-- Load AWS credentials from the shared credentials file: <a href="https://github.com/backstage/backstage/issues/3946"><Highlight color="#25c2a0">Issue link</Highlight></a>
+- Enable publishers support using nested directories in a bucket: <a href="https://github.com/backstage/backstage/issues/3948"><Highlight color="#203666">Issue link</Highlight></a>
+- Load GCS credentials from the environment: <a href="https://github.com/backstage/backstage/issues/3947"><Highlight color="#203666">Issue link</Highlight></a>
+- Load AWS credentials from the shared credentials file: <a href="https://github.com/backstage/backstage/issues/3946"><Highlight color="#203666">Issue link</Highlight></a>
 
 ### What did I learn ?
 

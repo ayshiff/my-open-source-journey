@@ -49,7 +49,7 @@ This contribution is a new **feature**.
 
 ### Project
 
-You can find the <a href="/docs/projects/backstage"><Highlight color="#25c2a0">Backstage project presentation here</Highlight></a>.
+You can find the <a href="/docs/projects/backstage"><Highlight color="#203666">Backstage project presentation here</Highlight></a>.
 
 ### Context
 
@@ -62,7 +62,7 @@ A plugin lets you expose any kind of **infrastructure** or **software developmen
 
 This means you can write your own plugins to add **new functionalities** to Backstage.
 
-In this case we will implement a plugin to integrate <a href="https://www.splunk.com/en_us/software/splunk-on-call.html"><Highlight color="#25c2a0">Splunk On-Call</Highlight></a> (previously **VictorOps**) functionalities.
+In this case we will implement a plugin to integrate <a href="https://www.splunk.com/en_us/software/splunk-on-call.html"><Highlight color="#203666">Splunk On-Call</Highlight></a> (previously **VictorOps**) functionalities.
 
 #### What is Splunk On-Call ?
 
@@ -104,7 +104,7 @@ Here are the “Five Phases” of the Incident Management framework:
 <em>Incident management framework</em>
 </div>
 
-You can learn more about Effective DevOps Incident Management Teams <a href="https://victorops.com/blog/ten-practices-of-highly-effective-devops-incident-management-teams"><Highlight color="#25c2a0">here</Highlight></a>.
+You can learn more about Effective DevOps Incident Management Teams <a href="https://victorops.com/blog/ten-practices-of-highly-effective-devops-incident-management-teams"><Highlight color="#203666">here</Highlight></a>.
 
 **1.** The initial step of the incident lifecycle is knowing about the problem.
 
@@ -266,7 +266,7 @@ Note that the `index.ts` files are there to let us import from the folder path a
 
 ### Create the plugin Marketplace entry
 
-In order to allow people to use our plugin, we need to add it to the <a href="https://backstage.io/plugins"><Highlight color="#25c2a0">Backstage plugin marketplace</Highlight></a>.
+In order to allow people to use our plugin, we need to add it to the <a href="https://backstage.io/plugins"><Highlight color="#203666">Backstage plugin marketplace</Highlight></a>.
 
 The marketplace is used to:
 
@@ -634,7 +634,7 @@ const apis = ApiRegistry.from([
 ]);
 ```
 
-The tests use <a href="https://github.com/testing-library/react-testing-library"><Highlight color="#25c2a0">React Testing library</Highlight></a> to help testing UI components in a user-centric way.
+The tests use <a href="https://github.com/testing-library/react-testing-library"><Highlight color="#203666">React Testing library</Highlight></a> to help testing UI components in a user-centric way.
 
 #### Empty incident list
 

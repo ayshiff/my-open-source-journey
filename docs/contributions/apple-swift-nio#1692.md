@@ -39,7 +39,7 @@ This contribution is a new **feature**.
 
 ### Project
 
-You can find the <a href="/docs/projects/apple-swift-nio"><Highlight color="#25c2a0">swiftNIO project presentation here</Highlight></a>.
+You can find the <a href="/docs/projects/apple-swift-nio"><Highlight color="#203666">swiftNIO project presentation here</Highlight></a>.
 
 ### Context
 

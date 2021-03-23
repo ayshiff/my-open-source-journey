@@ -28,7 +28,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
   src="https://raw.githubusercontent.com/backstage/backstage/master/docs/assets/headline.png"
 />
 
-<a href="https://backstage.io/"><Highlight color="#25c2a0">Website link</Highlight></a>
+<a href="https://backstage.io/"><Highlight color="#203666">Website link</Highlight></a>
 
 When you want to deploy something in the cloud you probably need tools like Terraform, Kubernetes, CI pipelines, the AWS CLI...
 
@@ -37,9 +37,9 @@ It gives you an uniform overview of all your services. It also lets you create e
 
 Backstage was created by **Spotify** but is now hosted by the **Cloud Native Computing Foundation (CNCF)** as a Sandbox level project.
 
-For more information about Backstage you can find it <a href="https://backstage.io/docs/overview/what-is-backstage"><Highlight color="#25c2a0">here</Highlight></a>.
+For more information about Backstage you can find it <a href="https://backstage.io/docs/overview/what-is-backstage"><Highlight color="#203666">here</Highlight></a>.
 
 ### Related contributions
 
-- <a href="/docs/contributions/backstage3794"><Highlight color="#25c2a0">3. Backstage - Techdocs AWS Support</Highlight></a>
-- <a href="/docs/contributions/backstage4416"><Highlight color="#25c2a0">5. Backstage - Splunk On-Call Plugin</Highlight></a>
+- <a href="/docs/contributions/backstage3794"><Highlight color="#203666">3. Backstage - Techdocs AWS Support</Highlight></a>
+- <a href="/docs/contributions/backstage4416"><Highlight color="#203666">5. Backstage - Splunk On-Call Plugin</Highlight></a>

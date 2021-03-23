@@ -36,7 +36,7 @@ As indicated by its name, it uses **"non-blocking I/O"** in opposition to blocki
 It doesn't aim to provide high-level solutions as it is focused on providing the low-level building blocks for higher-level applications.   
 
 
-<a href="https://apple.github.io/swift-nio/docs/current/NIO/index.html"><Highlight color="#25c2a0">Website link</Highlight></a>
+<a href="https://apple.github.io/swift-nio/docs/current/NIO/index.html"><Highlight color="#203666">Website link</Highlight></a>
 
 Here is a list of **low-level protocol** implementations:
 
@@ -64,4 +64,4 @@ SwiftNIO applications are constructed of 8 types of **components**:
 
 ### Related contributions
 
-- <a href="/docs/contributions/apple-swift-nio1692"><Highlight color="#25c2a0">1. SwiftNIO core - SocketAddress creation</Highlight></a>
+- <a href="/docs/contributions/apple-swift-nio1692"><Highlight color="#203666">1. SwiftNIO core - SocketAddress creation</Highlight></a>
