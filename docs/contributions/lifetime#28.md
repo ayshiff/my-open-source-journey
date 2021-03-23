@@ -54,7 +54,7 @@ It is for me the opportunity to present you to a language that I particularly li
 
 ### Project
 
-You can find the <a href="/docs/projects/lifetime"><Highlight color="#25c2a0">LifeTime project presentation here</Highlight></a>.
+You can find the <a href="/docs/projects/lifetime"><Highlight color="#203666">LifeTime project presentation here</Highlight></a>.
 
 ### Context
 
@@ -730,7 +730,7 @@ We can now display the rest of the event information to the User.
 #### A little extra note
 
 If you take a closer look you may notice the use of a component `Spacer`.  
-It is used to replace margins. You can learn more about Spacer <a href="https://www.joshwcomeau.com/react/modern-spacer-gif/"><Highlight color="#25c2a0">here</Highlight></a>.
+It is used to replace margins. You can learn more about Spacer <a href="https://www.joshwcomeau.com/react/modern-spacer-gif/"><Highlight color="#203666">here</Highlight></a>.
 
 This is how it is implemented in `react-multiversal`:
 

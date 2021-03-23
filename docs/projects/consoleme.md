@@ -21,13 +21,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Project description
 
-<a href="https://hawkins.gitbook.io/consoleme/"><Highlight color="#25c2a0">Website link</Highlight></a>
+<a href="https://hawkins.gitbook.io/consoleme/"><Highlight color="#203666">Website link</Highlight></a>
 
 ConsoleMe is a multi-account AWS administrator tool that helps you **manage multiple accounts** into a single web interface.
 
 For example, it allows administrators to obtain console access to their onboarded accounts according to their authorization level.
 
-For more information about ConsoleMe you can find it <a href="https://github.com/Netflix/consoleme"><Highlight color="#25c2a0">here</Highlight></a>.
+For more information about ConsoleMe you can find it <a href="https://github.com/Netflix/consoleme"><Highlight color="#203666">here</Highlight></a>.
 
 <div className="image-wrapper">
 <img
@@ -41,4 +41,4 @@ For more information about ConsoleMe you can find it <a href="https://github.com
 
 ### Related contributions
 
-- <a href="/docs/contributions/consoleme9008"><Highlight color="#25c2a0">7. ConsoleMe - AWS IAM policy linting</Highlight></a>
+- <a href="/docs/contributions/consoleme9008"><Highlight color="#203666">7. ConsoleMe - AWS IAM policy linting</Highlight></a>

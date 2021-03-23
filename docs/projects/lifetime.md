@@ -27,9 +27,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 LifeTime is a personal coach, helping you to reach your goals and spend your valuable time on things you love.
 It relies on your calendar events to learn how you use your time.
 
-For more information about LifeTime you can find it <a href="https://github.com/MoOx/LifeTime"><Highlight color="#25c2a0">here</Highlight></a>.
+For more information about LifeTime you can find it <a href="https://github.com/MoOx/LifeTime"><Highlight color="#203666">here</Highlight></a>.
 
-<a href="https://moox.io/apps/lifetime/"><Highlight color="#25c2a0">Website link</Highlight></a>
+<a href="https://moox.io/apps/lifetime/"><Highlight color="#203666">Website link</Highlight></a>
 
 <div className="image-wrapper">
 <br/>
@@ -44,5 +44,5 @@ For more information about LifeTime you can find it <a href="https://github.com/
 
 ### Related contributions
 
-- <a href="/docs/contributions/lifetime28"><Highlight color="#25c2a0">4. LifeTime - Activity detail</Highlight></a>
+- <a href="/docs/contributions/lifetime28"><Highlight color="#203666">4. LifeTime - Activity detail</Highlight></a>
 

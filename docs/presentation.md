@@ -71,7 +71,7 @@ Note that each project may have **several contributions**.
 
 This step will be a continuation of the first one, it will allow you to understand in **more detail** the context in which the contribution takes place.
 
-I will also add the **project website link** (if available) in the following form: <a href=""><HighlightWebsite color="#25c2a0">Example website link</HighlightWebsite></a>
+I will also add the **project website link** (if available) in the following form: <a href=""><HighlightWebsite color="#203666">Example website link</HighlightWebsite></a>
 
 ## Current Behavior - *actual state*
 

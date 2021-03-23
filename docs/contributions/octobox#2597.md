@@ -46,9 +46,9 @@ This contribution is a new **feature**.
 
 ### Project
 
-You can find the <a href="/docs/projects/octobox"><Highlight color="#25c2a0">Octobox project presentation here</Highlight></a>.
+You can find the <a href="/docs/projects/octobox"><Highlight color="#203666">Octobox project presentation here</Highlight></a>.
 
-To access Octobox.io you just need to sign in with your GitHub profile or install the GitHub app on the <a href="https://octobox.io/"><Highlight color="#25c2a0">homepage</Highlight></a>.
+To access Octobox.io you just need to sign in with your GitHub profile or install the GitHub app on the <a href="https://octobox.io/"><Highlight color="#203666">homepage</Highlight></a>.
 
 ### Context
 
@@ -86,7 +86,7 @@ In order to contribute to the project, we will need to set up certain elements.
   ```bash
   git clone git@github.com:<OUR_GITHUB_USERNAME>/octobox.git # Using SSH
   ```
-2. Install **Ruby 2.7.2** using <a href="https://github.com/rbenv/rbenv"><Highlight color="#25c2a0">rbenv</Highlight></a> which is a version manager for Ruby.   
+2. Install **Ruby 2.7.2** using <a href="https://github.com/rbenv/rbenv"><Highlight color="#203666">rbenv</Highlight></a> which is a version manager for Ruby.   
   It will allow us to install the correct version of Ruby for our project.
   ```bash
   brew install rbenv ruby-build
@@ -106,7 +106,7 @@ In order to contribute to the project, we will need to set up certain elements.
   ```bash
   bundle exec rake db:create db:migrate
   ```
-6. Register a new <a href="https://github.com/settings/applications/new"><Highlight color="#25c2a0">GitHub OAuth Application</Highlight></a>.   
+6. Register a new <a href="https://github.com/settings/applications/new"><Highlight color="#203666">GitHub OAuth Application</Highlight></a>.   
 
   It will allow us to connect our **GitHub identity** to our local Octobox instance using **OAuth** and to **retrieve our account notifications**.
 
@@ -260,7 +260,7 @@ end
 
 We will also need to add our new filter to the filter list inside the notifications helper.   
 
-In particular, it will be useful for displaying the filter in the list of selected filters thanks to the `filter_option` helper. (see the <a href="/docs/contributions/octobox2597#add-the-search-filter-element"><Highlight color="#25c2a0">search filter element</Highlight></a> section)
+In particular, it will be useful for displaying the filter in the list of selected filters thanks to the `filter_option` helper. (see the <a href="/docs/contributions/octobox2597#add-the-search-filter-element"><Highlight color="#203666">search filter element</Highlight></a> section)
 
 ```ruby {7} title="app/helpers/notifications_helper.rb"
 module NotificationsHelper

@@ -28,9 +28,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 xLayers is a tool made to **reduce the gap** between designers and developers.  
 It is a **code generation tool** that produces code from your design sketches.
 
-For more information about xLayers you can find it <a href="https://github.com/xlayers/xlayers"><Highlight color="#25c2a0">here</Highlight></a>.
+For more information about xLayers you can find it <a href="https://github.com/xlayers/xlayers"><Highlight color="#203666">here</Highlight></a>.
 
-<a href="https://xlayers.app/#/home"><Highlight color="#25c2a0">Website link</Highlight></a>
+<a href="https://xlayers.app/#/home"><Highlight color="#203666">Website link</Highlight></a>
 
 <div className="image-wrapper">
 <br/>
@@ -44,5 +44,5 @@ For more information about xLayers you can find it <a href="https://github.com/x
 
 ### Related contributions
 
-- <a href="/docs/contributions/xlayers395"><Highlight color="#25c2a0">2. xLayers - Rethink UX</Highlight></a>
+- <a href="/docs/contributions/xlayers395"><Highlight color="#203666">2. xLayers - Rethink UX</Highlight></a>
 
