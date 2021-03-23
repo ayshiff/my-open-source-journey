@@ -17,14 +17,14 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-import { Open } from '../utils.md';
+import { Merged } from '../utils.md';
 
 <p className="post_date">20 Nov 2020</p>
 
 <div className="pr_infos">
 <div className="marginBottom">
 <div>
-<Open />
+<Merged />
 </div>
   <span className="badge badge--secondary marginRight">Angular</span>
   <span className="badge badge--secondary marginRight">Typescript</span>
@@ -44,7 +44,7 @@ This contribution is a new **feature**.
 
 ### Project
 
-You can find the <a href="/docs/projects/xlayers"><Highlight color="#25c2a0">xLayers project presentation here</Highlight></a>.
+You can find the <a href="/docs/projects/xlayers"><Highlight color="#203666">xLayers project presentation here</Highlight></a>.
 
 <div className="image-wrapper">
 <br/>
@@ -187,7 +187,7 @@ The `mat-select-trigger` allows us to add the framework `mat-icon` inside the se
 
 ### Update the store
 
-As we need to make the user choice persistent between the two pages, we will update our <a href="https://ngrx.io/"><Highlight color="#25c2a0">NgRx</Highlight></a> store by creating a new `Action` that will be dispatched when the user choose a framework in the landing page.
+As we need to make the user choice persistent between the two pages, we will update our <a href="https://ngrx.io/"><Highlight color="#203666">NgRx</Highlight></a> store by creating a new `Action` that will be dispatched when the user choose a framework in the landing page.
 
 <div className="image-wrapper">
 <img
