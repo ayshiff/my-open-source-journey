@@ -14,6 +14,7 @@ export const Highlight = ({children, color}) => ( <span style={{
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <div className="marginBottom">
+  <span className="badge badge--secondary marginRight">GitHub</span>
   <span className="badge badge--secondary marginRight">Versioning</span>
   <span className="badge badge--secondary marginRight">Changelogs</span>
   <span className="badge badge--secondary marginRight">Monorepos</span>

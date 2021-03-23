@@ -22,6 +22,7 @@ import { Open, ImageWrapper } from '../utils.md';
     <div>
         <Open />
     </div>
+  <span className="badge badge--secondary marginRight">GitHub</span>
   <span className="badge badge--secondary marginRight">Versioning</span>
   <span className="badge badge--secondary marginRight">Changelogs</span>
   <span className="badge badge--secondary marginRight">Monorepos</span>
