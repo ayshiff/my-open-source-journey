@@ -16,7 +16,8 @@ module.exports = {
         "contributions/backstage4416",
         "contributions/octobox2597",
         "contributions/consoleme9008",
-        "contributions/changesets80"
+        "contributions/changesets80",
+        "contributions/caramel91",
       ],
     },
     {
@@ -30,6 +31,7 @@ module.exports = {
         "projects/xlayers",
         "projects/lifetime",
         "projects/octobox",
+        "projects/caramel",
       ],
     },
   ],
