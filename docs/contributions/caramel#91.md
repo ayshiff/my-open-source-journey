@@ -47,7 +47,7 @@ This contribution is a new **feature**.
 
 ### Project
 
-You can find the **Caramel project presentation** <a href="/docs/projects/caramel"><Highlight color="#203666">here</Highlight></a>.
+You can find the **Caramel programming language presentation** <a href="/docs/projects/caramel"><Highlight color="#203666">here</Highlight></a>.
 
 ### Context
 
@@ -64,7 +64,11 @@ Here is a summary of the different steps in a compiler:
 
 In many functional programming languages, it is a common way to compose functions into a readable left-to-right "pipeline" of steps of computation.
 
-For example in <a href="https://ocaml.org/releases/4.11/htmlman/libref/Stdlib.html#VAL(%7C%3E)"><Highlight color="#203666">OCaml</Highlight></a>
+For example in <a href="https://ocaml.org/releases/4.11/htmlman/libref/Stdlib.html#VAL(%7C%3E)"><Highlight color="#203666">OCaml</Highlight></a>:
+
+```ocaml
+val (|>) : 'a -> ('a -> 'b) -> 'b
+```
 
 :::note Issue link
 https://github.com/AbstractMachinesLab/caramel/issues/72
@@ -84,15 +88,21 @@ This PR being still Open, some parts are likely to change.
 
 ### Caramel runtime
 
-The first idea was to expose the pipe operator as an external that maps to a `caramel_runtime:pipe`function.
+The first idea was to expose the pipe operator as an external that maps to a `caramel_runtime:pipe` function.
+
+Here is the pipe operator signature:
 
 ```ocaml title="caramel/stdlib/caramel_runtime.ml"
 external ( |> ) : 'a -> ('a -> 'b) -> 'b = "pipe"
 ```
 
+Here is the pipe operator definition:
+
 ```ocaml title="caramel/stdlib/caramel_runtime.erl"
 pipe(A, B) -> B(A).
 ```
+
+We will tell the compiler to map `|>` to our caramel_runtime pipe function:
 
 ```ocaml title="caramel/compiler/ocaml_to_erlang/names.ml"
 let ocaml_to_erlang_primitive_op t =
@@ -104,24 +114,63 @@ let ocaml_to_erlang_primitive_op t =
         ~f:(Name.atom (Atom.mk "pipe"))
 ```
 
-It means that if we have this input:
+Finally given this input:
 
 ```ocaml
-10 |> subtract 2 |> divide 4 |> print_int
+let print_int number = Io.format "~0tp~n" [ number ]
+
+let subtract x y = y - x
+let main _ =
+  let divide x y = y / x in
+  10 |> subtract 2 |> divide 4 |> print_int
 ```
 
 It will output:
 
-```ocaml
-caramel_runtime:pipe(
+```erlang
+-module(pipe).
+
+-export([main/1]).
+-export([print_int/1]).
+-export([subtract/2]).
+
+-spec print_int(_) -> ok.
+print_int(Number) -> io:format(<<"~0tp~n">>, [Number | []]).
+
+-spec subtract(integer(), integer()) -> integer().
+subtract(X, Y) -> erlang:'-'(Y, X).
+
+-spec main(_) -> ok.
+main(_) ->
+  Divide = fun
+    (X, Y) -> erlang:'div'(Y, X)
+  end,
   caramel_runtime:pipe(
-    caramel_runtime:pipe
-    (10, subtract(2)), Divide(4)
+    caramel_runtime:pipe(
+      caramel_runtime:pipe(
+        10, subtract(2)
+      ),
+    Divide(4)
   ),
 fun print_int/1).
 ```
 
-The problem was that we needed to first implement partial application to make it work.
+Look how the compiler has replaced our pipes.
+
+The problem was that we needed to first implement partial application to make it work.   
+**Partial application** involves passing less than the full number of arguments to a function.
+
+For example:
+
+```ocaml
+let add a b = a + b
+let addOne = add 1
+```
+
+`addOne` is the result of partially applying `add`.   
+It is a function that takes an integer (`b`) and return `b` + 1.
+
+In our example, `subtract` and `Divide` arr called with less arguments that they have to take.
 
 So we went for another solution: rewrite the pipes into SSA (static single assignment).
 
@@ -129,11 +178,11 @@ So we went for another solution: rewrite the pipes into SSA (static single assig
 
 The translation phase is broken down into 3 phases:
 
-- The AST is lowered into an IR (intermediate representation)
-- The IR is analyzed
-- The IR is translated
+- The AST is lowered into an **IR** (intermediate representation)
+- The IR is **analyzed**
+- The IR is **translated**
 
-SSA introduces a new constraint: all variables are assigned exactly once.
+SSA introduces a new constraint: all variables are assigned exactly **once**.
 
 The idea is to go from this:
 
@@ -152,12 +201,20 @@ f(X) ->
 
 ## Final result
 
+The final result allows us to compose our function pipeline in this way:
+
+```ocaml
+"function1_arg_1"
+  |> function1 "function1_arg_2" 
+  |> function2 "function2_arg_1" 
+  |> function3
+```
+
 ## Takeaway
 
 ### Problems encountered
 
-Setting up the environment locally as well as testing the behavior of the developed functionality was a bit complicated because there was a strong dependency with GitHub.   
-(e.g. Some scenarios to reproduce as creating a release...)
+Understanding how the compiler works was the step that took me the most time. It required me to understand a codebase I'm not used to deal with.
 
 ### What did I learn ?
 
