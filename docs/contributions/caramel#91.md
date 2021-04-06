@@ -51,7 +51,7 @@ You can find the **Caramel programming language presentation** <a href="/docs/pr
 
 ### Context
 
-This contribution adds pipe operator (`|>`) support to the Caramel language.    
+This contribution adds pipe operator `|>` support to the Caramel language.    
 
 Here is a summary of the different steps in a compiler:
 
@@ -168,7 +168,7 @@ let addOne = add 1
 ```
 
 `addOne` is the result of partially applying `add`.   
-It is a function that takes an integer (`b`) and return `b` + 1.
+It is a function that takes an integer `b` and return `b` + 1.
 
 In our example, `subtract` and `Divide` arr called with less arguments that they have to take.
 
@@ -190,13 +190,58 @@ The idea is to go from this:
 let f x = x |> add 1 |> div 2 |> mult 3
 ```
 
-To this:
+To something like this:
 
 ```ocaml
 f(X) ->
   Caramel@Tmp1 = add(1, X),
   Caramel@Tmp2 = div(2, Caramel@Tmp1),
   Caramel@Tmp3 = mult(3, Caramel@Tmp2).
+```
+
+For now we will implement this logic in the ocaml translation side.
+
+The goal is to go from `a |> f |> g` to `let a_f = f a in let a_f_g = g a_f`.
+
+Inside `caramel/compiler/ocaml_to_erlang/fun.ml` there is a match clause for the function application.   
+We will add a special case for the pipe operator.
+
+```ocaml
+| Texp_apply (expr, args) ->
+    let name =
+      match
+        mk_expression expr ~var_names ~modules ~functions ~module_name
+      with
+      | Erlang.Ast.Expr_fun_ref { fref_name = n; _ } -> Expr.ident n
+      | x -> x
+    in
+    let args =
+      List.filter_map
+        (function
+          | _, None -> None
+          | _, Some arg ->
+              Some
+                (mk_expression arg ~var_names ~modules ~functions ~module_name))
+        args
+    in
+    Expr.apply name args
+```
+
+The idea is to check if the `name` variable is the pipe function and then do our logic to bind the result of `f x` to a new variable with a unique name.
+
+```ocaml
+if name = "<PIPE_OPERATOR>"
+then (
+  let f = args[0] in
+  let x = args[1] in
+  let f_x = Expr.apply f x in
+  let new_var = "<NEW_VARIABLE_NAME>" in
+  let binding = Expr.bind new_var f_x in
+  Expr.var binding "<NEW_VARIABLE_NAME>"
+)
+else (
+  Expr.apply name args
+)
 ```
 
 ## Final result
@@ -214,7 +259,8 @@ The final result allows us to compose our function pipeline in this way:
 
 ### Problems encountered
 
-Understanding how the compiler works was the step that took me the most time. It required me to understand a codebase I'm not used to deal with.
+Understanding how the compiler works was the step that took me the most time.   
+It required me to understand a codebase I'm not used to deal with.
 
 ### What did I learn ?
 
