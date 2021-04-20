@@ -31,7 +31,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <br />
 
-Firefox for iOS is a free and open-source web browser developed by the Mozilla Foundation.
+Firefox for iOS is a free and open-source web browser developed by the Mozilla Foundation. It supports many features common to other mobile browsers, including tabs, history, and bookmarks.
 
 For more information about Firefox for iOS you can find it <a href="https://apps.apple.com/fr/app/navigateur-web-firefox/id989804926"><Highlight color="#203666">here</Highlight></a>.
 
