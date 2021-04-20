@@ -111,7 +111,7 @@ To check the linting of our document we will use the <a href="https://github.com
 
 The `CheckPoliciesHandler` handler will be used to retrieve policy errors based on the provided policy string.  
 We will call the method `analyze_policy_string` from the `parliament` library which will return a `Finding` list.  
-TODO
+
 We will then need to enhance each of the elements to get the complete findings because the non-enhanced Finding representation is a simple string: `ISSUE - DETAIL - LOCATION`
 
 ```py title="consoleme/handlers/v2/policies.py"
