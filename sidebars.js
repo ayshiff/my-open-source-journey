@@ -18,6 +18,7 @@ module.exports = {
         "contributions/consoleme9008",
         "contributions/changesets80",
         "contributions/caramel91",
+        "contributions/firefox-ios8327"
       ],
     },
     {
@@ -28,6 +29,7 @@ module.exports = {
         "projects/apple-swift-nio",
         "projects/consoleme",
         "projects/changesets",
+        "projects/firefox-ios",
         "projects/xlayers",
         "projects/lifetime",
         "projects/octobox",
