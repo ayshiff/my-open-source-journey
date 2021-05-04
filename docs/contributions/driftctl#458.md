@@ -22,7 +22,7 @@ import { Merged, ImageWrapper } from '../utils.md';
     <div>
         <Merged />
     </div>
-  <span className="badge badge--secondary marginRight">aws</span>
+  <span className="badge badge--secondary marginRight">AWS</span>
   <span className="badge badge--secondary marginRight">Terraform</span>
   <span className="badge badge--secondary marginRight">Infrastructure-drift</span>
   <span className="badge badge--secondary marginRight">Golang</span>
@@ -50,16 +50,7 @@ You can find the **driftctl project presentation** <a href="/docs/projects/drift
 
 ### Context
 
-### Current behavior
-
-Currently, a user can retrieve the `terraform.tfstate` file from the following places:
-
-- `tfstate://`: Local
-- `tfstate+s3://`: AWS S3
-- `tfstate+http://`: HTTP Endpoint
-- `tfstate+https://`: HTTPS Endpoint
-
-The idea is to bring support for Terraform Cloud/Terraform Enterprise.
+In order to understand some parts of the contribution, you have to be familiar with **Terraform Cloud**.
 
 _What is Terraform Cloud/Terraform Enterprise?_
 
@@ -96,6 +87,17 @@ Here is a schema showing the Terraform Cloud architecture.
 <br />
 
 **Terraform Enterprise** focuses more on large enterprises by providing a self-hosted distribution of Terraform Cloud.
+
+### Current behavior
+
+Currently, a user can retrieve the `terraform.tfstate` file from the following places:
+
+- `tfstate://`: Local
+- `tfstate+s3://`: AWS S3
+- `tfstate+http://`: HTTP Endpoint
+- `tfstate+https://`: HTTPS Endpoint
+
+The idea is to bring support for Terraform Cloud/Terraform Enterprise.
 
 :::note Issue links
 https://github.com/cloudskiff/driftctl/issues/434  

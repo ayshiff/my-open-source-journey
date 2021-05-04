@@ -15,7 +15,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Open } from '../utils.md';
+import { Open, ImageWrapper } from '../utils.md';
 
 <div className="pr_infos">
 <div className="marginBottom">
@@ -70,12 +70,11 @@ Here is a schema showing how ReasonML fits in the OCaml ecosystem.
 
 <div className="image-wrapper">
 <br/>
-<img
+<ImageWrapper
   alt="ReasonML presentation"
   width="800px"
   src={useBaseUrl('img/lifetime/reasonml-presentation.png')}
 />
-<br/>
 <em>OCaml ecosystem with ReasonML</em>
 </div>
 <br/>
@@ -108,7 +107,7 @@ When the User tap on an activity, he goes to the associated **Activity detail** 
 
 <div className="image-wrapper">
 <br/>
-<img
+<ImageWrapper
   alt="LifeTime presentation"
   width="600px"
   src={useBaseUrl('img/lifetime/context.png')}
@@ -159,7 +158,7 @@ When the user will tap an activity from the Home screen, we will pass to the Act
 Here is a schema to show you the logic and the file hierarchy:
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Week Props"
   width="800px"
   src={useBaseUrl('img/lifetime/week-props.png')}
@@ -270,12 +269,11 @@ The user can refresh the data by pulling down the current screen.
 
 <div className="image-wrapper">
 <br/>
-<img
+<ImageWrapper
   alt="Pull to Refresh"
   width="180px"
   src={useBaseUrl('img/lifetime/pull-refresh.png')}
 />
-<br/>
 <em>Pull to Refresh logic</em>
 </div>
 <br/>
@@ -320,7 +318,7 @@ React.useEffect3(() => {
 We will display the events in the form of a chronogram.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Chronogram"
   width="480px"
   src={useBaseUrl('img/lifetime/chronogram.png')}
@@ -444,7 +442,7 @@ $unit = \frac{availableWidth}{1440}$
 We can now put our ranges in our graph.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Timeline"
   width="650px"
   src={useBaseUrl('img/lifetime/timeline.png')}
@@ -514,12 +512,11 @@ The user can change weeks by swiping to the right or left.
 
 <div className="image-wrapper">
 <br/>
-<img
+<ImageWrapper
   alt="Activity chart"
   width="300px"
   src={useBaseUrl('img/lifetime/activity-chart.png')}
 />
-<br/>
 <em>Activity chart</em>
 </div>
 
@@ -534,15 +531,13 @@ We will display the following information about the event:
 
 <div className="image-wrapper">
 <br/>
-<img
+<ImageWrapper
   alt="Events list details"
   width="600px"
   src={useBaseUrl('img/lifetime/events-list-detail.png')}
 />
-<br/>
 <em>Events list</em>
 </div>
-<br/>
 
 #### Compute the events duration
 
@@ -754,15 +749,13 @@ This allows us to have more consistent margins in our application.
 
 <div className="image-wrapper">
 <br/>
-<img
+<ImageWrapper
   alt="Events list final result"
   width="300px"
   src={useBaseUrl('img/lifetime/events-list.png')}
 />
-<br/>
 <em>Events list implemented</em>
 </div>
-<br/>
 
 ### Full result - Future ?
 
@@ -779,12 +772,11 @@ Here is the final version of the Activity detail screen:
 
 <div className="image-wrapper">
 <br/>
-<img
+<ImageWrapper
   alt="Final result"
   width="180px"
   src={useBaseUrl('img/lifetime/final.png')}
 />
-<br/>
 <em>Events list + chart</em>
 </div>
 

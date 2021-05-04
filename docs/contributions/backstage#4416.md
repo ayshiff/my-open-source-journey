@@ -15,7 +15,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Merged } from '../utils.md';
+import { Merged, ImageWrapper } from '../utils.md';
 
 <div className="pr_infos">
 <div className="marginBottom">
@@ -39,7 +39,7 @@ This contribution is a new **feature**.
 ## Introduction
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Contribution presentation"
   src={useBaseUrl('img/backstage-splunk-on-call/cover.jpg')}
 />
@@ -72,7 +72,7 @@ These questions can occur anytime a service **encounters a problem**.
 Splunk On-Call helps you answer these questions by **automating incident management**.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Splunk On-Call"
   width="600"
   src={useBaseUrl('img/backstage-splunk-on-call/splunk-on-call-dashboard.png')}
@@ -95,7 +95,7 @@ An incident management system apply a logical operation to an Incident.It can de
 Here are the “Five Phases” of the Incident Management framework:
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Incident management framework"
   width="400"
   src={useBaseUrl('img/backstage-splunk-on-call/incident-management-framework.png')}
@@ -139,7 +139,7 @@ Here is the list of some terms with their definition that you can find in this a
   Once one person has responded, the escalation policy will stop escalation, and no further notifications will be sent.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Splunk On-Call Escalation policy creation"
   width="650"
   src={useBaseUrl('img/backstage-splunk-on-call/escalation-policies.png')}
@@ -189,7 +189,7 @@ yarn create-plugin splunk-on-call
 This will setup a new Backstage plugin with the ID we provided.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Splunk On-Call"
   width="100%"
   src={useBaseUrl('img/backstage-splunk-on-call/plugin-creation.png')}
@@ -275,7 +275,7 @@ The marketplace is used to:
 - Link to appropriate **documentation**
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Backstage Marketplace"
   width="100%"
   src={useBaseUrl('img/backstage-splunk-on-call/marketplace.png')}
@@ -424,7 +424,7 @@ The `components` folder contains all of our components.
 This is the main root component, the one that includes the rest of the child components.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Contribution presentation"
   width="400"
   src={useBaseUrl('img/backstage-splunk-on-call/incident-list-component.png')}
@@ -441,7 +441,7 @@ An incident can have several **status**: `triggered`, `acknowledge` or `resolved
 It also have an **action section** where the user can `acknowledge` or `resolve` the incident.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Contribution presentation"
   width="400"
   src={useBaseUrl('img/backstage-splunk-on-call/incident-list.png')}
@@ -511,7 +511,7 @@ export const Incidents = ({ refreshIncidents }: Props) => {
 #### Escalation
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Escalation"
   width="400"
   src={useBaseUrl('img/backstage-splunk-on-call/escalation.png')}
@@ -577,7 +577,7 @@ const { value: userNames, loading, error } = useAsync(async () => {
 This component is used to trigger a new incident to specific users and/or teams.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Trigger Dialog"
   width="80%"
   src={useBaseUrl('img/backstage-splunk-on-call/trigger-dialog.jpg')}
@@ -597,7 +597,7 @@ An error can appear if:
 - the Splunk On-Call **team** is not provided
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Plugin errors"
   width="80%"
   src={useBaseUrl('img/backstage-splunk-on-call/errors.png')}
@@ -641,7 +641,7 @@ The tests use <a href="https://github.com/testing-library/react-testing-library"
 We test the case where the list of incidents is **empty** and we have to display the `IncidentsEmptyState` component.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Contribution presentation"
   width="400"
   src={useBaseUrl('img/backstage-splunk-on-call/no-incident.png')}
@@ -675,7 +675,7 @@ it("Renders an empty state when there are no incidents", async () => {
 We test the case where we have an incident list and the incidents are correctly displayed.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Contribution presentation"
   width="400"
   src={useBaseUrl('img/backstage-splunk-on-call/incident-list-valid.png')}
@@ -731,7 +731,7 @@ We test the case where we have an error while fetching the `getIncidents` route.
 This will trigger the alert API.
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="Contribution presentation"
   width="400"
   src={useBaseUrl('img/backstage-splunk-on-call/error-occured.png')}

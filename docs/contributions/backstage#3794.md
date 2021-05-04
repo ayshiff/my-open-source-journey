@@ -15,7 +15,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Merged } from '../utils.md';
+import { Merged, ImageWrapper } from '../utils.md';
 
 <div className="pr_infos">
 <div className="marginBottom">
@@ -42,8 +42,8 @@ This contribution is a new **feature**.
 <br/>
 <img
   alt="Contribution presentation"
-  width="500px"
-  src={useBaseUrl('img/backstage3794/presentation.png')}
+  width="100%"
+  src={useBaseUrl('img/backstage3794/cover.jpg')}
 />
 <br/>
 <em>Techdocs AWS Support</em>
@@ -231,14 +231,14 @@ In the example we show how to use the _User_ and _Bucket_ policy to manage our a
 
 <div className="image-wrapper">
 <br/>
-<img
+<ImageWrapper
   alt="AWS S3 TechDocs"
   width="100%"
   src={useBaseUrl('img/backstage3794/aws-s3.drawio.svg')}
 />
-<br/>
 <em>AWS S3 in TechDocs</em>
 </div>
+<br/>
 
 As specified in the comments of the pull request, a next feature will be implemented on top of this one to handle S3 configuration apart from creating an access user agent.  
 It will add the possibility to read from the instance profile or `~/.aws/credentials`.
