@@ -18,7 +18,8 @@ module.exports = {
         "contributions/consoleme9008",
         "contributions/changesets80",
         "contributions/caramel91",
-        "contributions/firefox-ios8327"
+        "contributions/firefox-ios8327",
+        "contributions/driftctl458",
       ],
     },
     {
@@ -34,6 +35,7 @@ module.exports = {
         "projects/lifetime",
         "projects/octobox",
         "projects/caramel",
+        "projects/driftctl",
       ],
     },
   ],

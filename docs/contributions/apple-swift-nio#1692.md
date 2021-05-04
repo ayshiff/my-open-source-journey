@@ -15,7 +15,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Merged } from '../utils.md';
+import { Merged, ImageWrapper } from '../utils.md';
 
 <div className="pr_infos">
 <div className="marginBottom">
@@ -36,6 +36,11 @@ This contribution is a new **feature**.
 :::
 
 ## Introduction
+
+<div className="image-wrapper">
+  <ImageWrapper src={useBaseUrl('img/swiftnio1692/cover.jpg')} width="100%" alt="SwiftNIO presentation" />
+<em>SwiftNIO presentation</em>
+</div>
 
 ### Project
 
@@ -80,7 +85,7 @@ To recap, IP addresses have the following length:
 - IP V6 address: **16 bytes**
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="IP address logic"
   src={useBaseUrl('img/swiftnio1692/main-logic.png')}
 />
@@ -110,14 +115,13 @@ Then inside our switch statement we will use our `ByteBufferView` (thanks to `re
 Let's take a closer look at `sockaddr_in()` (the behavior of `sockaddr_in6()` is essentially the same):
 
 <div className="image-wrapper">
-<img
+<ImageWrapper
   alt="IP address logic"
   src={useBaseUrl('img/swiftnio1692/sockaddr-in.png')}
 />
-<br/>
 <em>sockaddr_in()</em>
 </div>
-
+<br/>
 
 ```ts title="Sources/NIO/SocketAddresses.swift"
 /// Create a new `SocketAddress` for an IP address in ByteBuffer form.
