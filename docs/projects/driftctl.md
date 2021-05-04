@@ -32,7 +32,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <br />
 
-driftctl is an Open Source CLI that will warn of infrastrcuture drifts.    
+driftctl is an Open Source CLI that will warn of infrastructure drifts.    
 
 *We track coverage for unit tests, why not infrastructure as code coverage?* - driftctl
 
