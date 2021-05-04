@@ -170,7 +170,7 @@ We will then receive a response with the following shape:
 }
 ```
 
-The part that interests us is the `hosted-state-download-url` attribute which provides a url from which we can download the raw state `tfstate`.  
+The part we are interested in is the `hosted-state-download-url` attribute which provides a url from which we can download the raw state `tfstate`.  
 We can then use this url with the `HTTPReader` already present in driftctl which allows us to get a state from an https endpoint.
 
 To summarize, here is the final workflow:
