@@ -20,6 +20,7 @@ module.exports = {
         "contributions/caramel91",
         "contributions/firefox-ios8327",
         "contributions/driftctl458",
+        "contributions/backstage5675",
       ],
     },
     {
