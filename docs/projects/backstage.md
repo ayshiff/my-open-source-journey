@@ -43,3 +43,4 @@ For more information about Backstage you can find it <a href="https://backstage.
 
 - <a href="/docs/contributions/backstage3794"><Highlight color="#203666">3. Backstage - Techdocs AWS Support</Highlight></a>
 - <a href="/docs/contributions/backstage4416"><Highlight color="#203666">5. Backstage - Splunk On-Call Plugin</Highlight></a>
+- <a href="/docs/contributions/backstage5675"><Highlight color="#203666">12. Backstage - Techdocs End-to-End testing</Highlight></a>
