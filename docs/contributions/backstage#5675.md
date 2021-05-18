@@ -53,10 +53,19 @@ You can find the <a href="/docs/projects/backstage"><Highlight color="#203666">B
 ### Context
 
 In this contribution we will talk about a specific part of Backstage: **TechDocs**.   
-**TechDocs** is a docs-like-code plugin that lets you write your technical documentation next to your code.   
+
+**TechDocs** is a docs-like-code plugin that lets you write technical documentation next to your code.   
 The concept is pretty simple, you write your docs in Markdown files and TechDocs creates a reader-friendly experience for you.
 
-Here is some screenshots of what the plugin looks like inside Backstage.
+TechDocs consists of a backend plugin (**generate**, **prepare** and **publish** the documentation) and a frontend plugin (renders the documentation to the final user).   
+We will focus here on the frontend part as this the most relevant to us in this context.
+We'll just admit that the backend plugin returns our documentation as HTML/CSS files.
+
+The component of the frontend TechDocs plugin that we will be in charge of testing is called the **TechDocs Reader**.
+
+The **TechDocs Reader** will be in charge of getting the HTML file, running transformers on it and then renders it into a shadow DOM root. We will make sure that it does its job properly.
+
+Here is some screenshots of what the frontend plugin looks like inside Backstage.
 
 <br />
 <div className="image-wrapper">
@@ -90,14 +99,13 @@ Some functionality of TechDocs relies on interactions between the BackStage app 
 />
 </div>
 
-These interactions should be tested to ensure that the TechDocs features are working properly and to avoid regressions.
+These interactions should be tested to ensure that the TechDocs features are working properly and avoid regressions.
 
 Here is an example of some e2e tests that we will implement:
 
 - Navigating to a TechDocs site from a **given URL**
 - Navigating to a TechDocs site via the **primary navigation bar**
-- Navigating to a TechDocs site fragment via the **table of contents**
-and so on...
+- Navigating to a TechDocs site fragment via the **table of contents**, and so on...
 
 :::note Issue link
 https://github.com/backstage/backstage/issues/5588
@@ -115,7 +123,7 @@ To implement our solution we will use <a href="https://www.cypress.io/"><Highlig
 But first... *What is Cypress?*
 
 Cypress is a JavaScript End to End testing framework that lets you write Developer-friendly tests.   
-Here is a screenshot of the **Cypress user interface** runing Backstage:
+Here is a screenshot of the **Cypress user interface** running Backstage:
 
 <div className="image-wrapper">
 <ImageWrapper
@@ -129,7 +137,7 @@ Here is a screenshot of the **Cypress user interface** runing Backstage:
 In the screenshot above you can see:
 - the **test status menu** used to see how many tests passed or failed
 - the **app preview** used to see what happens in your app while the tests are running
-- the **command log** shows what it looked when the test ran (also called "time travel")
+- the **command log** which shows the different steps of your tests (also called "time travel")
 
 ### Define custom commands
 
@@ -152,8 +160,8 @@ Cypress.Commands.add('getTechDocsShadowRoot', () => {
 
 ### Configure the viewport
 
-In order to make certain elements visible (like the table of contents), we will have to set a custom viewport size.
-We will take the `macbook-15` preset dimensions and define those values inside the `cypress.json` configuration file.
+In order to make certain elements visible (like the table of contents), we have to set a custom viewport size.
+We will take the `macbook-15` preset dimensions and define those values inside the `cypress.json` configuration file.   
 This will tell Cypress to set a custom screen size for our application.
 
 ```json title="cypress.json"
@@ -339,7 +347,7 @@ Here is the final test-suite that covers the different interactions between the 
 ### Problems encountered
 
 As the TechDocs frontend is strongly linked to the API response and we don't know how all this stuff will change in the future, we will certainly not mock the API response as we used to do but let the backend do its job.   
-It means that I will certainly remove the `cy.intercept` in the tests.
+It means that I will certainly need to remove the API mocks in the tests and add data-testid attributes dynamically inside the generated html files.
 
 ### What did I learn ?
 
