@@ -29,7 +29,7 @@ import { Merged, ImageWrapper } from '../utils.md';
 </div>
 
 :::info Contribution links
-https://github.com/MoOx/LifeTime/pull/36
+https://github.com/MoOx/LifeTime/pull/36   
 https://github.com/MoOx/LifeTime/pull/28
 :::
 
