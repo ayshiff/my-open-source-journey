@@ -15,12 +15,12 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Open, ImageWrapper } from '../utils.md';
+import { Merged, ImageWrapper } from '../utils.md';
 
 <div className="pr_infos">
 <div className="marginBottom">
   <div>
-    <Open />
+    <Merged />
   </div>
   <span className="badge badge--secondary marginRight">coaching</span>
   <span className="badge badge--secondary marginRight">react-native</span>
@@ -28,7 +28,8 @@ import { Open, ImageWrapper } from '../utils.md';
 </div>
 </div>
 
-:::info Contribution link
+:::info Contribution links
+https://github.com/MoOx/LifeTime/pull/36
 https://github.com/MoOx/LifeTime/pull/28
 :::
 
