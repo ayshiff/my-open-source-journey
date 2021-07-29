@@ -26,7 +26,7 @@ module.exports = {
       trackingID: "UA-186339279-1",
     },
     prism: {
-      additionalLanguages: ['ruby', 'ocaml', 'erlang'],
+      additionalLanguages: ['ruby', 'ocaml', 'erlang', 'dart'],
     },
     navbar: {
       title: "Home",
