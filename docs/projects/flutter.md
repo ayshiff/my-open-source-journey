@@ -1,6 +1,6 @@
 ---
 id: flutter
-title: Google - Flutter contributions
+title: Google - Flutter
 ---
 
 export const Highlight = ({children, color}) => ( <span style={{
@@ -23,22 +23,20 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Project description
 
+<div className="image-wrapper">
 <img
-  alt="Backstage presentation"
-  src="https://raw.githubusercontent.com/backstage/backstage/master/docs/assets/headline.png"
+  alt="Flutter presentation"
+  src={useBaseUrl('img/flutter/flutter.jpeg')}
+  width="600"
 />
+</div>
 
-<a href="https://backstage.io/"><Highlight color="#203666">Website link</Highlight></a>
+<a href="https://flutter.dev/"><Highlight color="#203666">Website link</Highlight></a>
 
-When you want to deploy something in the cloud you probably need tools like Terraform, Kubernetes, CI pipelines, the AWS CLI...
+_Flutter is Google's SDK for crafting beautiful, fast user experiences for mobile, web, and desktop from a single codebase. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source._
 
-Backstage is a platform that **unifies** all your infrastructure tooling, services, documentation with a single UI.   
-It gives you an uniform overview of all your services. It also lets you create easily new ressources such as a new backend service.
-
-Backstage was created by **Spotify** but is now hosted by the **Cloud Native Computing Foundation (CNCF)** as a Sandbox level project.
-
-For more information about Backstage you can find it <a href="https://backstage.io/docs/overview/what-is-backstage"><Highlight color="#203666">here</Highlight></a>.
+For more information about Flutter you can find it <a href="https://github.com/flutter/flutter"><Highlight color="#203666">here</Highlight></a>.
 
 ### Related contributions
 
-- <a href="/docs/contributions/flutter"><Highlight color="#203666">13. Flutter</Highlight></a>
+- <a href="/docs/contributions/flutter"><Highlight color="#203666">13. Flutter contributions</Highlight></a>

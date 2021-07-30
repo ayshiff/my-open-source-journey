@@ -34,6 +34,16 @@ import { Merged, Open, ImageWrapper } from '../utils.md';
 <em>Flutter presentation</em>
 </div>
 
+<br />
+
+_It’s been 5 months since I have launched this Open Source initiative and I learned a lot from it._
+
+_Today it’s time for something new…_
+
+_I found that the format of one contribution every two weeks allowed me to see a wide variety of different projects but does not allow me to fully dive into the project._
+
+_I have decided to challenge myself and change the format for the next contributions to focus more in-depth for a few weeks on a specific project (a bit like what Google Summer of Code does) which will allow me to better understand how the project works and to be able to make more significant contributions._
+
 This article is composed of eight contributions:
 
 - <Merged /> Flutter - Cupertino / Date order parameter <a href="#flutter--cupertino---date-order-parameter"><Highlight color="#203666">link</Highlight></a>
@@ -42,8 +52,8 @@ This article is composed of eight contributions:
 - <Merged /> Codemirror.dart / Add SearchCursor wrapper <a href="#codemirrordart--add-searchcursor-wrapper"><Highlight color="#203666">link</Highlight></a>
 - <Merged /> Flutter - Gallery / Refactor [web benchmarks] Move to appropriate folder <a href="#flutter---gallery--refactor-web-benchmarks-move-to-appropriate-folder"><Highlight color="#203666">link</Highlight></a>
 - <Merged /> Flutter - Gallery / Back button overlapping <a href="#flutter---gallery--back-button-overlapping"><Highlight color="#203666">link</Highlight></a>
-- <Open /> Flutter / CPU/GPU/memory metrics for iOS gallery transition tests <a href="#flutter---gallery--back-button-overlapping"><Highlight color="#203666">link</Highlight></a>
-- <Open /> Flutter / Check for Android device battery level <a href="#flutter---gallery--back-button-overlapping"><Highlight color="#203666">link</Highlight></a>
+- <Open /> Flutter / CPU/GPU/memory metrics for iOS gallery transition tests <a href="#flutter--cpugpumemory-metrics-for-ios-gallery-transition-tests"><Highlight color="#203666">link</Highlight></a>
+- <Open /> Flutter / Check for Android device battery level <a href="#flutter--check-for-android-device-battery-level"><Highlight color="#203666">link</Highlight></a>
 
 ### Project
 
@@ -61,21 +71,23 @@ This contribution is a new **feature**.
 
 ### Context
 
-Cupertino (iOS-style) widgets are _Beautiful and high-fidelity widgets for current iOS design language._
+_**Cupertino** (iOS-style) widgets are Beautiful and high-fidelity widgets for current iOS design language._
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/flutter/cupertino.png')} width="100%" alt="Flutter Cupertino" />
 <em>Flutter Cupertino</em>
+<br/>
 </div>
 
 ### Current behavior
 
-This PR adds a new dateOrder parameter to CupertinoDatePicker to define the order of the columns in date mode which overrides the default order value defined by `localizations.datePickerDateOrder`.
+This contribution adds a new `dateOrder` parameter to `CupertinoDatePicker` to define the order of the columns in date mode which overrides the default order value defined by `localizations.datePickerDateOrder`.
 
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/flutter/cupertino-date-order-before.png')} width="300px" alt="CupertinoDatePicker date order (before)" />
-<em>CupertinoDatePicker date order (before)</em>
+<em>CupertinoDatePicker default date order</em>
 </div>
+<br/>
 
 :::note Issue links
 https://github.com/flutter/flutter/issues/84550
@@ -83,20 +95,31 @@ https://github.com/flutter/flutter/issues/84550
 
 ### Implement the solution
 
+Define a new `dateOrder` parameter which determines the order of the columns.   
+This parameter can have multiple values defined in `DatePickerDateOrder enum` (<a href="https://api.flutter.dev/flutter/cupertino/DatePickerDateOrder-class.html"><Highlight color="#203666">link</Highlight></a>).
+
+For example, `dmy` corresponds from left to right to day, month, year.
+
 ```dart
 /// Determines the order of the columns inside [CupertinoDatePicker] in date mode.
 /// Defaults to the locale's default date format/order.
 final DatePickerDateOrder? dateOrder;
 ```
 
+If the `dateOrder` property is not defined, the order is based on internationalization.
+
 ```dart
 final DatePickerDateOrder datePickerDateOrder =
     dateOrder ?? localizations.datePickerDateOrder;
 
 switch (datePickerDateOrder) {
+  /// ...
+}
 ```
 
-Tests
+Add some **tests** to be sure that everything is working as expected.   
+
+We check that with the `DatePickerDateOrder.ydm` value (Year/Day/Month), the component render the elements in the right order from left to right.
 
 ```dart title="packages/flutter/test/cupertino/date_picker_test.dart"
     testWidgets('DatePicker displays the date in correct order', (WidgetTester tester) async {
@@ -131,6 +154,8 @@ Tests
 
 ## Final result
 
+Users can now override the default CupertinoDatePicker date order.
+
 <div className="image-wrapper">
   <ImageWrapper src={useBaseUrl('img/flutter/cupertino-date-order-final.png')} width="300px" alt="CupertinoDatePicker date order" />
 <em>CupertinoDatePicker date order</em>
@@ -150,9 +175,19 @@ This contribution is about **refactoring**.
 
 ### Context
 
+_**Cocoon** is a Dart App Engine custom runtime (backend) with a frontend of Flutter apps (build and repository dashboard). Cocoon coordinates and aggregates the results of flutter/flutter builds. It is not designed to help developers build Flutter apps. Cocoon is not a Google product._
+
 ### Current behavior
 
-This PR adds a new dateOrder parameter to CupertinoDatePicker to define the order of the columns in date mode which overrides the default order value defined by `localizations.datePickerDateOrder`.
+A keyHelper reference has been added in cocoon config.
+
+```dart
+KeyHelper get keyHelper =>
+    KeyHelper(applicationContext: context.applicationContext);
+```
+
+Existing APIs have separate keyHelper definitions in their own scope.
+To make it consistent, we should update all APIs to use the keyHelper defined in the cocoon config.
 
 :::note Issue links
 https://github.com/flutter/flutter/issues/48987
@@ -160,20 +195,20 @@ https://github.com/flutter/flutter/issues/48987
 
 ### Implement the solution
 
-Before
+***Before***
 
-```dart
+```dart title="app_dart/lib/src/request_handlers/reset_prod_task.dart"
 final ClientContext clientContext = authContext.clientContext;
 final KeyHelper keyHelper = KeyHelper(applicationContext: clientContext.applicationContext);
 ```
 
-After
+***After***
 
-```dart
+```dart title="app_dart/lib/src/request_handlers/reset_prod_task.dart"
 final KeyHelper keyHelper = config.keyHelper;
 ```
 
-Tests
+Add some tests and mock the key helper.
 
 ```dart
 setUp(() {
@@ -184,6 +219,8 @@ setUp(() {
 ```
 
 ## Final result
+
+Made the codebase more sustainable and maintainable by refactoring a part of the codebase that was not relevant.
 
 ---
 
@@ -199,9 +236,11 @@ This contribution is a **bug-fix**.
 
 ### Context
 
+_Provides a standard way of writing and running tests in Dart._
+
 ### Current behavior
 
-`printOnFailure` should explicitly check and throw if there is no current invoker.
+The `printOnFailure` function should explicitly check and throw if there is no current invoker.
 
 ```
  The method 'printOnFailure' was called on null.
@@ -215,15 +254,15 @@ https://github.com/dart-lang/test/issues/1340
 
 ### Implement the solution
 
-This PR adds a check within `printOnFailure` and throw an exception if there is no current invoker.
+This contribution adds a check within `printOnFailure` and throw an exception if there is no current invoker.
 
-Before
+***Before***
 
 ```dart
 void printOnFailure(String message) => Invoker.current!.printOnFailure(message);
 ```
 
-After
+***After***
 
 ```dart
 void printOnFailure(String message) {
@@ -239,6 +278,8 @@ void printOnFailure(String message) {
 
 ## Final result
 
+Made the codebase more consistent by avoiding some edge case bugs.
+
 ---
 
 ## Codemirror.dart / Add SearchCursor wrapper
@@ -253,20 +294,33 @@ This contribution is a new **feature**.
 
 ### Context
 
+A Dart wrapper around the CodeMirror text editor. 
+
+From codemirror.net:
+
+*CodeMirror is a versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and add-ons that implement more advanced editing functionality.*
+
 ### Current behavior
 
-This PR adds a new dateOrder parameter to CupertinoDatePicker to define the order of the columns in date mode which overrides the default order value defined by `localizations.datePickerDateOrder`.
-
+The wrapper didn't have a way to use the **search cursor add-on** which can be used to implement search/replace functionality.   
+This wrapper will be used for <a href="https://github.com/dart-lang/dart-pad/issues/1866"><Highlight color="#203666">dart-lang/dart-pad#1866</Highlight></a>.
 ### Implement the solution
 
-Add the wrapper.
+Add the add-on wrapper with all its methods.
+
+- **findNext() - findPrevious()** → boolean   
+  *Search forward or backward from the current position.*
+- **from() - to()** → {line, ch}   
+  *They will return {line, ch} objects pointing at the start and end of the match.*
+- **replace(text: string, ?origin: string)**   
+  *Replaces the currently found match with the given text and adjusts the cursor position to reflect the replacement.*
 
 ```dart
 // Copyright (c) 2021, Google Inc. Please see the AUTHORS file for details.
 // All rights reserved. Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-/// A wrapper around the `addon/search/searchcursor.js` addon.
+/// A wrapper around the `add-on/search/searchcursor.js` add-on.
 library codemirror.searchcursor;
 
 import 'dart:js';
@@ -312,7 +366,8 @@ class SearchCursorContainer extends ProxyHolder {
 }
 ```
 
-Add some tests
+Add tests to check that every method of the add-on is working properly.   
+We are using an html file to create the Codemirror instance.
 
 ```dart
 // Copyright (c) 2014, Google Inc. Please see the AUTHORS file for details.
@@ -392,6 +447,8 @@ void createSearchCursorTests() {
 
 ## Final result
 
+The search cursor add-on lets users customize their Codemirror instance to add search-replace functionalities.
+
 ---
 
 ## Flutter - Gallery / Refactor [web benchmarks] Move to appropriate folder
@@ -406,13 +463,27 @@ This contribution is about **refactoring**.
 
 ### Context
 
+_**Flutter Gallery** is a resource to help developers evaluate and use Flutter. It is a collection of Material Design & Cupertino widgets, behaviors, and vignettes implemented with Flutter. We often get asked how one can see Flutter in action, and this gallery demonstrates what Flutter provides and how it behaves in the wild._
+
 ### Current behavior
 
-This PR adds a new dateOrder parameter to CupertinoDatePicker to define the order of the columns in date mode which overrides the default order value defined by `localizations.datePickerDateOrder`.
+Moves `benchmarks_test.dart` and the benchmarks sub-folder from the `test` folder to `test_benchmarks` as it is more appropriate.
 
 ### Implement the solution
 
+This contribution is mainly about moving files to another directory, nothing special here. 
+
+```dart
+final taskResult = await serveWebBenchmark(
+  benchmarkAppDirectory: projectRootDirectory(),
+  entryPoint: 'test_benchmarks/benchmarks/client.dart',
+  useCanvasKit: false,
+);
+```
+
 ## Final result
+
+Made the codebase more easily maintainable by moving the benchmark tests inside a more appropriate directory. 
 
 ---
 
@@ -426,17 +497,20 @@ https://github.com/flutter/gallery/pull/522
 This contribution is a **bug-fix**.
 :::
 
-### Context
-
 ### Current behavior
 
-This PR adds a new dateOrder parameter to CupertinoDatePicker to define the order of the columns in date mode which overrides the default order value defined by `localizations.datePickerDateOrder`.
-
-:::note Issue links
-https://github.com/flutter/flutter/issues/48987
-:::
+Fixes the overlapping "Back" button with the bottom navigation bar problem. (see the Result section)
 
 ### Implement the solution
+
+Add a new `hasBottomNavBar` property which define if we should add some bottom padding to the back button.
+
+```dart title="lib/routes.dart"
+(context, match) =>
+    const StudyWrapper(study: reply.ReplyApp(), hasBottomNavBar: true)),
+```
+
+Add a vertical bottom padding if the bottom nav bar is present.
 
 ```dart title="lib/pages/home.dart"
 /// ...
@@ -448,15 +522,10 @@ padding: EdgeInsets.symmetric(
 /// ...
 ```
 
-```dart title="lib/routes.dart"
-(context, match) =>
-    const StudyWrapper(study: reply.ReplyApp(), hasBottomNavBar: true)),
-```
-
 ## Final result
 
 <div className="image-wrapper">
-  <ImageWrapper src={useBaseUrl('img/flutter/gallery-nav-bar.jpg')} width="100%" alt="Gallery back button overlapping" />
+  <ImageWrapper src={useBaseUrl('img/flutter/gallery-nav-bar.jpeg')} width="100%" alt="Gallery back button overlapping" />
 <em>Gallery back button overlapping</em>
 </div>
 
@@ -474,9 +543,11 @@ This contribution is a new **feature**.
 
 ### Context
 
+_**DeviceLab** is a physical lab that tests Flutter on real devices._
+
 ### Current behavior
 
-This PR adds a new dateOrder parameter to CupertinoDatePicker to define the order of the columns in date mode which overrides the default order value defined by `localizations.datePickerDateOrder`.
+This contribution adds missing CPU/GPU/memory metrics for iOS gallery transition tests.
 
 :::note Issue links
 https://github.com/flutter/flutter/issues/70438
@@ -484,7 +555,9 @@ https://github.com/flutter/flutter/issues/70438
 
 ### Implement the solution
 
-```dart
+Report the CPU/GPU/memory metrics is the properties `measureCpuGpu` and `measureMemory` are `true` and if the device is not Android.
+
+```dart title="dev/devicelab/lib/tasks/gallery.dart"
 final bool measureCpuGpu;
 final bool measureMemory;
 
@@ -504,6 +577,8 @@ if (measureMemory && !isAndroid) ...<String>[
 
 ## Final result
 
+Added some missing metrics for `GalleryTransitionTest`. 
+
 ---
 
 ## Flutter / Check for Android device battery level
@@ -518,11 +593,37 @@ This contribution is a new **feature**.
 
 ### Context
 
+_**DeviceLab** is a physical lab that tests Flutter on real devices._
+
 ### Current behavior
 
-This PR adds a new dateOrder parameter to CupertinoDatePicker to define the order of the columns in date mode which overrides the default order value defined by `localizations.datePickerDateOrder`.
+This contribution will filter out and warn about Android devices with low battery level (smaller than or equal to 15%).
 
 ### Implement the solution
+
+Get the battery level of an Android device `adb shell dumpsys battery`.
+
+It should output something like this:
+
+```
+Current Battery Service state:
+  AC powered: false
+  USB powered: true
+  Wireless powered: false
+  Max charging current: 0
+  Max charging voltage: 0
+  Charge counter: 0
+  status: 2
+  health: 2
+  present: true
+  level: 93
+  scale: 100
+  voltage: 4245
+  temperature: 237
+  technology: Li-ion
+```
+
+We can grab the level property as this is what we are interested in.
 
 ```dart
 Future<int> _getBatteryLevel() async {
@@ -532,6 +633,8 @@ Future<int> _getBatteryLevel() async {
 }
 ```
 
+Define a function to check if the battery level is less than 15%.
+
 ```dart
 /// Whether the device has a battery level smaller than or equal to 15 percent.
 @override
@@ -540,7 +643,7 @@ Future<bool> hasLowBatteryLevel() async {
 }
 ```
 
-Check all devices battery level
+Check all Android devices battery level and warn about those with low battery level.
 
 ```dart
 final AndroidDevice device = allDevices[math.Random().nextInt(allDevices.length)];
@@ -557,7 +660,7 @@ for (final AndroidDevice device in allDevices) {
 }
 ```
 
-Tests
+Add tests to check that our new functions `hasLowBatteryLevel` and `_getBatteryLevel` are working as expected.
 
 ```dart
 group('batteryLevel', () {
@@ -587,16 +690,16 @@ static void pretendHasEnoughBattery() {
 
 ## Final result
 
+This contribution added a way to warn about Android devices with low battery level in DeviceLab.
+
 ---
 
 ## Takeaway
 
 ### Problems encountered
 
-The code exploration was the part that took me the most time.  
-In addition, I'm not accustomed to using XCode in my everyday developer life so I had to adapt to a different IDE than the one I usually use.
+The code exploration was the part that took me the most time as the projects are pretty big.  
 
 ### What did I learn ?
 
-This was my first contribution in Swift to an iOS app so it taught me a lot !  
-Not being an iOS user, I also learned about 3D Touch in its use case in a real app.
+This was my first contributions in Dart so it taught me a lot!
