@@ -21,6 +21,7 @@ module.exports = {
         "contributions/firefox-ios8327",
         "contributions/driftctl458",
         "contributions/backstage5675",
+        "contributions/flutter",
       ],
     },
     {
@@ -37,6 +38,7 @@ module.exports = {
         "projects/octobox",
         "projects/caramel",
         "projects/driftctl",
+        "projects/flutter",
       ],
     },
   ],
