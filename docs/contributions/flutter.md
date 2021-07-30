@@ -44,7 +44,7 @@ _I found that the format of one contribution every two weeks allowed me to see a
 
 _I have decided to challenge myself and change the format for the next contributions to focus more in-depth for a few weeks on a specific project (a bit like what Google Summer of Code does) which will allow me to better understand how the project works and to be able to make more significant contributions._
 
-This article is composed of eight contributions:
+This article is composed of **eight contributions** to various projects in the Flutter-Dartlang ecosystem:
 
 - <Merged /> Flutter/Cupertino - Date order parameter <a href="#flutter--cupertino---date-order-parameter"><Highlight color="#203666">link</Highlight></a>
 - <Open /> Flutter - Check for Android device battery level <a href="#flutter--check-for-android-device-battery-level"><Highlight color="#203666">link</Highlight></a>
