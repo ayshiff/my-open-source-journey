@@ -95,7 +95,7 @@ https://github.com/flutter/flutter/issues/84550
 
 ### Implement the solution
 
-Define a new `dateOrder` parameter which determines the order of the columns.   
+Define a new `dateOrder` parameter which determines the order of the columns.  
 This parameter can have multiple values defined in `DatePickerDateOrder enum` (<a href="https://api.flutter.dev/flutter/cupertino/DatePickerDateOrder-class.html"><Highlight color="#203666">link</Highlight></a>).
 
 For example, `dmy` corresponds from left to right to day, month, year.
@@ -117,7 +117,7 @@ switch (datePickerDateOrder) {
 }
 ```
 
-Add some **tests** to be sure that everything is working as expected.   
+Add some **tests** to be sure that everything is working as expected.
 
 We check that with the `DatePickerDateOrder.ydm` value (Year/Day/Month), the component render the elements in the right order from left to right.
 
@@ -308,14 +308,14 @@ https://github.com/flutter/flutter/issues/48987
 
 ### Implement the solution
 
-***Before***
+**_Before_**
 
 ```dart title="app_dart/lib/src/request_handlers/reset_prod_task.dart"
 final ClientContext clientContext = authContext.clientContext;
 final KeyHelper keyHelper = KeyHelper(applicationContext: clientContext.applicationContext);
 ```
 
-***After***
+**_After_**
 
 ```dart title="app_dart/lib/src/request_handlers/reset_prod_task.dart"
 final KeyHelper keyHelper = config.keyHelper;
@@ -353,7 +353,7 @@ _**Dart-lang tests** provides a standard way of writing and running tests in Dar
 
 ### Current behavior
 
-The `printOnFailure` function is used to print errors in the console when an error occurs.   
+The `printOnFailure` function is used to print errors in the console when an error occurs.  
 If you call it outside the test zone, the error is pretty confusing.
 
 ```
@@ -372,13 +372,13 @@ https://github.com/dart-lang/test/issues/1340
 
 This contribution adds a check within `printOnFailure` and throw an exception if there is no current invoker.
 
-***Before***
+**_Before_**
 
 ```dart
 void printOnFailure(String message) => Invoker.current!.printOnFailure(message);
 ```
 
-***After***
+**_After_**
 
 ```dart
 void printOnFailure(String message) {
@@ -410,7 +410,7 @@ This contribution is a new **feature**.
 
 ### Context
 
-A Dart wrapper around the CodeMirror text editor. 
+A Dart wrapper around the CodeMirror text editor.
 
 From codemirror.net:
 
@@ -418,20 +418,21 @@ _**CodeMirror** is a versatile text editor implemented in JavaScript for the bro
 
 ### Current behavior
 
-The wrapper didn't have a way to use the **search cursor add-on** which can be used to implement search/replace functionality.     
+The wrapper didn't have a way to use the **search cursor add-on** which can be used to implement search/replace functionality.  
 This wrapper will be used for <a href="https://github.com/dart-lang/dart-pad/issues/1866"><Highlight color="#203666">dart-lang/dart-pad#1866</Highlight></a>.
+
 ### Implement the solution
 
 Add the add-on wrapper with all its methods.
 
 The main method is **`getSearchCursor(query, start, options) → cursor`** which returns a search cursor with the following methods:
 
-- **findNext() - findPrevious()** → boolean   
-  *Search forward or backward from the current position.*
-- **from() - to()** → {line, ch}   
-  *Return {line, ch} objects pointing at the start and end of the match.*
-- **replace(text: string, ?origin: string)**   
-  *Replaces the currently found match with the given text and adjusts the cursor position to reflect the replacement.*
+- **findNext() - findPrevious()** → boolean  
+  _Search forward or backward from the current position._
+- **from() - to()** → {line, ch}  
+  _Return {line, ch} objects pointing at the start and end of the match._
+- **replace(text: string, ?origin: string)**  
+  _Replaces the currently found match with the given text and adjusts the cursor position to reflect the replacement._
 
 ```dart
 // Copyright (c) 2021, Google Inc. Please see the AUTHORS file for details.
@@ -484,7 +485,7 @@ class SearchCursorContainer extends ProxyHolder {
 }
 ```
 
-Add tests to check that every method of the add-on is working properly.   
+Add tests to check that every method of the add-on is working properly.  
 We are using an html file to attach the Codemirror instance to.
 
 ```dart
@@ -589,7 +590,7 @@ Moves `benchmarks_test.dart` and the benchmarks sub-folder from the `test` folde
 
 ### Implement the solution
 
-This contribution is mainly about moving files to another directory, nothing special here. 
+This contribution is mainly about moving files to another directory, nothing special here.
 
 ```dart
 final taskResult = await serveWebBenchmark(
@@ -601,7 +602,7 @@ final taskResult = await serveWebBenchmark(
 
 ## Final result
 
-Made the codebase more easily maintainable by moving the benchmark tests inside a more appropriate directory. 
+Made the codebase more easily maintainable by moving the benchmark tests inside a more appropriate directory.
 
 ---
 
@@ -697,7 +698,7 @@ if (measureMemory && !isAndroid) ...<String>[
 
 ## Final result
 
-Added some missing metrics for `GalleryTransition` tests to improve maintainers experience. 
+Added some missing metrics for `GalleryTransition` tests to improve maintainers experience.
 
 ---
 
@@ -710,5 +711,5 @@ I was also busy with work, school and other things which is why I didn't make as
 
 ### What did I learn ?
 
-This were my first contributions in Dart that taught me a lot!   
+These were my first contributions in Dart that taught me a lot!  
 It was also a good experience contributing to the Flutter ecosystem💙
