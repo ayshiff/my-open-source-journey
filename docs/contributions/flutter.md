@@ -46,20 +46,20 @@ _I have decided to challenge myself and change the format for the next contribut
 
 This article is composed of eight contributions:
 
-- <Merged /> Flutter - Cupertino / Date order parameter <a href="#flutter--cupertino---date-order-parameter"><Highlight color="#203666">link</Highlight></a>
-- <Open /> Flutter / Check for Android device battery level <a href="#flutter--check-for-android-device-battery-level"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Flutter - Cocoon / Config keyHelper reference <a href="#flutter--cocoon---config-keyhelper-reference"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Dart-lang / `printOnFailure` check current invoker <a href="#dart-lang--printonfailure-check-current-invoker"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Codemirror.dart / Add SearchCursor wrapper <a href="#codemirrordart--add-searchcursor-wrapper"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Flutter - Gallery / Refactor [web benchmarks] Move to appropriate folder <a href="#flutter---gallery--refactor-web-benchmarks-move-to-appropriate-folder"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Flutter - Gallery / Back button overlapping <a href="#flutter---gallery--back-button-overlapping"><Highlight color="#203666">link</Highlight></a>
-- <Open /> Flutter / CPU/GPU/memory metrics for iOS gallery transition tests <a href="#flutter--cpugpumemory-metrics-for-ios-gallery-transition-tests"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter/Cupertino - Date order parameter <a href="#flutter--cupertino---date-order-parameter"><Highlight color="#203666">link</Highlight></a>
+- <Open /> Flutter - Check for Android device battery level <a href="#flutter--check-for-android-device-battery-level"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter/Cocoon - Config keyHelper reference <a href="#flutter--cocoon---config-keyhelper-reference"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Dart-lang - `printOnFailure` check current invoker <a href="#dart-lang--printonfailure-check-current-invoker"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Codemirror.dart - Add SearchCursor wrapper <a href="#codemirrordart--add-searchcursor-wrapper"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter/Gallery - Refactor [web benchmarks] Move to appropriate folder <a href="#flutter---gallery--refactor-web-benchmarks-move-to-appropriate-folder"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter/Gallery - Back button overlapping <a href="#flutter---gallery--back-button-overlapping"><Highlight color="#203666">link</Highlight></a>
+- <Open /> Flutter - CPU/GPU/memory metrics for iOS gallery transition tests <a href="#flutter--cpugpumemory-metrics-for-ios-gallery-transition-tests"><Highlight color="#203666">link</Highlight></a>
 
 ### Project
 
 You can find the **Flutter project presentation** <a href="/docs/projects/flutter"><Highlight color="#203666">here</Highlight></a>.
 
-## Flutter / Cupertino - Date order parameter
+## Flutter/Cupertino - Date order parameter
 
 :::info Contribution link
 https://github.com/flutter/flutter/pull/84599  
@@ -163,7 +163,7 @@ Users can now override the default CupertinoDatePicker date order.
 
 ---
 
-## Flutter / Check for Android device battery level
+## Flutter - Check for Android device battery level
 
 :::info Contribution link
 https://github.com/flutter/flutter/pull/84534
@@ -276,7 +276,7 @@ This contribution added a way to warn about Android devices with **low battery l
 
 ---
 
-## Flutter / Cocoon - Config keyHelper reference
+## Flutter/Cocoon - Config keyHelper reference
 
 :::info Contribution link
 https://github.com/flutter/cocoon/pull/1233
@@ -337,7 +337,7 @@ Made the codebase more sustainable and maintainable by refactoring a part of the
 
 ---
 
-## Dart-lang / printOnFailure check current invoker
+## Dart-lang - printOnFailure check current invoker
 
 :::info Contribution link
 https://github.com/dart-lang/test/pull/1533
@@ -398,7 +398,7 @@ Made the codebase more consistent by avoiding some issues and improving the deve
 
 ---
 
-## Codemirror.dart / Add SearchCursor wrapper
+## Codemirror.dart - Add SearchCursor wrapper
 
 :::info Contribution link
 https://github.com/google/codemirror.dart/pull/138
@@ -569,7 +569,7 @@ The search cursor add-on lets users customize their Codemirror instance to add s
 
 ---
 
-## Flutter - Gallery / Refactor [web benchmarks] Move to appropriate folder
+## Flutter/Gallery - Refactor [web benchmarks] Move to appropriate folder
 
 :::info Contribution link
 https://github.com/flutter/gallery/pull/520
@@ -605,7 +605,7 @@ Made the codebase more easily maintainable by moving the benchmark tests inside 
 
 ---
 
-## Flutter - Gallery / Back button overlapping
+## Flutter/Gallery - Back button overlapping
 
 :::info Contribution link
 https://github.com/flutter/gallery/pull/522
@@ -651,7 +651,7 @@ Improved the User Experience as the back button is no longer overlapping with th
 
 ---
 
-## Flutter / CPU/GPU/memory metrics for iOS gallery transition tests
+## Flutter - CPU/GPU/memory metrics for iOS gallery transition tests
 
 :::info Contribution link
 https://github.com/flutter/flutter/pull/83375
