@@ -4,8 +4,6 @@ title: Caramel - Pipe operator support
 sidebar_label: 9. Caramel - Pipe operator support
 ---
 
-<p className="post_date">29 Mar 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Open, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
     <div>
-        <Open />
+        <Open date="29 Mar 2021"/>
     </div>
   <span className="badge badge--secondary marginRight">Erlang</span>
   <span className="badge badge--secondary marginRight">Elixir</span>

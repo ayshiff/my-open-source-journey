@@ -4,8 +4,6 @@ title: Backstage - Techdocs End-to-End testing
 sidebar_label: 12. Backstage - Techdocs End-to-End testing
 ---
 
-<p className="post_date">14 May 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Open, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
   <div>
-    <Open />
+    <Open date="14 May 2021"/>
   </div>
   <span className="badge badge--secondary marginRight">Typescript</span>
   <span className="badge badge--secondary marginRight">Cypress</span>

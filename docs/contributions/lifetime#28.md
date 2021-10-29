@@ -4,8 +4,6 @@ title: LifeTime - Activity detail
 sidebar_label: 4. LifeTime - Activity detail
 ---
 
-<p className="post_date">19 Jan 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Merged, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
   <div>
-    <Merged />
+    <Merged date="19 Jan 2021"/>
   </div>
   <span className="badge badge--secondary marginRight">coaching</span>
   <span className="badge badge--secondary marginRight">react-native</span>

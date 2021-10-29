@@ -4,8 +4,6 @@ title: driftctl - Support for Terraform Cloud
 sidebar_label: 11. driftctl - Support for Terraform Cloud
 ---
 
-<p className="post_date">26 Apr 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Merged, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
     <div>
-        <Merged />
+        <Merged date="26 Apr 2021"/>
     </div>
   <span className="badge badge--secondary marginRight">AWS</span>
   <span className="badge badge--secondary marginRight">Terraform</span>

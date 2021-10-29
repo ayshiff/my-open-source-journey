@@ -4,8 +4,6 @@ title: ConsoleMe - AWS IAM policy linting
 sidebar_label: 7. ConsoleMe - AWS IAM policy linting
 ---
 
-<p className="post_date">8 Mar 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Merged, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
     <div>
-        <Merged />
+        <Merged date="8 Mar 2021"/>
     </div>
   <span className="badge badge--secondary marginRight">AWS</span>
   <span className="badge badge--secondary marginRight">IAM</span>

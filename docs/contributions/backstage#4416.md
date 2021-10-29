@@ -4,8 +4,6 @@ title: Backstage - Splunk On-Call Plugin
 sidebar_label: 5. Backstage - Splunk On-Call Plugin
 ---
 
-<p className="post_date">7 Feb 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Merged, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
   <div>
-    <Merged />
+    <Merged date="7 Feb 2021"/>
   </div>
   <span className="badge badge--secondary marginRight">Typescript</span>
   <span className="badge badge--secondary marginRight">Splunk On-Call</span>

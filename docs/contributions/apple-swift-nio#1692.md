@@ -4,8 +4,6 @@ title: SwiftNIO core - SocketAddress from packed bytes
 sidebar_label: 1. SwiftNIO core - SocketAddress creation
 ---
 
-<p className="post_date">19 Nov 2020 </p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Merged, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
     <div>
-        <Merged />
+        <Merged date="19 Nov 2020"/>
     </div>
   <span className="badge badge--secondary marginRight">Swift</span>
   <span className="badge badge--secondary marginRight">protocol servers & clients</span>

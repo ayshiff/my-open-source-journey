@@ -3,7 +3,8 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import styles from "./utils.css";
 
-export const Merged = () => (
+export const Merged = ({ date }) => (
+  <div>
   <div className="merged">
     <span>
       <svg
@@ -22,6 +23,8 @@ export const Merged = () => (
       </svg>
       Merged
     </span>
+  </div>
+  {date || null}
   </div>
 );
 
@@ -42,7 +45,8 @@ return (
 );
 }
 
-export const Open = () => (
+export const Open = ({ date }) => (
+<div>
   <div className="open">
     <span>
       <svg
@@ -62,6 +66,8 @@ export const Open = () => (
       Open
     </span>
   </div>
+  {date || null}
+</div>
 );
 
 export const Status = ({ url }) => {

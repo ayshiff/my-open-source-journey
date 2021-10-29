@@ -19,12 +19,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import { Merged, ImageWrapper } from '../utils.md';
 
-<p className="post_date">20 Nov 2020</p>
-
 <div className="pr_infos">
 <div className="marginBottom">
 <div>
-<Merged />
+<Merged date="20 Nov 2020"/>
 </div>
   <span className="badge badge--secondary marginRight">Angular</span>
   <span className="badge badge--secondary marginRight">Typescript</span>

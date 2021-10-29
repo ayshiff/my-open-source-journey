@@ -4,8 +4,6 @@ title: Changesets - Comment on released PRs and issues
 sidebar_label: 8. Changesets - Comment on released PRs and issues
 ---
 
-<p className="post_date">22 Mar 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Open, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
     <div>
-        <Open />
+        <Open date="22 Mar 2021"/>
     </div>
   <span className="badge badge--secondary marginRight">GitHub</span>
   <span className="badge badge--secondary marginRight">Versioning</span>

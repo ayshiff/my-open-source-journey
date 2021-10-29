@@ -52,7 +52,7 @@ html[data-theme='dark'] {
 
 .post_date {
   position: absolute;
-  top: calc(var(--ifm-navbar-height) + 20px);
+  top: calc(var(--ifm-navbar-height));
   left: auto;
   font-weight: 500;
 }

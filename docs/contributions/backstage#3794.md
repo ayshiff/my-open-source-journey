@@ -4,8 +4,6 @@ title: Backstage - Techdocs AWS Support
 sidebar_label: 3. Backstage - Techdocs AWS Support
 ---
 
-<p className="post_date">7 Jan 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Merged, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
   <div>
-    <Merged />
+    <Merged date="7 Jan 2021"/>
   </div>
   <span className="badge badge--secondary marginRight">Typescript</span>
   <span className="badge badge--secondary marginRight">AWS</span>

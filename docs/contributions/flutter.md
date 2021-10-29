@@ -4,7 +4,7 @@ title: Google - Flutter contributions
 sidebar_label: 13. Google - Flutter contributions
 ---
 
-<p className="post_date">29 July 2021</p>
+<p className="post_date">June-July 2021</p>
 
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
@@ -46,14 +46,14 @@ _I have decided to challenge myself and change the format for the next contribut
 
 This article is composed of **eight contributions** to various projects in the Flutter-Dartlang ecosystem:
 
-- <Merged /> Flutter/Cupertino - Date order parameter <a href="#flutter--cupertino---date-order-parameter"><Highlight color="#203666">link</Highlight></a>
-- <Open /> Flutter - Check for Android device battery level <a href="#flutter--check-for-android-device-battery-level"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Flutter/Cocoon - Config keyHelper reference <a href="#flutter--cocoon---config-keyhelper-reference"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Dart-lang - `printOnFailure` check current invoker <a href="#dart-lang--printonfailure-check-current-invoker"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Codemirror.dart - Add SearchCursor wrapper <a href="#codemirrordart--add-searchcursor-wrapper"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Flutter/Gallery - Refactor [web benchmarks] Move to appropriate folder <a href="#flutter---gallery--refactor-web-benchmarks-move-to-appropriate-folder"><Highlight color="#203666">link</Highlight></a>
-- <Merged /> Flutter/Gallery - Back button overlapping <a href="#flutter---gallery--back-button-overlapping"><Highlight color="#203666">link</Highlight></a>
-- <Open /> Flutter - CPU/GPU/memory metrics for iOS gallery transition tests <a href="#flutter--cpugpumemory-metrics-for-ios-gallery-transition-tests"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter/Cupertino - Date order parameter <a href="#fluttercupertino---date-order-parameter"><Highlight color="#203666">link</Highlight></a>
+- <Open /> Flutter - Check for Android device battery level <a href="#flutter---check-for-android-device-battery-level"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter/Cocoon - Config keyHelper reference <a href="#fluttercocoon---config-keyhelper-reference"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Dart-lang - `printOnFailure` check current invoker <a href="#dart-lang---printonfailure-check-current-invoker"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Codemirror.dart - Add SearchCursor wrapper <a href="#codemirrordart---add-searchcursor-wrapper"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter/Gallery - Refactor [web benchmarks] Move to appropriate folder <a href="#fluttergallery---refactor-web-benchmarks-move-to-appropriate-folder"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter/Gallery - Back button overlapping <a href="#fluttergallery---back-button-overlapping"><Highlight color="#203666">link</Highlight></a>
+- <Merged /> Flutter - CPU/GPU/memory metrics for iOS gallery transition tests <a href="#flutter---cpugpumemory-metrics-for-ios-gallery-transition-tests"><Highlight color="#203666">link</Highlight></a>
 
 ### Project
 
@@ -655,7 +655,7 @@ Improved the User Experience as the back button is no longer overlapping with th
 ## Flutter - CPU/GPU/memory metrics for iOS gallery transition tests
 
 :::info Contribution link
-https://github.com/flutter/flutter/pull/83375
+https://github.com/flutter/flutter/pull/92626
 :::
 
 :::tip Contribution Types

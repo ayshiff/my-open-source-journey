@@ -4,8 +4,6 @@ title: Firefox for iOS - Bug fixing
 sidebar_label: 10. Firefox for iOS - Bug fixing
 ---
 
-<p className="post_date">13 Apr 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Open, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
     <div>
-        <Open />
+        <Open date="13 Apr 2021"/>
     </div>
   <span className="badge badge--secondary marginRight">Swift</span>
   <span className="badge badge--secondary marginRight">Firefox</span>

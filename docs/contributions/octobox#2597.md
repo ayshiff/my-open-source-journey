@@ -4,8 +4,6 @@ title: Octobox - Notifications filter
 sidebar_label: 6. Octobox - Notifications filter
 ---
 
-<p className="post_date">19 Feb 2021</p>
-
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -20,7 +18,7 @@ import { Merged, ImageWrapper } from '../utils.md';
 <div className="pr_infos">
 <div className="marginBottom">
     <div>
-        <Merged />
+        <Merged date="19 Feb 2021"/>
     </div>
   <span className="badge badge--secondary marginRight">Ruby</span>
   <span className="badge badge--secondary marginRight">github-notifications</span>
