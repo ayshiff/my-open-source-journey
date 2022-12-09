@@ -22,9 +22,6 @@ module.exports = {
     },
   ],
   themeConfig: {
-    googleAnalytics: {
-      trackingID: "UA-186339279-1",
-    },
     prism: {
       additionalLanguages: ['ruby', 'ocaml', 'erlang', 'dart'],
     },
@@ -121,7 +118,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `<div style="margin-top: 40px"><img src="https://myopensourcejourney.com/img/logo.svg" width="200" /><p>Build with 💙 by <b>Rémi Doreau</b></p></div>`,
+      copyright: `<div style="margin-top: 40px"><img src="https://myopensourcejourney.com/img/logo.svg" width="200" /><p>Built with 💙 by <b>Rémi Doreau</b></p></div>`,
     },
   },
   plugins: [require.resolve("./header-plugin")],
@@ -139,6 +136,10 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
+        },
+        googleAnalytics: {
+          trackingID: 'UA-186339279-1',
+          anonymizeIP: true,
         },
       },
     ],
